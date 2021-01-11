@@ -8,17 +8,26 @@
 import UIKit
 
 protocol CharactersDisplayLogic: class {
-    func displaySomething(viewModel: Characters.Something.ViewModel)
+    func displayLoadNextPage(viewModel: Characters.LoadNextPage.ViewModel)
 }
 
 class CharactersViewController: UIViewController {
+    
     private var interactor: CharactersBusinessLogic?
     private var router: CharactersRoutingLogic?
-    
+
     private var customView = CharactersView()
+    private var viewModel: Characters.LoadNextPage.ViewModel?
     
     override func loadView() {
         view = customView
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupView()
+        let request = Characters.LoadNextPage.Request(page: 0, searchName: nil)
+        interactor?.loadNextPage(request: request)
     }
     
     // MARK: Architecture Setup
@@ -26,10 +35,17 @@ class CharactersViewController: UIViewController {
         self.interactor = interactor
         self.router = router
     }
+    
+    func setupView() {
+        title = "Characters"
+    }
 }
 
 // MARK: Display Logic Protocol
 extension CharactersViewController: CharactersDisplayLogic {
-    func displaySomething(viewModel: Characters.Something.ViewModel) {
+    
+    func displayLoadNextPage(viewModel: Characters.LoadNextPage.ViewModel) {
+        
     }
+
 }

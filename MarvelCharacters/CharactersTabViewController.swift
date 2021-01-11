@@ -18,9 +18,9 @@ class CharactersTabViewController: UITabBarController {
 private extension CharactersTabViewController {
     
     func setupView() {
-        let charactersScene = CharactersFactory.setupCharacters()
+        let charactersScene = UINavigationController(rootViewController: CharactersFactory.setupCharacters())
         charactersScene.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
-        let favoritosScene = CharactersFactory.setupCharacters()
+        let favoritosScene = UINavigationController(rootViewController: CharactersFactory.setupCharacters())
         favoritosScene.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
         viewControllers = [charactersScene, favoritosScene]
     }

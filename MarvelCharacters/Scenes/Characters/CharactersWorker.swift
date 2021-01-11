@@ -7,28 +7,23 @@
 
 import UIKit
 
-enum CharactersWorkerError: Error {
-    case systemUnavailable
-    case custom(message: String)
-    
-    var localizedDescription: String {
-        switch self {
-        case .systemUnavailable:
-            return "Sistema Indisponível"
-        case .custom(let message):
-            return message
-        }
-    }
-}
-
 protocol CharactersWorkLogic: class {
-    func fetchSomething(request: Characters.Something.Request,
-                        result: @escaping (Result<Characters.Something.Response, CharactersWorkerError>) -> Void)
+    
+    func loadNextPage(request: Characters.LoadNextPage.Request, result: @escaping (Result<Characters.LoadNextPage.Response, APIError>) -> Void)
 }
 
 // MARK: Work Logic Protocol
 class CharactersWorker: CharactersWorkLogic {
-    func fetchSomething(request: Characters.Something.Request,
-                        result: @escaping (Result<Characters.Something.Response, CharactersWorkerError>) -> Void) {
+    
+    func loadNextPage(request: Characters.LoadNextPage.Request, result: @escaping (Result<Characters.LoadNextPage.Response, APIError>) -> Void) {
+        APIProvider.makeRequest(MarvelAPI.characters(request.searchName, request.page)) { (providerResult: Result<Characters.LoadNextPage.Response, APIError>) in
+            switch providerResult {
+            case .success(let response):
+                result(.success(response))
+            case.failure(let error):
+                result(.failure(error))
+            }
+        }
     }
+    
 }

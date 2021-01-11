@@ -8,14 +8,20 @@
 import UIKit
 
 enum Characters {
-    enum Something {
+   
+    enum LoadNextPage {
         struct Request {
+            let page: Int
+            let searchName: String?
         }
         
         struct Response: Codable {
+            let data: CharactersResponse
         }
         
         struct ViewModel {
+            let characters: [Character]
         }
     }
+    
 }

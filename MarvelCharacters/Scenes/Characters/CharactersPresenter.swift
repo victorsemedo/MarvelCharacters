@@ -8,7 +8,7 @@
 import UIKit
 
 protocol CharactersPresentationLogic {
-    func presentSomething(response: Characters.Something.Response)
+    func presentLoadNextPage(response: Characters.LoadNextPage.Response)
 }
 
 class CharactersPresenter {
@@ -21,6 +21,6 @@ class CharactersPresenter {
 
 // MARK: Presentation Logic Protocol
 extension CharactersPresenter: CharactersPresentationLogic {
-    func presentSomething(response: Characters.Something.Response) {
+    func presentLoadNextPage(response: Characters.LoadNextPage.Response) {
     }
 }
