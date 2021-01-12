@@ -15,6 +15,7 @@ protocol CharactersCellProtocol {
 
 protocol CharactersViewDelegate: AnyObject {
     func willDisplayLastCell(_ view: CharactersView)
+    func didUpdateSearchBar(_ view: CharactersView)
 }
 
 class CharactersView: UIView {
@@ -23,9 +24,9 @@ class CharactersView: UIView {
         let cells:[CharactersCellProtocol]
     }
     
-    lazy var searchBar: UISearchBar
-        = {
+    lazy var searchBar: UISearchBar = {
         let view = UISearchBar()
+        view.delegate = self
         return view
     }()
     
@@ -135,5 +136,20 @@ extension CharactersView: UICollectionViewDelegateFlowLayout {
         let height = width * 1.5
         return CGSize(width: width, height: height)
     }
+}
+
+
+extension CharactersView: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(CharactersView.didUpdateSearchBar), object: nil)
+        perform(#selector(CharactersView.didUpdateSearchBar), with: nil, afterDelay: 0.5)
+    }
+
+    @objc func didUpdateSearchBar() {
+        guard searchBar.text != nil else { return }
+        delegate?.didUpdateSearchBar(self)
+    }
+    
 }
 

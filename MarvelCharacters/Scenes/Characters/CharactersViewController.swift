@@ -67,8 +67,20 @@ extension CharactersViewController: CharactersViewDelegate {
         if !isLoading {
             isLoading = true
             currentPage = currentPage + 1
-            let request = Characters.LoadNextPage.Request(page: currentPage, searchName: nil, reset: false)
+            let searchName = (view.searchBar.text?.count ?? 0) > 0 ? view.searchBar.text : nil
+            let request = Characters.LoadNextPage.Request(page: currentPage, searchName: searchName, reset: false)
             interactor?.loadNextPage(request: request)
         }
     }
+    
+    func didUpdateSearchBar(_ view: CharactersView) {
+        if !isLoading {
+            isLoading = true
+            currentPage = 0
+            let searchName = (view.searchBar.text?.count ?? 0) > 0 ? view.searchBar.text : nil
+            let request = Characters.LoadNextPage.Request(page: currentPage, searchName: searchName, reset: true)
+            interactor?.loadNextPage(request: request)
+        }
+    }
+    
 }
