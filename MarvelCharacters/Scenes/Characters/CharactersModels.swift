@@ -13,6 +13,7 @@ enum Characters {
         struct Request {
             let page: Int
             let searchName: String?
+            let reset: Bool
         }
         
         struct Response: Codable {
@@ -20,7 +21,7 @@ enum Characters {
         }
         
         struct ViewModel {
-            let characters: [Character]
+            let characters: [CharactersCellProtocol]
         }
     }
     

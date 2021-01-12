@@ -23,5 +23,6 @@ private extension CharactersTabViewController {
         let favoritosScene = UINavigationController(rootViewController: CharactersFactory.setupCharacters())
         favoritosScene.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
         viewControllers = [charactersScene, favoritosScene]
+        tabBar.tintColor = .redLight
     }
 }

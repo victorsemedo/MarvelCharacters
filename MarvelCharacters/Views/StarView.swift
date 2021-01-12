@@ -7,36 +7,34 @@
 
 import UIKit
 
-class StarView: UIButton {
+public class StarView: UIButton {
 
     // MARK: - Public Properties
-    
-    @IBInspectable var isFilled: Bool = false {
+    var isFilled: Bool = false {
         didSet {
             animate()
         }
     }
     
     // MARK: - Private Properties
-    
-    private var imageScale: CGFloat = 0.7
+    private var imageScale: CGFloat = 0.8
     
     private var starImage: UIImage? = UIImage(named: "star_outline")
     
-    // MARK: - View Lifecycle
-    
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
         setupView()
     }
-    
-    // MARK: - Public Functions
-    
-    func toggleIt() {
+}
+
+// MARK: - Public Functions
+public extension StarView {
+    func toogleFill() {
         isFilled = !isFilled
     }
 }
 
+// MARK: - Private Functions
 private extension StarView {
   
     func setupView() {
@@ -45,20 +43,18 @@ private extension StarView {
         setImage(starImage, for: .normal)
     }
     
-    private func setupImage() {
+    func setupImage() {
         imageScale = isFilled
-            ? CGFloat(1.3)
-            : CGFloat(0.7)
-        
+            ? CGFloat(1.5)
+            : CGFloat(0.8)
         starImage = isFilled
             ? UIImage(named: "star")?.withRenderingMode(.alwaysTemplate)
             : UIImage(named: "star_outline")?.withRenderingMode(.alwaysTemplate)
-        
         imageView?.tintColor = UIColor.orangeLight
         starImage?.withRenderingMode(.alwaysOriginal)
     }
     
-    private func animate() {
+    func animate() {
         UIView.animate(
             withDuration: 0.1,
             animations: {

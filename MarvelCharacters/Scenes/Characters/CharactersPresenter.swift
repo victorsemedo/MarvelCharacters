@@ -21,6 +21,20 @@ class CharactersPresenter {
 
 // MARK: Presentation Logic Protocol
 extension CharactersPresenter: CharactersPresentationLogic {
+    
     func presentLoadNextPage(response: Characters.LoadNextPage.Response) {
+        guard let characters = response.data.characters else {
+            viewController?.displayError()
+            return
+        }
+        self.viewController?.displayLoadNextPage(viewModel: Characters.LoadNextPage.ViewModel(characters: characters))
     }
+}
+
+extension Character: CharactersCellProtocol {
+    
+    var isFavorite: Bool {
+        return false
+    }
+    
 }

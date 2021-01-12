@@ -8,10 +8,8 @@
 import UIKit
 
 protocol CharacterViewCellDelegate: AnyObject {
-    
     func setFavorite(_ cell: CharactersViewCell, value: Bool)
 }
-
 
 class CharactersViewCell: UICollectionViewCell {
     
@@ -22,12 +20,14 @@ class CharactersViewCell: UICollectionViewCell {
     
     lazy var label: UILabel = {
         let label = UILabel()
+        label.backgroundColor = .blueLight
+        label.textColor = .redLight
         return label
     }()
     
     lazy var starView: StarView = {
-        let label = StarView()
-        return label
+        let view = StarView()
+        return view
     }()
     
     weak var delegate: CharacterViewCellDelegate?
@@ -41,18 +41,17 @@ class CharactersViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
+    @objc func onStarButtonClick(_ sender: StarView) -> Void {
+        sender.toogleFill()
     }
-    
 }
 
 extension CharactersViewCell: ViewCode {
     
     func setupHierarchy() {
-        addSubview(imageView)
-        addSubview(label)
-        addSubview(starView)
+        contentView.addSubview(imageView)
+        contentView.addSubview(label)
+        contentView.addSubview(starView)
     }
     
     func setupConstraints() {
@@ -71,28 +70,29 @@ extension CharactersViewCell: ViewCode {
         label.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         
         starView.heightAnchor.constraint(equalTo: starView.widthAnchor, multiplier: 1.0).isActive = true
-        starView.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        starView.heightAnchor.constraint(equalToConstant: 30).isActive = true
         starView.centerYAnchor.constraint(equalTo: label.topAnchor).isActive = true
-        starView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
+        starView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
     }
     
     func setupConfigurations() {
-        contentView.layer.cornerRadius = 10
-        contentView.layer.borderWidth = 1.0
-
-        contentView.layer.borderColor = UIColor.clear.cgColor
-        contentView.layer.masksToBounds = true
-
         starView.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         starView.imageView?.contentMode = .scaleToFill
         starView.contentHorizontalAlignment = .fill
         starView.contentVerticalAlignment = .fill
+        starView.addTarget(self, action: #selector(onStarButtonClick), for: .touchUpInside)
         
-        layer.shadowColor = UIColor.gray.cgColor
+        contentView.layer.cornerRadius = 20
+        contentView.layer.borderWidth = 1.0
+        contentView.layer.borderColor = UIColor.clear.cgColor
+        contentView.layer.masksToBounds = true
+        
+        layer.shadowColor = UIColor.redLight.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 2.0)
-        layer.shadowRadius = 2.0
-        layer.shadowOpacity = 1.0
+        layer.shadowRadius = 1.0
+        layer.shadowOpacity = 5.0
         layer.masksToBounds = false
         layer.shadowPath = UIBezierPath(roundedRect:bounds, cornerRadius:contentView.layer.cornerRadius).cgPath
     }
 }
+

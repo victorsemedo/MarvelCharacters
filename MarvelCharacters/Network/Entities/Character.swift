@@ -11,4 +11,9 @@ struct Character: Codable {
     let id: Int
     let name: String?
     let description: String?
+    let thumbnail: MarvelImage?
+    
+    var imageUrl: String? {
+        return "\(thumbnail?.path ?? "").\(thumbnail?.fileExtension ?? "")"
+    }
 }

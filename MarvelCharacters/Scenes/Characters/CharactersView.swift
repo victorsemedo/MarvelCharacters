@@ -7,9 +7,24 @@
 
 import UIKit
 
+protocol CharactersCellProtocol {
+    var name: String? { get }
+    var imageUrl: String? { get }
+    var isFavorite: Bool { get }
+}
+
+protocol CharactersViewDelegate: AnyObject {
+    func willDisplayLastCell(_ view: CharactersView)
+}
+
 class CharactersView: UIView {
     
-    lazy var searchBar: UISearchBar = {
+    struct ViewModel {
+        let cells:[CharactersCellProtocol]
+    }
+    
+    lazy var searchBar: UISearchBar
+        = {
         let view = UISearchBar()
         return view
     }()
@@ -22,6 +37,14 @@ class CharactersView: UIView {
         view.register(CharactersViewCell.self, forCellWithReuseIdentifier: String(describing: CharactersViewCell.self))
         return view
     }()
+    
+    var viewModel: CharactersView.ViewModel? {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
+    
+    weak var delegate: CharactersViewDelegate?
     
     init() {
         super.init(frame: .zero)
@@ -68,17 +91,34 @@ extension CharactersView: ViewCode {
 extension CharactersView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return viewModel?.cells.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: CharactersViewCell.self), for: indexPath)
-        cell.backgroundColor = UIColor.redLight
+        let cell = (collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: CharactersViewCell.self), for: indexPath) as? CharactersViewCell) ??
+            CharactersViewCell()
+        
+        if let cells = self.viewModel?.cells {
+            let cellData = cells[indexPath.row]
+            cell.imageView.loadImage(fromUrl: cellData.imageUrl ?? "")
+            cell.label.text = cellData.name
+        }
         
         return cell
     }
 }
 
+extension CharactersView: UICollectionViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let currentPosition = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height - frame.size.height
+        
+        if currentPosition > 0 && currentPosition >= contentHeight {
+            delegate?.willDisplayLastCell(self)
+        }
+    }
+}
 
 extension CharactersView: UICollectionViewDelegateFlowLayout {
     

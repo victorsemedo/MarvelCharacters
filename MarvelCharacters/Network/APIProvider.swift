@@ -15,18 +15,18 @@ class APIProvider {
             let request = try request.asURLRequest()
             let task = session.dataTask(with: request) { (data, response, error) in
                 if let data = data, let responseData: T = APIProvider.decodeFormData(data: data) {
-                    completion(.success(responseData))
+                    DispatchQueue.main.async {completion(.success(responseData))}
                 } else {
-                    completion(.failure(.decodeObject))
+                    DispatchQueue.main.async {completion(.failure(.decodeObject))}
                 }
             }
             task.resume()
         } catch let error {
             guard let error = error as? APIError else {
-                completion(.failure(APIError.unowned))
+                DispatchQueue.main.async {completion(.failure(.unowned))}
                 return
             }
-            completion(.failure(error))
+            DispatchQueue.main.async {completion(.failure(error))}
         }
     }
     

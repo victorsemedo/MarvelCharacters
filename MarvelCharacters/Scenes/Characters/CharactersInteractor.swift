@@ -20,15 +20,12 @@ class CharactersInteractor: CharactersDataStore {
     private var worker: CharactersWorkLogic
     
     private var currentPage =  0
-    private var characters = [Characters]()
+    private var characters = [Character]()
     
     init(presenter: CharactersPresentationLogic, worker: CharactersWorkLogic) {
         self.presenter = presenter
         self.worker = worker
     }
-    
-    
-    
 }
 
 //MARK: Business Logic Protocol
@@ -38,10 +35,25 @@ extension CharactersInteractor: CharactersBusinessLogic {
         worker.loadNextPage(request: request) { (result) in
             switch result {
             case .success(let response):
+                self.updateCharacters(withResponse: response.data.characters, reset: request.reset)
+                let response = Characters.LoadNextPage.Response(data: CharactersResponse(characters: self.characters))
                 self.presenter?.presentLoadNextPage(response: response)
             case .failure(let error):
                 break
             }
+        }
+    }
+}
+
+private extension CharactersInteractor {
+    
+    func updateCharacters(withResponse response: [Character]?, reset: Bool) {
+        guard let response = response else { return }
+        
+        if reset {
+            characters = response
+        } else {
+            characters.append(contentsOf: characters)
         }
     }
 }
