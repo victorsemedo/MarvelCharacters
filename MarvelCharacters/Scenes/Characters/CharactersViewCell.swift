@@ -19,9 +19,11 @@ class CharactersViewCell: UICollectionViewCell {
     }()
     
     lazy var label: UILabel = {
-        let label = UILabel()
-        label.backgroundColor = .blueLight
-        label.textColor = .redLight
+        let label = PaddingLabel()
+        label.backgroundColor = .gray
+        label.textColor = .white
+        label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.numberOfLines = 2
         return label
     }()
     
@@ -67,11 +69,11 @@ extension CharactersViewCell: ViewCode {
         label.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         label.topAnchor.constraint(equalTo: imageView.bottomAnchor).isActive = true
         label.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        label.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        label.trailingAnchor.constraint(equalTo: starView.leadingAnchor).isActive = true
         
         starView.heightAnchor.constraint(equalTo: starView.widthAnchor, multiplier: 1.0).isActive = true
-        starView.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        starView.centerYAnchor.constraint(equalTo: label.topAnchor).isActive = true
+        starView.heightAnchor.constraint(equalTo: label.heightAnchor, multiplier: 0.7).isActive = true
+        starView.centerYAnchor.constraint(equalTo: label.centerYAnchor).isActive = true
         starView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
     }
     
@@ -81,18 +83,18 @@ extension CharactersViewCell: ViewCode {
         starView.contentHorizontalAlignment = .fill
         starView.contentVerticalAlignment = .fill
         starView.addTarget(self, action: #selector(onStarButtonClick), for: .touchUpInside)
-        
+        contentView.backgroundColor = .redLight
         contentView.layer.cornerRadius = 20
         contentView.layer.borderWidth = 1.0
-        contentView.layer.borderColor = UIColor.clear.cgColor
+        contentView.layer.borderColor = UIColor.redLight.cgColor
         contentView.layer.masksToBounds = true
         
-        layer.shadowColor = UIColor.redLight.cgColor
-        layer.shadowOffset = CGSize(width: 0, height: 2.0)
-        layer.shadowRadius = 1.0
-        layer.shadowOpacity = 5.0
-        layer.masksToBounds = false
-        layer.shadowPath = UIBezierPath(roundedRect:bounds, cornerRadius:contentView.layer.cornerRadius).cgPath
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+        self.layer.shadowRadius = 2.0
+        self.layer.shadowOpacity = 0.5
+        self.layer.masksToBounds = false
+        self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.contentView.layer.cornerRadius).cgPath
     }
 }
 

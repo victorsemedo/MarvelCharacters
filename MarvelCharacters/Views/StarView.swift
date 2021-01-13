@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class StarView: UIButton {
+final class StarView: UIButton {
 
     // MARK: - Public Properties
     var isFilled: Bool = false {
@@ -28,7 +28,7 @@ public class StarView: UIButton {
 }
 
 // MARK: - Public Functions
-public extension StarView {
+extension StarView {
     func toogleFill() {
         isFilled = !isFilled
     }

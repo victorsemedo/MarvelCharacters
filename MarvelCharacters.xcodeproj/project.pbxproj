@@ -10,6 +10,17 @@
 		035314BA1DD560AE73582780 /* Pods_MarvelCharacters_MarvelCharactersUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78FAEF4821A47B970437B407 /* Pods_MarvelCharacters_MarvelCharactersUITests.framework */; };
 		5812E14025AD48AD00A0CA3E /* MarvelImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5812E13F25AD48AD00A0CA3E /* MarvelImage.swift */; };
 		5812E14525AD521B00A0CA3E /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5812E14425AD521B00A0CA3E /* UIImageView+Extensions.swift */; };
+		586245A625AE9A00000EE28E /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586245A525AE9A00000EE28E /* PaddingLabel.swift */; };
+		586245B225AEA20A000EE28E /* FavoritesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586245AA25AEA20A000EE28E /* FavoritesFactory.swift */; };
+		586245B325AEA20A000EE28E /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586245AB25AEA20A000EE28E /* FavoritesPresenter.swift */; };
+		586245B425AEA20A000EE28E /* FavoritesWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586245AC25AEA20A000EE28E /* FavoritesWorker.swift */; };
+		586245B525AEA20A000EE28E /* FavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586245AD25AEA20A000EE28E /* FavoritesRouter.swift */; };
+		586245B625AEA20A000EE28E /* FavoritesModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586245AE25AEA20A000EE28E /* FavoritesModels.swift */; };
+		586245B725AEA20A000EE28E /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586245AF25AEA20A000EE28E /* FavoritesViewController.swift */; };
+		586245B825AEA20A000EE28E /* FavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586245B025AEA20A000EE28E /* FavoritesInteractor.swift */; };
+		586245BE25AEA426000EE28E /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586245BD25AEA426000EE28E /* Reachability.swift */; };
+		586245C925AEA7BC000EE28E /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586245C825AEA7BC000EE28E /* DataProvider.swift */; };
+		586245CE25AEAF4D000EE28E /* MarvelDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586245CD25AEAF4D000EE28E /* MarvelDataProvider.swift */; };
 		5880D8FA25AAB74B00D7F71E /* MarvelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5880D8F925AAB74B00D7F71E /* MarvelAPI.swift */; };
 		58B1C43525AAC494002A82E7 /* HTTPRequestParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B1C43425AAC494002A82E7 /* HTTPRequestParams.swift */; };
 		58B1C43A25AACF23002A82E7 /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B1C43925AACF23002A82E7 /* APIProvider.swift */; };
@@ -68,6 +79,17 @@
 		39A6B13FACCF4931C0380289 /* Pods-MarvelCharactersTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelCharactersTests.debug.xcconfig"; path = "Target Support Files/Pods-MarvelCharactersTests/Pods-MarvelCharactersTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5812E13F25AD48AD00A0CA3E /* MarvelImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelImage.swift; sourceTree = "<group>"; };
 		5812E14425AD521B00A0CA3E /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
+		586245A525AE9A00000EE28E /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		586245AA25AEA20A000EE28E /* FavoritesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesFactory.swift; sourceTree = "<group>"; };
+		586245AB25AEA20A000EE28E /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
+		586245AC25AEA20A000EE28E /* FavoritesWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesWorker.swift; sourceTree = "<group>"; };
+		586245AD25AEA20A000EE28E /* FavoritesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRouter.swift; sourceTree = "<group>"; };
+		586245AE25AEA20A000EE28E /* FavoritesModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesModels.swift; sourceTree = "<group>"; };
+		586245AF25AEA20A000EE28E /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		586245B025AEA20A000EE28E /* FavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractor.swift; sourceTree = "<group>"; };
+		586245BD25AEA426000EE28E /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		586245C825AEA7BC000EE28E /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		586245CD25AEAF4D000EE28E /* MarvelDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelDataProvider.swift; sourceTree = "<group>"; };
 		5880D8F325AAB10B00D7F71E /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		5880D8F925AAB74B00D7F71E /* MarvelAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAPI.swift; sourceTree = "<group>"; };
 		58B1C43425AAC494002A82E7 /* HTTPRequestParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestParams.swift; sourceTree = "<group>"; };
@@ -172,6 +194,8 @@
 		5880D8F525AAB72700D7F71E /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				586245C825AEA7BC000EE28E /* DataProvider.swift */,
+				586245CD25AEAF4D000EE28E /* MarvelDataProvider.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -286,7 +310,7 @@
 		58F85FEF25A959C800A17781 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				58F85FF225A95A0B00A17781 /* Favoritos */,
+				58F85FF225A95A0B00A17781 /* Favorites */,
 				58F85FF125A95A0600A17781 /* CharacterDetails */,
 				58F85FF025A959CD00A17781 /* Characters */,
 			);
@@ -303,7 +327,6 @@
 				58F8600B25A95CC600A17781 /* CharactersModels.swift */,
 				58F8600C25A95CC600A17781 /* CharactersViewController.swift */,
 				58F8600D25A95CC600A17781 /* CharactersInteractor.swift */,
-				58F8600E25A95CC600A17781 /* CharactersView.swift */,
 				58B1C4F125ABF061002A82E7 /* CharactersViewCell.swift */,
 			);
 			path = Characters;
@@ -316,11 +339,18 @@
 			path = CharacterDetails;
 			sourceTree = "<group>";
 		};
-		58F85FF225A95A0B00A17781 /* Favoritos */ = {
+		58F85FF225A95A0B00A17781 /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
+				586245AA25AEA20A000EE28E /* FavoritesFactory.swift */,
+				586245AB25AEA20A000EE28E /* FavoritesPresenter.swift */,
+				586245AC25AEA20A000EE28E /* FavoritesWorker.swift */,
+				586245AD25AEA20A000EE28E /* FavoritesRouter.swift */,
+				586245AE25AEA20A000EE28E /* FavoritesModels.swift */,
+				586245AF25AEA20A000EE28E /* FavoritesViewController.swift */,
+				586245B025AEA20A000EE28E /* FavoritesInteractor.swift */,
 			);
-			path = Favoritos;
+			path = Favorites;
 			sourceTree = "<group>";
 		};
 		58F85FF625A95A3400A17781 /* Utilities */ = {
@@ -328,6 +358,7 @@
 			children = (
 				58B1C47E25AB97E8002A82E7 /* Extensions */,
 				58F8601A25A95CF500A17781 /* Protocols */,
+				586245BD25AEA426000EE28E /* Reachability.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -343,7 +374,9 @@
 		58F85FF825A95A7900A17781 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				58F8600E25A95CC600A17781 /* CharactersView.swift */,
 				58B1C4F925ABFD8A002A82E7 /* StarView.swift */,
+				586245A525AE9A00000EE28E /* PaddingLabel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -607,31 +640,42 @@
 			buildActionMask = 2147483647;
 			files = (
 				58B1C47A25AB96BE002A82E7 /* URLRequestConvertible.swift in Sources */,
+				586245CE25AEAF4D000EE28E /* MarvelDataProvider.swift in Sources */,
 				5880D8FA25AAB74B00D7F71E /* MarvelAPI.swift in Sources */,
+				586245BE25AEA426000EE28E /* Reachability.swift in Sources */,
 				5812E14525AD521B00A0CA3E /* UIImageView+Extensions.swift in Sources */,
 				58B1C4FA25ABFD8A002A82E7 /* StarView.swift in Sources */,
 				58F8601025A95CC600A17781 /* CharactersPresenter.swift in Sources */,
 				58F8601225A95CC600A17781 /* CharactersRouter.swift in Sources */,
+				586245B225AEA20A000EE28E /* FavoritesFactory.swift in Sources */,
 				58F85FC425A9539C00A17781 /* MarvelCharacters.xcdatamodeld in Sources */,
 				58F8601C25A95D0F00A17781 /* ViewCode.swift in Sources */,
+				586245B525AEA20A000EE28E /* FavoritesRouter.swift in Sources */,
 				58B1C43A25AACF23002A82E7 /* APIProvider.swift in Sources */,
 				58F8603025A960CE00A17781 /* CharactersTabViewController.swift in Sources */,
 				58B1C48825AB9C53002A82E7 /* MarvelAPIConstants.swift in Sources */,
+				586245B625AEA20A000EE28E /* FavoritesModels.swift in Sources */,
 				58B1C49F25ABBB11002A82E7 /* CharactersResponse.swift in Sources */,
 				58B1C48025AB9807002A82E7 /* String+Extensions.swift in Sources */,
 				58F8601525A95CC600A17781 /* CharactersInteractor.swift in Sources */,
 				58B1C43525AAC494002A82E7 /* HTTPRequestParams.swift in Sources */,
 				58B1C4F225ABF061002A82E7 /* CharactersViewCell.swift in Sources */,
 				58B1C4D225ABD7FE002A82E7 /* Character.swift in Sources */,
+				586245B325AEA20A000EE28E /* FavoritesPresenter.swift in Sources */,
 				58F8601125A95CC600A17781 /* CharactersWorker.swift in Sources */,
 				58B1C4E425ABE8DF002A82E7 /* UIColor+Extensions.swift in Sources */,
+				586245B725AEA20A000EE28E /* FavoritesViewController.swift in Sources */,
 				58F85FBA25A9539C00A17781 /* AppDelegate.swift in Sources */,
+				586245C925AEA7BC000EE28E /* DataProvider.swift in Sources */,
+				586245A625AE9A00000EE28E /* PaddingLabel.swift in Sources */,
 				58F8601625A95CC600A17781 /* CharactersView.swift in Sources */,
 				58F8601325A95CC600A17781 /* CharactersModels.swift in Sources */,
 				58F8600F25A95CC600A17781 /* CharactersFactory.swift in Sources */,
 				58F85FBC25A9539C00A17781 /* SceneDelegate.swift in Sources */,
+				586245B825AEA20A000EE28E /* FavoritesInteractor.swift in Sources */,
 				5812E14025AD48AD00A0CA3E /* MarvelImage.swift in Sources */,
 				58F8601425A95CC600A17781 /* CharactersViewController.swift in Sources */,
+				586245B425AEA20A000EE28E /* FavoritesWorker.swift in Sources */,
 				58B1C43F25AAD0EF002A82E7 /* APIError.swift in Sources */,
 				58B1C4DF25ABE853002A82E7 /* UIColor+Palette.swift in Sources */,
 			);

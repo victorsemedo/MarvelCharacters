@@ -60,6 +60,7 @@ class CharactersView: UIView {
 
 // MARK: View Code Protocol
 extension CharactersView: ViewCode {
+    
     func setupHierarchy() {
         addSubview(collectionView)
         addSubview(searchBar)
@@ -132,7 +133,8 @@ extension CharactersView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         let padding = insetForSections.left + insetForSections.right + margin
-        let width = (bounds.size.width - padding)/2 - margin/2
+        var width = (bounds.size.width - padding)/2 - margin/2
+        width = width > 200 ? 200 : width
         let height = width * 1.5
         return CGSize(width: width, height: height)
     }
@@ -152,4 +154,3 @@ extension CharactersView: UISearchBarDelegate {
     }
     
 }
-

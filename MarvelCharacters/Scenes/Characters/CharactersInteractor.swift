@@ -12,15 +12,16 @@ protocol CharactersBusinessLogic {
 }
 
 protocol CharactersDataStore {
-    
+    var characters: [Character] { get }
 }
 
 class CharactersInteractor: CharactersDataStore {
+   
     private var presenter: CharactersPresentationLogic?
     private var worker: CharactersWorkLogic
     
     private var currentPage =  0
-    private var characters = [Character]()
+    var characters = [Character]()
     
     init(presenter: CharactersPresentationLogic, worker: CharactersWorkLogic) {
         self.presenter = presenter
