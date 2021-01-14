@@ -9,6 +9,7 @@ import UIKit
 
 protocol CharactersPresentationLogic {
     func presentLoadNextPage(response: Characters.LoadNextPage.Response)
+    func presentUpdateFavorite(request: Characters.UpdateFavorite.Response)
 }
 
 class CharactersPresenter {
@@ -27,14 +28,11 @@ extension CharactersPresenter: CharactersPresentationLogic {
             viewController?.displayError()
             return
         }
-        self.viewController?.displayLoadNextPage(viewModel: Characters.LoadNextPage.ViewModel(characters: characters))
-    }
-}
-
-extension Character: CharactersCellProtocol {
-    
-    var isFavorite: Bool {
-        return false
+        let charactersViewModel = characters.map { CharacterCellData(character: $0)}
+        self.viewController?.displayLoadNextPage(viewModel: Characters.LoadNextPage.ViewModel(characters: charactersViewModel))
     }
     
+    func presentUpdateFavorite(request: Characters.UpdateFavorite.Response) {
+        
+    }
 }

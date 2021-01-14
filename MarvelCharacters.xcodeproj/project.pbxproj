@@ -194,6 +194,7 @@
 		5880D8F525AAB72700D7F71E /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				58F85FC225A9539C00A17781 /* MarvelCharacters.xcdatamodeld */,
 				586245C825AEA7BC000EE28E /* DataProvider.swift */,
 				586245CD25AEAF4D000EE28E /* MarvelDataProvider.swift */,
 			);
@@ -279,7 +280,6 @@
 				58F85FBB25A9539C00A17781 /* SceneDelegate.swift */,
 				58F85FC725A9539D00A17781 /* LaunchScreen.storyboard */,
 				58F85FCA25A9539D00A17781 /* Info.plist */,
-				58F85FC225A9539C00A17781 /* MarvelCharacters.xcdatamodeld */,
 				58F8602F25A960CE00A17781 /* CharactersTabViewController.swift */,
 				5880D8F325AAB10B00D7F71E /* Config.xcconfig */,
 			);
@@ -327,7 +327,6 @@
 				58F8600B25A95CC600A17781 /* CharactersModels.swift */,
 				58F8600C25A95CC600A17781 /* CharactersViewController.swift */,
 				58F8600D25A95CC600A17781 /* CharactersInteractor.swift */,
-				58B1C4F125ABF061002A82E7 /* CharactersViewCell.swift */,
 			);
 			path = Characters;
 			sourceTree = "<group>";
@@ -374,6 +373,7 @@
 		58F85FF825A95A7900A17781 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				58B1C4F125ABF061002A82E7 /* CharactersViewCell.swift */,
 				58F8600E25A95CC600A17781 /* CharactersView.swift */,
 				58B1C4F925ABFD8A002A82E7 /* StarView.swift */,
 				586245A525AE9A00000EE28E /* PaddingLabel.swift */,

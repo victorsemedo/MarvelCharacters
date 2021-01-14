@@ -10,6 +10,7 @@ import UIKit
 protocol CharactersDisplayLogic: class {
     func displayLoadNextPage(viewModel: Characters.LoadNextPage.ViewModel)
     func displayError()
+    func displayUpdateFavorite(request: Characters.UpdateFavorite.ViewModel)
 }
 
 class CharactersViewController: UIViewController {
@@ -42,7 +43,6 @@ class CharactersViewController: UIViewController {
     
     func setupView() {
         title = "Characters"
-        navigationController?.navigationBar.tintColor = .redLight
     }
 }
 
@@ -57,12 +57,14 @@ extension CharactersViewController: CharactersDisplayLogic {
         isLoading = false
         customView.viewModel = CharactersView.ViewModel(cells: viewModel.characters)
     }
-
+    
+    func displayUpdateFavorite(request: Characters.UpdateFavorite.ViewModel) {
+    }
+    
 }
 
 // MARK: CharactersViewDelegate
 extension CharactersViewController: CharactersViewDelegate {
-    
     func willDisplayLastCell(_ view: CharactersView) {
         if !isLoading {
             isLoading = true
@@ -83,4 +85,7 @@ extension CharactersViewController: CharactersViewDelegate {
         }
     }
     
+    func didUpdateFavorite(_ view: CharactersView, cellIndex index: Int, withValue value: Bool) {
+        interactor?.updateFavorite(request: Characters.UpdateFavorite.Request.init(index: index, isFavorite: value))
+    }
 }

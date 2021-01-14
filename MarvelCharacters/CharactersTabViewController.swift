@@ -20,7 +20,7 @@ private extension CharactersTabViewController {
     func setupView() {
         let charactersScene = UINavigationController(rootViewController: CharactersFactory.setupCharacters())
         charactersScene.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
-        let favoritosScene = UINavigationController(rootViewController: CharactersFactory.setupCharacters())
+        let favoritosScene = UINavigationController(rootViewController: FavoritesFactory.setupFavorites())
         favoritosScene.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
         viewControllers = [charactersScene, favoritosScene]
         tabBar.tintColor = .redLight

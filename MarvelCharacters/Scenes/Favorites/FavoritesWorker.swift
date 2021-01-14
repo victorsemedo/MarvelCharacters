@@ -22,13 +22,13 @@ enum FavoritesWorkerError: Error {
 }
 
 protocol FavoritesWorkLogic: class {
-    func fetchSomething(request: Favorites.Something.Request,
-                        result: @escaping (Result<Favorites.Something.Response, FavoritesWorkerError>) -> Void)
+    func fetchSomething(request: Favorites.FecthAll.Request,
+                        result: @escaping (Result<Favorites.FecthAll.Response, FavoritesWorkerError>) -> Void)
 }
 
 // MARK: Work Logic Protocol
 class FavoritesWorker: FavoritesWorkLogic {
-    func fetchSomething(request: Favorites.Something.Request,
-                        result: @escaping (Result<Favorites.Something.Response, FavoritesWorkerError>) -> Void) {
+    func fetchSomething(request: Favorites.FecthAll.Request,
+                        result: @escaping (Result<Favorites.FecthAll.Response, FavoritesWorkerError>) -> Void) {
     }
 }

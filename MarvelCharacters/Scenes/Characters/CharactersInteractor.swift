@@ -9,6 +9,7 @@ import UIKit
 
 protocol CharactersBusinessLogic {
     func loadNextPage(request: Characters.LoadNextPage.Request)
+    func updateFavorite(request: Characters.UpdateFavorite.Request)
 }
 
 protocol CharactersDataStore {
@@ -44,6 +45,16 @@ extension CharactersInteractor: CharactersBusinessLogic {
             }
         }
     }
+    
+    func updateFavorite(request: Characters.UpdateFavorite.Request) {
+        let character = characters[request.index]
+        if request.isFavorite {
+            worker.saveFovoriteCharacter(character)
+        } else {
+            worker.deleteFavoriteCharacter(character)
+        }
+    }
+    
 }
 
 private extension CharactersInteractor {

@@ -16,12 +16,9 @@ extension FavoriteCharacter {
 
 final class MarvelDataProvider {
     
-    static func fetchCharacter(withId id: Int) -> FavoriteCharacter? {
-        guard let entityName = FavoriteCharacter.entity().name else {
-            return nil
-        }
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
-        let predicate = NSPredicate(format: "id == %@", id)
+    static func fetchFavoriteCharacter(withId id: Int) -> FavoriteCharacter? {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoriteCharacter")
+        let predicate = NSPredicate(format: "id = %ld", id)
         request.predicate = predicate
         
         do {
@@ -36,14 +33,11 @@ final class MarvelDataProvider {
         return nil
     }
     
-    static func saveCharacter(_ character: Character) {
-        guard let entityName = FavoriteCharacter.entity().name else {
-            return
-        }
-        var favoriteCharacter = MarvelDataProvider.fetchCharacter(withId: character.id)
+    static func saveFavoriteCharacter(_ character: Character) {
+        var favoriteCharacter = MarvelDataProvider.fetchFavoriteCharacter(withId: character.id)
         
         if favoriteCharacter == nil {
-            favoriteCharacter = NSEntityDescription.insertNewObject(forEntityName: entityName, into: DataProvider.shareInstance.context) as? FavoriteCharacter
+            favoriteCharacter = NSEntityDescription.insertNewObject(forEntityName: "FavoriteCharacter", into: DataProvider.shareInstance.context) as? FavoriteCharacter
         }
         favoriteCharacter?.id = Int32(character.id)
         favoriteCharacter?.name = character.name
@@ -57,19 +51,16 @@ final class MarvelDataProvider {
         }
     }
     
-    static func deleteHero(withId id: Int) -> Bool {
-        if let favoriteCharacter = MarvelDataProvider.fetchCharacter(withId: id) {
+    static func deleteFavoriteCharacter(withId id: Int) -> Bool {
+        if let favoriteCharacter = MarvelDataProvider.fetchFavoriteCharacter(withId: id) {
             DataProvider.shareInstance.context.delete(favoriteCharacter)
             return true
         }
         return false
     }
     
-    func fetchFavoriteCharacters() -> [FavoriteCharacter] {
-        guard let entityName = FavoriteCharacter.entity().name else {
-            return [FavoriteCharacter]()
-        }
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+    static func fetchFavoriteCharacters() -> [FavoriteCharacter] {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoriteCharacter")
         
         do {
             if let result = try DataProvider.shareInstance.context.fetch(request) as? [FavoriteCharacter]{

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol FavoritesPresentationLogic {
-    func presentSomething(response: Favorites.Something.Response)
+    func presentFetchAll(response: Favorites.FecthAll.Response)
 }
 
 class FavoritesPresenter {
@@ -21,6 +21,12 @@ class FavoritesPresenter {
 
 // MARK: Presentation Logic Protocol
 extension FavoritesPresenter: FavoritesPresentationLogic {
-    func presentSomething(response: Favorites.Something.Response) {
+    func presentFetchAll(response: Favorites.FecthAll.Response) {
+        let charactersViewModel = response.characters.map { CharacterCellData(character: $0)}
+        charactersViewModel.forEach { (character) in
+            character.isFavorite = true
+        }
+        viewController?.displayFetchAll(viewModel: Favorites.FecthAll.ViewModel(characters: charactersViewModel))
     }
 }
+

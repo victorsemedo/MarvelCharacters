@@ -10,15 +10,16 @@ import UIKit
 protocol CharactersCellProtocol {
     var name: String? { get }
     var imageUrl: String? { get }
-    var isFavorite: Bool { get }
+    var isFavorite: Bool { get set}
 }
 
 protocol CharactersViewDelegate: AnyObject {
     func willDisplayLastCell(_ view: CharactersView)
     func didUpdateSearchBar(_ view: CharactersView)
+    func didUpdateFavorite(_ view: CharactersView, cellIndex index: Int, withValue value: Bool)
 }
 
-class CharactersView: UIView {
+final class CharactersView: UIView {
     
     struct ViewModel {
         let cells:[CharactersCellProtocol]
@@ -99,11 +100,13 @@ extension CharactersView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = (collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: CharactersViewCell.self), for: indexPath) as? CharactersViewCell) ??
             CharactersViewCell()
+        cell.delegate = self
         
         if let cells = self.viewModel?.cells {
             let cellData = cells[indexPath.row]
             cell.imageView.loadImage(fromUrl: cellData.imageUrl ?? "")
             cell.label.text = cellData.name
+            cell.favoriteView.isFilled = cellData.isFavorite
         }
         
         return cell
@@ -140,7 +143,6 @@ extension CharactersView: UICollectionViewDelegateFlowLayout {
     }
 }
 
-
 extension CharactersView: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -152,5 +154,14 @@ extension CharactersView: UISearchBarDelegate {
         guard searchBar.text != nil else { return }
         delegate?.didUpdateSearchBar(self)
     }
+}
+
+extension CharactersView: CharacterViewCellDelegate {
     
+    func setFavorite(_ cell: CharactersViewCell, value: Bool) {
+        guard let indexPath = collectionView.indexPath(for: cell) else {
+            return
+        }
+        delegate?.didUpdateFavorite(self, cellIndex: indexPath.row , withValue: cell.favoriteView.isFilled)
+    }
 }

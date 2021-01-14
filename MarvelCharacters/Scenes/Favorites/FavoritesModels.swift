@@ -8,14 +8,16 @@
 import UIKit
 
 enum Favorites {
-    enum Something {
+    enum FecthAll {
         struct Request {
         }
         
-        struct Response: Codable {
+        struct Response {
+            let characters: [Character]
         }
         
         struct ViewModel {
+            let characters: [CharactersCellProtocol]
         }
     }
 }

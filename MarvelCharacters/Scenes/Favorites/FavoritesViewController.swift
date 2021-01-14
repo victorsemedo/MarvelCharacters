@@ -8,7 +8,7 @@
 import UIKit
 
 protocol FavoritesDisplayLogic: class {
-    func displaySomething(viewModel: Favorites.Something.ViewModel)
+    func displayFetchAll(viewModel: Favorites.FecthAll.ViewModel)
 }
 
 class FavoritesViewController: UIViewController {
@@ -21,15 +21,27 @@ class FavoritesViewController: UIViewController {
         view = customView
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupView()
+        let request = Favorites.FecthAll.Request()
+        interactor?.fecthAll(request: request)
+    }
+    
     // MARK: Architecture Setup
     func setup(interactor: FavoritesBusinessLogic? = nil, router: FavoritesRoutingLogic? = nil) {
         self.interactor = interactor
         self.router = router
     }
+    
+    func setupView() {
+        title = "Favorites Characters"
+    }
 }
 
 // MARK: Display Logic Protocol
 extension FavoritesViewController: FavoritesDisplayLogic {
-    func displaySomething(viewModel: Favorites.Something.ViewModel) {
+    func displayFetchAll(viewModel: Favorites.FecthAll.ViewModel) {
+        customView.viewModel = CharactersView.ViewModel(cells: viewModel.characters)
     }
 }

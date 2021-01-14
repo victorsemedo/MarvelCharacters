@@ -8,7 +8,7 @@
 import UIKit
 
 protocol FavoritesBusinessLogic {
-    func doSomething(request: Favorites.Something.Request)
+    func fecthAll(request: Favorites.FecthAll.Request)
 }
 
 protocol FavoritesDataStore {
@@ -26,6 +26,8 @@ class FavoritesInteractor: FavoritesDataStore {
 
 //MARK: Business Logic Protocol
 extension FavoritesInteractor: FavoritesBusinessLogic {
-    func doSomething(request: Favorites.Something.Request) {
+    func fecthAll(request: Favorites.FecthAll.Request) {
+        let favorites = MarvelDataProvider.fetchFavoriteCharacters().map { $0.toCharacter() }
+        presenter?.presentFetchAll(response: Favorites.FecthAll.Response(characters: favorites))
     }
 }
