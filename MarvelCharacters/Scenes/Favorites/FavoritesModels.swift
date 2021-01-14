@@ -13,7 +13,7 @@ enum Favorites {
         }
         
         struct Response {
-            let characters: [Character]
+            let characters: [FavoriteCharacter]
         }
         
         struct ViewModel {

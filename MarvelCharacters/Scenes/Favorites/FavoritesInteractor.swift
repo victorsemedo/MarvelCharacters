@@ -27,7 +27,7 @@ class FavoritesInteractor: FavoritesDataStore {
 //MARK: Business Logic Protocol
 extension FavoritesInteractor: FavoritesBusinessLogic {
     func fecthAll(request: Favorites.FecthAll.Request) {
-        let favorites = MarvelDataProvider.fetchFavoriteCharacters().map { $0.toCharacter() }
+        let favorites = MarvelDataProvider.fetchFavoriteCharacters()
         presenter?.presentFetchAll(response: Favorites.FecthAll.Response(characters: favorites))
     }
 }

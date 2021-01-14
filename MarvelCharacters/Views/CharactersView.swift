@@ -10,13 +10,14 @@ import UIKit
 protocol CharactersCellProtocol {
     var name: String? { get }
     var imageUrl: String? { get }
+    var image: UIImage? { get }
     var isFavorite: Bool { get set}
 }
 
 protocol CharactersViewDelegate: AnyObject {
     func willDisplayLastCell(_ view: CharactersView)
     func didUpdateSearchBar(_ view: CharactersView)
-    func didUpdateFavorite(_ view: CharactersView, cellIndex index: Int, withValue value: Bool)
+    func didUpdateFavorite(_ view: CharactersView, forIndexPath indexPath: IndexPath, withValue value: Bool)
 }
 
 final class CharactersView: UIView {
@@ -103,10 +104,7 @@ extension CharactersView: UICollectionViewDataSource {
         cell.delegate = self
         
         if let cells = self.viewModel?.cells {
-            let cellData = cells[indexPath.row]
-            cell.imageView.loadImage(fromUrl: cellData.imageUrl ?? "")
-            cell.label.text = cellData.name
-            cell.favoriteView.isFilled = cellData.isFavorite
+            cell.viewModel = cells[indexPath.row]
         }
         
         return cell
@@ -128,7 +126,7 @@ extension CharactersView: UICollectionViewDelegate {
 extension CharactersView: UICollectionViewDelegateFlowLayout {
     
     private var margin: CGFloat { return 16.0 }
-        
+    
     private var insetForSections: UIEdgeInsets {
         UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
     }
@@ -149,7 +147,7 @@ extension CharactersView: UISearchBarDelegate {
         NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(CharactersView.didUpdateSearchBar), object: nil)
         perform(#selector(CharactersView.didUpdateSearchBar), with: nil, afterDelay: 0.5)
     }
-
+    
     @objc func didUpdateSearchBar() {
         guard searchBar.text != nil else { return }
         delegate?.didUpdateSearchBar(self)
@@ -162,6 +160,6 @@ extension CharactersView: CharacterViewCellDelegate {
         guard let indexPath = collectionView.indexPath(for: cell) else {
             return
         }
-        delegate?.didUpdateFavorite(self, cellIndex: indexPath.row , withValue: cell.favoriteView.isFilled)
+        delegate?.didUpdateFavorite(self, forIndexPath: indexPath, withValue: cell.favoriteView.isFilled)
     }
 }

@@ -29,6 +29,7 @@ enum Characters {
         struct Request {
             let index: Int
             let isFavorite: Bool
+            let image: UIImage?
         }
         
         struct Response {
@@ -57,7 +58,11 @@ class CharacterCellData: CharactersCellProtocol {
     
     var isFavorite: Bool = false
     
-    init(character: Character) {
+    var image: UIImage?
+
+    init(character: Character, image: UIImage? = nil, isFavorite: Bool = false) {
         self.character = character
+        self.image = image
+        self.isFavorite = isFavorite
     }
 }

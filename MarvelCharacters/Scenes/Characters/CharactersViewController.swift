@@ -65,6 +65,7 @@ extension CharactersViewController: CharactersDisplayLogic {
 
 // MARK: CharactersViewDelegate
 extension CharactersViewController: CharactersViewDelegate {
+    
     func willDisplayLastCell(_ view: CharactersView) {
         if !isLoading {
             isLoading = true
@@ -85,7 +86,10 @@ extension CharactersViewController: CharactersViewDelegate {
         }
     }
     
-    func didUpdateFavorite(_ view: CharactersView, cellIndex index: Int, withValue value: Bool) {
-        interactor?.updateFavorite(request: Characters.UpdateFavorite.Request.init(index: index, isFavorite: value))
+    func didUpdateFavorite(_ view: CharactersView, forIndexPath indexPath: IndexPath, withValue value: Bool) {
+        let cell = view.collectionView.cellForItem(at: indexPath) as? CharactersViewCell
+        let request = Characters.UpdateFavorite.Request(index: indexPath.row, isFavorite: value, image: cell?.imageView.image)
+        interactor?.updateFavorite(request: request)
     }
+
 }

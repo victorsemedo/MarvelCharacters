@@ -8,8 +8,8 @@
 import Foundation
 
 struct Character: Codable {
-    var id: Int
-    var name: String?
-    var description: String?
-    var thumbnail: MarvelImage?
+    let id: Int
+    let name: String?
+    let description: String?
+    let thumbnail: MarvelImage?
 }

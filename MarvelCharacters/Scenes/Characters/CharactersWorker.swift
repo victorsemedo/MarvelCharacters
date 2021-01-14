@@ -11,7 +11,7 @@ protocol CharactersWorkLogic: class {
     
     func loadNextPage(request: Characters.LoadNextPage.Request, result: @escaping (Result<Characters.LoadNextPage.Response, APIError>) -> Void)
     
-    func saveFovoriteCharacter(_ character: Character)
+    func saveFovoriteCharacter(_ character: Character, image: UIImage?)
     
     func deleteFavoriteCharacter(_ character: Character)
     
@@ -32,8 +32,9 @@ class CharactersWorker: CharactersWorkLogic {
         }
     }
     
-    func saveFovoriteCharacter(_ character: Character) {
-        MarvelDataProvider.saveFavoriteCharacter(character)
+    func saveFovoriteCharacter(_ character: Character, image: UIImage?) {
+        let data = image?.jpegData(compressionQuality: 1.0)
+        MarvelDataProvider.saveFavoriteCharacter(character, image: data)
     }
     
     func deleteFavoriteCharacter(_ character: Character) {

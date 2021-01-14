@@ -49,7 +49,7 @@ extension CharactersInteractor: CharactersBusinessLogic {
     func updateFavorite(request: Characters.UpdateFavorite.Request) {
         let character = characters[request.index]
         if request.isFavorite {
-            worker.saveFovoriteCharacter(character)
+            worker.saveFovoriteCharacter(character, image: request.image)
         } else {
             worker.deleteFavoriteCharacter(character)
         }

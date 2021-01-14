@@ -34,6 +34,18 @@ class CharactersViewCell: UICollectionViewCell {
     
     weak var delegate: CharacterViewCellDelegate?
     
+    var viewModel: CharactersCellProtocol? {
+        didSet {
+            label.text = viewModel?.name
+            favoriteView.isFilled = viewModel?.isFavorite ?? false
+            if let image = viewModel?.image {
+                imageView.image = image
+            } else if let imageUrl = viewModel?.imageUrl {
+                imageView.loadImage(fromUrl: imageUrl)
+            }
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()

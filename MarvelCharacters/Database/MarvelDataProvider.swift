@@ -33,7 +33,7 @@ final class MarvelDataProvider {
         return nil
     }
     
-    static func saveFavoriteCharacter(_ character: Character) {
+    static func saveFavoriteCharacter(_ character: Character, image: Data?) {
         var favoriteCharacter = MarvelDataProvider.fetchFavoriteCharacter(withId: character.id)
         
         if favoriteCharacter == nil {
@@ -43,6 +43,7 @@ final class MarvelDataProvider {
         favoriteCharacter?.name = character.name
         favoriteCharacter?.desc = character.description
         favoriteCharacter?.imgUrl = "\(character.thumbnail?.path ?? "").\(character.thumbnail?.fileExtension ?? "")"
+        favoriteCharacter?.img = image
         
         do {
             try DataProvider.shareInstance.context.save()
