@@ -30,6 +30,7 @@ extension MarvelAPI: HTTPRequestParams {
             return "characters/\(id)/comics"
         case .series(let id):
             return "characters/\(id)/series"
+            
         }
     }
     

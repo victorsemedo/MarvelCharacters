@@ -22,6 +22,8 @@
 		586245C925AEA7BC000EE28E /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586245C825AEA7BC000EE28E /* DataProvider.swift */; };
 		586245CE25AEAF4D000EE28E /* MarvelDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586245CD25AEAF4D000EE28E /* MarvelDataProvider.swift */; };
 		5880D8FA25AAB74B00D7F71E /* MarvelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5880D8F925AAB74B00D7F71E /* MarvelAPI.swift */; };
+		588DEDEA25B114180026349C /* MarvelRegular-Dj83.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 588DEDE925B114180026349C /* MarvelRegular-Dj83.ttf */; };
+		588DEDEF25B114D00026349C /* UIFont+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588DEDEE25B114D00026349C /* UIFont+Custom.swift */; };
 		58B1C43525AAC494002A82E7 /* HTTPRequestParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B1C43425AAC494002A82E7 /* HTTPRequestParams.swift */; };
 		58B1C43A25AACF23002A82E7 /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B1C43925AACF23002A82E7 /* APIProvider.swift */; };
 		58B1C43F25AAD0EF002A82E7 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B1C43E25AAD0EF002A82E7 /* APIError.swift */; };
@@ -92,6 +94,8 @@
 		586245CD25AEAF4D000EE28E /* MarvelDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelDataProvider.swift; sourceTree = "<group>"; };
 		5880D8F325AAB10B00D7F71E /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		5880D8F925AAB74B00D7F71E /* MarvelAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAPI.swift; sourceTree = "<group>"; };
+		588DEDE925B114180026349C /* MarvelRegular-Dj83.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MarvelRegular-Dj83.ttf"; sourceTree = "<group>"; };
+		588DEDEE25B114D00026349C /* UIFont+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Custom.swift"; sourceTree = "<group>"; };
 		58B1C43425AAC494002A82E7 /* HTTPRequestParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestParams.swift; sourceTree = "<group>"; };
 		58B1C43925AACF23002A82E7 /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
 		58B1C43E25AAD0EF002A82E7 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
@@ -208,6 +212,7 @@
 				58B1C4E325ABE8DF002A82E7 /* UIColor+Extensions.swift */,
 				58B1C4DE25ABE853002A82E7 /* UIColor+Palette.swift */,
 				5812E14425AD521B00A0CA3E /* UIImageView+Extensions.swift */,
+				588DEDEE25B114D00026349C /* UIFont+Custom.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -365,6 +370,7 @@
 		58F85FF725A95A4500A17781 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				588DEDE925B114180026349C /* MarvelRegular-Dj83.ttf */,
 				58F85FC525A9539D00A17781 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -510,6 +516,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				58F85FC925A9539D00A17781 /* LaunchScreen.storyboard in Resources */,
+				588DEDEA25B114180026349C /* MarvelRegular-Dj83.ttf in Resources */,
 				58F85FC625A9539D00A17781 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -672,6 +679,7 @@
 				58F8601325A95CC600A17781 /* CharactersModels.swift in Sources */,
 				58F8600F25A95CC600A17781 /* CharactersFactory.swift in Sources */,
 				58F85FBC25A9539C00A17781 /* SceneDelegate.swift in Sources */,
+				588DEDEF25B114D00026349C /* UIFont+Custom.swift in Sources */,
 				586245B825AEA20A000EE28E /* FavoritesInteractor.swift in Sources */,
 				5812E14025AD48AD00A0CA3E /* MarvelImage.swift in Sources */,
 				58F8601425A95CC600A17781 /* CharactersViewController.swift in Sources */,

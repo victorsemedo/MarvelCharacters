@@ -22,7 +22,7 @@ protocol CharactersWorkLogic: class {
 class CharactersWorker: CharactersWorkLogic {
 
     func loadNextPage(request: Characters.LoadNextPage.Request, result: @escaping (Result<Characters.LoadNextPage.Response, APIError>) -> Void) {
-        APIProvider.makeRequest(MarvelAPI.characters(request.searchName, request.page)) { (providerResult: Result<Characters.LoadNextPage.Response, APIError>) in
+        APIProvider.makeRequest(MarvelAPI.characters(request.searchName, request.page*20)) { (providerResult: Result<Characters.LoadNextPage.Response, APIError>) in
             switch providerResult {
             case .success(let response):
                 result(.success(response))

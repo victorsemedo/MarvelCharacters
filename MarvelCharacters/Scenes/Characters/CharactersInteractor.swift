@@ -38,7 +38,8 @@ extension CharactersInteractor: CharactersBusinessLogic {
             switch result {
             case .success(let response):
                 self.updateCharacters(withResponse: response.data.characters, reset: request.reset)
-                let response = Characters.LoadNextPage.Response(data: CharactersResponse(characters: self.characters))
+                var response = Characters.LoadNextPage.Response(data: CharactersResponse(characters: self.characters))
+                response.favorites = self.getFavoritesIds()
                 self.presenter?.presentLoadNextPage(response: response)
             case .failure(let error):
                 break
@@ -59,13 +60,18 @@ extension CharactersInteractor: CharactersBusinessLogic {
 
 private extension CharactersInteractor {
     
+    func getFavoritesIds() -> [Int] {
+        let favorites = worker.loadFavoriteCharacters()
+        return favorites.map { $0.id }
+    }
+    
     func updateCharacters(withResponse response: [Character]?, reset: Bool) {
         guard let response = response else { return }
         
         if reset {
             characters = response
         } else {
-            characters.append(contentsOf: characters)
+            characters.append(contentsOf: response)
         }
     }
 }

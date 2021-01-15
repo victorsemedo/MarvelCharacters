@@ -20,9 +20,9 @@ class CharactersViewCell: UICollectionViewCell {
     
     lazy var label: UILabel = {
         let label = PaddingLabel()
-        label.backgroundColor = .gray
+        label.backgroundColor = .captainCelticBlue
         label.textColor = .white
-        label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.font = UIFont.marvelFont(withSize: 16)
         label.numberOfLines = 2
         return label
     }()
@@ -32,16 +32,26 @@ class CharactersViewCell: UICollectionViewCell {
         return view
     }()
     
+    lazy var loadingIndicator: UIActivityIndicatorView = {
+        let view = UIActivityIndicatorView()
+        view.hidesWhenStopped = true
+        view.color = UIColor.white
+        return view
+    }()
+    
     weak var delegate: CharacterViewCellDelegate?
     
     var viewModel: CharactersCellProtocol? {
         didSet {
-            label.text = viewModel?.name
+            label.text = viewModel?.name?.uppercased()
             favoriteView.isFilled = viewModel?.isFavorite ?? false
             if let image = viewModel?.image {
                 imageView.image = image
             } else if let imageUrl = viewModel?.imageUrl {
-                imageView.loadImage(fromUrl: imageUrl)
+                loadingIndicator.startAnimating()
+                imageView.loadImage(fromUrl: imageUrl) {
+                    self.loadingIndicator.stopAnimating()
+                }
             }
         }
     }
@@ -54,6 +64,9 @@ class CharactersViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
+
+private extension CharactersViewCell {
     
     @objc func onStarButtonClick(_ sender: StarView) -> Void {
         sender.toogleFill()
@@ -67,12 +80,14 @@ extension CharactersViewCell: ViewCode {
         contentView.addSubview(imageView)
         contentView.addSubview(label)
         contentView.addSubview(favoriteView)
+        contentView.addSubview(loadingIndicator)
     }
     
     func setupConstraints() {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         label.translatesAutoresizingMaskIntoConstraints = false
         favoriteView.translatesAutoresizingMaskIntoConstraints = false
+        loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
         
         imageView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         imageView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
@@ -88,6 +103,11 @@ extension CharactersViewCell: ViewCode {
         favoriteView.heightAnchor.constraint(equalTo: label.heightAnchor, multiplier: 0.7).isActive = true
         favoriteView.centerYAnchor.constraint(equalTo: label.centerYAnchor).isActive = true
         favoriteView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
+        
+        loadingIndicator.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        loadingIndicator.widthAnchor.constraint(equalTo: loadingIndicator.heightAnchor).isActive = true
+        loadingIndicator.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        loadingIndicator.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
     }
     
     func setupConfigurations() {
@@ -96,10 +116,10 @@ extension CharactersViewCell: ViewCode {
         favoriteView.contentHorizontalAlignment = .fill
         favoriteView.contentVerticalAlignment = .fill
         favoriteView.addTarget(self, action: #selector(onStarButtonClick), for: .touchUpInside)
-        contentView.backgroundColor = .redLight
+        contentView.backgroundColor = UIColor.primaryRed
         contentView.layer.cornerRadius = 20
         contentView.layer.borderWidth = 1.0
-        contentView.layer.borderColor = UIColor.redLight.cgColor
+        contentView.layer.borderColor = UIColor.primaryRed.cgColor
         contentView.layer.masksToBounds = true
         
         layer.shadowColor = UIColor.black.cgColor

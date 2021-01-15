@@ -18,6 +18,11 @@ enum Characters {
         
         struct Response: Codable {
             let data: CharactersResponse
+            var favorites: [Int]?
+    
+            enum CodingKeys: String, CodingKey {
+                case data
+            }
         }
         
         struct ViewModel {

@@ -29,6 +29,7 @@ final class CharactersView: UIView {
     lazy var searchBar: UISearchBar = {
         let view = UISearchBar()
         view.delegate = self
+        view.tintColor = UIColor.captainCelticBlue
         return view
     }()
     

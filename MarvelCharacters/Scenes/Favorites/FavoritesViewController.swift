@@ -35,7 +35,7 @@ class FavoritesViewController: UIViewController {
     }
     
     func setupView() {
-        title = "Favorites Characters"
+        title = "FAVORITES"
     }
 }
 

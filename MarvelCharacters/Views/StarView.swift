@@ -50,7 +50,7 @@ private extension StarView {
         starImage = isFilled
             ? UIImage(named: "star")?.withRenderingMode(.alwaysTemplate)
             : UIImage(named: "star_outline")?.withRenderingMode(.alwaysTemplate)
-        imageView?.tintColor = UIColor.orangeLight
+        imageView?.tintColor = UIColor.captainSafetyYellow
         starImage?.withRenderingMode(.alwaysOriginal)
     }
     

@@ -28,11 +28,15 @@ extension CharactersPresenter: CharactersPresentationLogic {
             viewController?.displayError()
             return
         }
-        let charactersViewModel = characters.map { CharacterCellData(character: $0)}
+        let charactersViewModel: [CharactersCellProtocol] = characters.map {
+            let cellData = CharacterCellData(character: $0)
+            cellData.isFavorite = response.favorites?.contains($0.id) ?? false
+            return cellData
+        }
         self.viewController?.displayLoadNextPage(viewModel: Characters.LoadNextPage.ViewModel(characters: charactersViewModel))
     }
     
     func presentUpdateFavorite(request: Characters.UpdateFavorite.Response) {
-        
+
     }
 }
