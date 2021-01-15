@@ -12,12 +12,15 @@ protocol FavoritesBusinessLogic {
 }
 
 protocol FavoritesDataStore {
+    var selectedCharacter: Character? { get }
 }
 
 class FavoritesInteractor: FavoritesDataStore {
     private var presenter: FavoritesPresentationLogic?
     private var worker: FavoritesWorkLogic
     
+    var selectedCharacter: Character?
+
     init(presenter: FavoritesPresentationLogic, worker: FavoritesWorkLogic) {
         self.presenter = presenter
         self.worker = worker

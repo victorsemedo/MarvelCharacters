@@ -18,6 +18,7 @@ protocol CharactersViewDelegate: AnyObject {
     func willDisplayLastCell(_ view: CharactersView)
     func didUpdateSearchBar(_ view: CharactersView)
     func didUpdateFavorite(_ view: CharactersView, forIndexPath indexPath: IndexPath, withValue value: Bool)
+    func didSelectItemAt(_ view: CharactersView, forIndexPath indexPath: IndexPath)
 }
 
 final class CharactersView: UIView {
@@ -113,6 +114,10 @@ extension CharactersView: UICollectionViewDataSource {
 }
 
 extension CharactersView: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.didSelectItemAt(self, forIndexPath: indexPath)
+    }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let currentPosition = scrollView.contentOffset.y

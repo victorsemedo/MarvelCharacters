@@ -8,7 +8,7 @@
 import UIKit
 
 protocol FavoritesRoutingLogic {
-    func routeToSomewhere()
+    func routeToDetails()
 }
 
 protocol FavoritesDataPassing {
@@ -27,7 +27,11 @@ class FavoritesRouter: FavoritesDataPassing {
 
 // MARK: Routing Logic Protocol
 extension FavoritesRouter: FavoritesRoutingLogic {
-    func routeToSomewhere() {
+    func routeToDetails() {
+        if let character = dataStore?.selectedCharacter {
+            let details = CharacterDetailsFactory.setupCharacterDetails(character)
+            viewController?.navigationController?.pushViewController(details, animated: true)
+        }
     }
 }
 

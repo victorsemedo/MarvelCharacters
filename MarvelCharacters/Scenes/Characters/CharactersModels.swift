@@ -47,6 +47,12 @@ enum Characters {
             let index: Int
         }
     }
+    
+    enum SelectCharacter {
+        struct Request {
+            let index: Int
+        }
+    }
 }
 
 class CharacterCellData: CharactersCellProtocol {

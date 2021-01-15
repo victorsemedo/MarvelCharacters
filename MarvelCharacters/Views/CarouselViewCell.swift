@@ -1,17 +1,13 @@
 //
-//  CharactersViewCell.swift
+//  CarouselViewCellCollectionViewCell.swift
 //  MarvelCharacters
 //
-//  Created by Victor Tavares on 10/01/21.
+//  Created by Victor Tavares on 14/01/21.
 //
 
 import UIKit
 
-protocol CharacterViewCellDelegate: AnyObject {
-    func setFavorite(_ cell: CharactersViewCell, value: Bool)
-}
-
-final class CharactersViewCell: UICollectionViewCell {
+final class CarouselViewCell: UICollectionViewCell {
     
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
@@ -27,28 +23,16 @@ final class CharactersViewCell: UICollectionViewCell {
         return label
     }()
     
-    lazy var favoriteView: StarView = {
-        let view = StarView()
-        view.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        view.imageView?.contentMode = .scaleToFill
-        view.contentHorizontalAlignment = .fill
-        view.contentVerticalAlignment = .fill
-        return view
-    }()
-    
     lazy var loadingIndicator: UIActivityIndicatorView = {
         let view = UIActivityIndicatorView()
         view.hidesWhenStopped = true
         view.color = UIColor.white
         return view
     }()
-    
-    weak var delegate: CharacterViewCellDelegate?
-    
-    var viewModel: CharactersCellProtocol? {
+        
+    var viewModel: CarouselCellProtocol? {
         didSet {
             label.text = viewModel?.name?.uppercased()
-            favoriteView.isFilled = viewModel?.isFavorite ?? false
             if let image = viewModel?.image {
                 imageView.image = image
             } else if let imageUrl = viewModel?.imageUrl {
@@ -70,27 +54,24 @@ final class CharactersViewCell: UICollectionViewCell {
     }
 }
 
-private extension CharactersViewCell {
+private extension CarouselViewCell {
     
     @objc func onStarButtonClick(_ sender: StarView) -> Void {
         sender.toogleFill()
-        delegate?.setFavorite(self, value: sender.isFilled)
     }
 }
 
-extension CharactersViewCell: ViewCode {
+extension CarouselViewCell: ViewCode {
     
     func setupHierarchy() {
         contentView.addSubview(imageView)
         contentView.addSubview(label)
-        contentView.addSubview(favoriteView)
         contentView.addSubview(loadingIndicator)
     }
     
     func setupConstraints() {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         label.translatesAutoresizingMaskIntoConstraints = false
-        favoriteView.translatesAutoresizingMaskIntoConstraints = false
         loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
         
         imageView.topAnchor.constraint(equalTo: topAnchor).isActive = true
@@ -101,12 +82,7 @@ extension CharactersViewCell: ViewCode {
         label.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         label.topAnchor.constraint(equalTo: imageView.bottomAnchor).isActive = true
         label.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        label.trailingAnchor.constraint(equalTo: favoriteView.leadingAnchor).isActive = true
-        
-        favoriteView.heightAnchor.constraint(equalTo: favoriteView.widthAnchor, multiplier: 1.0).isActive = true
-        favoriteView.heightAnchor.constraint(equalTo: label.heightAnchor, multiplier: 0.7).isActive = true
-        favoriteView.centerYAnchor.constraint(equalTo: label.centerYAnchor).isActive = true
-        favoriteView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
+        label.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         
         loadingIndicator.heightAnchor.constraint(equalToConstant: 24).isActive = true
         loadingIndicator.widthAnchor.constraint(equalTo: loadingIndicator.heightAnchor).isActive = true
@@ -115,7 +91,6 @@ extension CharactersViewCell: ViewCode {
     }
     
     func setupConfigurations() {
-        favoriteView.addTarget(self, action: #selector(onStarButtonClick), for: .touchUpInside)
         contentView.backgroundColor = UIColor.primaryRed
         contentView.layer.cornerRadius = 20
         contentView.layer.borderWidth = 1.0
@@ -130,4 +105,3 @@ extension CharactersViewCell: ViewCode {
         layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: contentView.layer.cornerRadius).cgPath
     }
 }
-

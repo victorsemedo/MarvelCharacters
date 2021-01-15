@@ -8,7 +8,7 @@
 import UIKit
 
 protocol CharactersRoutingLogic {
-    func routeToSomewhere()
+    func routeToDetails()
 }
 
 protocol CharactersDataPassing {
@@ -27,7 +27,11 @@ class CharactersRouter: CharactersDataPassing {
 
 // MARK: Routing Logic Protocol
 extension CharactersRouter: CharactersRoutingLogic {
-    func routeToSomewhere() {
+    func routeToDetails() {
+        if let character = dataStore?.selectedCharacter {
+            let details = CharacterDetailsFactory.setupCharacterDetails(character)
+            viewController?.navigationController?.pushViewController(details, animated: true)
+        }
     }
 }
 

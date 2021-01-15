@@ -10,19 +10,21 @@ import UIKit
 protocol CharactersBusinessLogic {
     func loadNextPage(request: Characters.LoadNextPage.Request)
     func updateFavorite(request: Characters.UpdateFavorite.Request)
+    func selectCharacter(request: Characters.SelectCharacter.Request)
 }
 
 protocol CharactersDataStore {
-    var characters: [Character] { get }
+    var selectedCharacter: Character? { get }
 }
 
 class CharactersInteractor: CharactersDataStore {
-   
     private var presenter: CharactersPresentationLogic?
     private var worker: CharactersWorkLogic
     
+    var selectedCharacter: Character?
+    
     private var currentPage =  0
-    var characters = [Character]()
+    private var characters = [Character]()
     
     init(presenter: CharactersPresentationLogic, worker: CharactersWorkLogic) {
         self.presenter = presenter
@@ -54,6 +56,10 @@ extension CharactersInteractor: CharactersBusinessLogic {
         } else {
             worker.deleteFavoriteCharacter(character)
         }
+    }
+    
+    func selectCharacter(request: Characters.SelectCharacter.Request) {
+        selectedCharacter = characters[request.index]
     }
     
 }

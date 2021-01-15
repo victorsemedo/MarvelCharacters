@@ -59,12 +59,17 @@ extension CharactersViewController: CharactersDisplayLogic {
     }
     
     func displayUpdateFavorite(request: Characters.UpdateFavorite.ViewModel) {
+        
     }
     
 }
 
 // MARK: CharactersViewDelegate
 extension CharactersViewController: CharactersViewDelegate {
+    func didSelectItemAt(_ view: CharactersView, forIndexPath indexPath: IndexPath) {
+        interactor?.selectCharacter(request: Characters.SelectCharacter.Request(index: indexPath.row))
+        router?.routeToDetails()
+    }
     
     func willDisplayLastCell(_ view: CharactersView) {
         if !isLoading {
