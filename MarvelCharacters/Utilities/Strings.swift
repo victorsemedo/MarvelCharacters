@@ -28,4 +28,6 @@ enum Strings: String, Localizable {
     case characters
     case favorites
     case searchByName = "search_by_name"
+    case comics
+    case series
 }

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol CarouselCellProtocol {
-    var name: String? { get }
+    var title: String? { get }
     var imageUrl: String? { get }
     var image: UIImage? { get }
 }
@@ -21,9 +21,9 @@ final class CarouselView: UIView {
         let cells: [CarouselCellProtocol]
     }
     
-    lazy var title: UILabel = {
+    lazy var titleLabel: UILabel = {
         let view = UILabel()
-        view.tintColor = UIColor.captainCelticBlue
+        view.textColor = UIColor.captainCelticBlue
         view.font = UIFont.marvelFont(withSize: 24)
         return view
     }()
@@ -33,7 +33,7 @@ final class CarouselView: UIView {
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: 50, height: 100)
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        view.register(CharactersViewCell.self, forCellWithReuseIdentifier: String(describing: CharactersViewCell.self))
+        view.register(CarouselViewCell.self, forCellWithReuseIdentifier: String(describing: CarouselViewCell.self))
         return view
     }()
                 
@@ -47,8 +47,38 @@ final class CarouselView: UIView {
     
     // MARK: - View Lifecycle
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    init() {
+        super.init(frame: .zero)
+        setupView()
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension CarouselView: ViewCode {
+    func setupHierarchy() {
+        addSubview(titleLabel)
+        addSubview(collectionView)
+    }
+    
+    func setupConstraints() {
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 0).isActive = true
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10).isActive = true
+        collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
+        collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20).isActive = true
+    }
+    
+    func setupConfigurations() {
+        backgroundColor = UIColor.light
+        collectionView.backgroundColor = UIColor.light
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -63,7 +93,7 @@ extension CarouselView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let identifier = String(describing: CharactersViewCell.self)
+        let identifier = String(describing: CarouselViewCell.self)
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? CarouselViewCell else {
             return CarouselViewCell()
@@ -81,6 +111,6 @@ extension CarouselView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 50, height: 100)
+        return CGSize(width: frame.height*0.5, height: frame.height - 60)
     }
 }

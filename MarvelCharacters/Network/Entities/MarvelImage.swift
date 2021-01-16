@@ -14,5 +14,13 @@ struct MarvelImage: Codable {
     private enum CodingKeys : String, CodingKey {
         case path, fileExtension = "extension"
     }
+    
+    var imageUrl: String? {
+        guard let fileExtension = fileExtension, let path = path,
+              path.count > 0, fileExtension.count > 0 else {
+            return nil
+        }
+        return "\(path).\(fileExtension)"
+    }
 }
 

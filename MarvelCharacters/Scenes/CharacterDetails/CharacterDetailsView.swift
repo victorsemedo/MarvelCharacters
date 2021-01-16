@@ -36,11 +36,13 @@ class CharacterDetailsView: UIScrollView {
     
     lazy var comicsView: CarouselView = {
         let view = CarouselView()
+        view.titleLabel.text = Strings.comics.localizable.uppercased()
         return view
     }()
     
     lazy var seriesView: CarouselView = {
         let view = CarouselView()
+        view.titleLabel.text = Strings.series.localizable.uppercased()
         return view
     }()
     
@@ -63,6 +65,11 @@ class CharacterDetailsView: UIScrollView {
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        superview?.layoutSubviews()
+        contentSize = contentView.frame.size
     }
 }
 
@@ -108,20 +115,20 @@ extension CharacterDetailsView: ViewCode {
         favoriteView.heightAnchor.constraint(equalToConstant: 40).isActive = true
         favoriteView.heightAnchor.constraint(equalTo: favoriteView.widthAnchor).isActive = true
 
-        descriptionLabel.topAnchor.constraint(equalTo: detailsContentView.topAnchor, constant: 40).isActive = true
+        descriptionLabel.topAnchor.constraint(equalTo: detailsContentView.topAnchor, constant: 10).isActive = true
         descriptionLabel.leadingAnchor.constraint(equalTo: detailsContentView.leadingAnchor, constant: 20).isActive = true
         descriptionLabel.trailingAnchor.constraint(equalTo: detailsContentView.trailingAnchor, constant: -20).isActive = true
         
-        comicsView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 40).isActive = true
-        comicsView.leadingAnchor.constraint(equalTo: detailsContentView.leadingAnchor, constant: 20).isActive = true
-        comicsView.trailingAnchor.constraint(equalTo: detailsContentView.trailingAnchor, constant: -20).isActive = true
-        comicsView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        comicsView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10).isActive = true
+        comicsView.leadingAnchor.constraint(equalTo: detailsContentView.leadingAnchor).isActive = true
+        comicsView.trailingAnchor.constraint(equalTo: detailsContentView.trailingAnchor).isActive = true
+        comicsView.heightAnchor.constraint(equalToConstant: 250).isActive = true
 
-        seriesView.topAnchor.constraint(equalTo: comicsView.topAnchor, constant: 40).isActive = true
-        seriesView.leadingAnchor.constraint(equalTo: detailsContentView.leadingAnchor, constant: 20).isActive = true
-        seriesView.trailingAnchor.constraint(equalTo: detailsContentView.trailingAnchor, constant: -20).isActive = true
+        seriesView.topAnchor.constraint(equalTo: comicsView.bottomAnchor, constant: 10).isActive = true
+        seriesView.leadingAnchor.constraint(equalTo: detailsContentView.leadingAnchor).isActive = true
+        seriesView.trailingAnchor.constraint(equalTo: detailsContentView.trailingAnchor).isActive = true
         seriesView.bottomAnchor.constraint(equalTo: detailsContentView.bottomAnchor, constant: -20).isActive = true
-        seriesView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        seriesView.heightAnchor.constraint(equalToConstant: 250).isActive = true
     }
     
     func setupConfigurations() {

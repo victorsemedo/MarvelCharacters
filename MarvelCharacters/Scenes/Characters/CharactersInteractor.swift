@@ -38,9 +38,8 @@ extension CharactersInteractor: CharactersBusinessLogic {
     func loadNextPage(request: Characters.LoadNextPage.Request) {
         worker.loadNextPage(request: request) { (result) in
             switch result {
-            case .success(let response):
-                self.updateCharacters(withResponse: response.data.characters, reset: request.reset)
-                var response = Characters.LoadNextPage.Response(data: CharactersResponse(characters: self.characters))
+            case .success(var response):
+                self.updateCharacters(withResponse: response.characters, reset: request.reset)
                 response.favorites = self.getFavoritesIds()
                 self.presenter?.presentLoadNextPage(response: response)
             case .failure(let error):

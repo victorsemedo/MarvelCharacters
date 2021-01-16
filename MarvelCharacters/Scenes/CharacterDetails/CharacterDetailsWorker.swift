@@ -7,25 +7,37 @@
 
 import UIKit
 
-enum CharacterDetailsWorkerError: Error {
-    case systemUnavailable
-    case custom(message: String)
-    
-    var localizedDescription: String {
-        switch self {
-        case .systemUnavailable:
-            return "Sistema Indisponível"
-        case .custom(let message):
-            return message
-        }
-    }
-}
 
 protocol CharacterDetailsWorkLogic: class {
-
+    
+    func fetchComics(byId id: Int, result: @escaping (Result<[Comic], APIError>) -> Void)
+    
+    func fetchSeries(byId id: Int, result: @escaping (Result<[Serie], APIError>) -> Void)
+    
 }
 
 // MARK: Work Logic Protocol
 class CharacterDetailsWorker: CharacterDetailsWorkLogic {
     
+    func fetchComics(byId id: Int, result: @escaping (Result<[Comic], APIError>) -> Void) {
+        APIProvider.makeRequest(MarvelAPI.comics(String(id))) { (providerResult: Result<MarvelFetchListResponse<Comic>, APIError>) in
+            switch providerResult {
+            case .success(let response):
+                result(.success(response.data.results))
+            case .failure(let error):
+                result(.failure(error))
+            }
+        }
+    }
+    
+    func fetchSeries(byId id: Int, result: @escaping (Result<[Serie], APIError>) -> Void) {
+        APIProvider.makeRequest(MarvelAPI.series(String(id))) { (providerResult: Result<MarvelFetchListResponse<Serie>, APIError>) in
+            switch providerResult {
+            case .success(let response):
+                result(.success(response.data.results))
+            case .failure(let error):
+                result(.failure(error))
+            }
+        }
+    }
 }

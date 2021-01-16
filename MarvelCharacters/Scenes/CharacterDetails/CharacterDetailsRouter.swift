@@ -8,7 +8,6 @@
 import UIKit
 
 protocol CharacterDetailsRoutingLogic {
-    func routeToSomewhere()
 }
 
 protocol CharacterDetailsDataPassing {
@@ -27,7 +26,6 @@ class CharacterDetailsRouter: CharacterDetailsDataPassing {
 
 // MARK: Routing Logic Protocol
 extension CharacterDetailsRouter: CharacterDetailsRoutingLogic {
-    func routeToSomewhere() {
-    }
+    
 }
 

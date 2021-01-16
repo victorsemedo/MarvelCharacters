@@ -15,16 +15,10 @@ enum Characters {
             let searchName: String?
             let reset: Bool
         }
-        
-        struct Response: Codable {
-            let data: CharactersResponse
+        struct Response {
+            let characters: [Character]
             var favorites: [Int]?
-    
-            enum CodingKeys: String, CodingKey {
-                case data
-            }
         }
-        
         struct ViewModel {
             let characters: [CharactersCellProtocol]
         }
@@ -36,12 +30,10 @@ enum Characters {
             let isFavorite: Bool
             let image: UIImage?
         }
-        
         struct Response {
             let result: Bool
             let index: Int
         }
-        
         struct ViewModel {
             let result: Bool
             let index: Int

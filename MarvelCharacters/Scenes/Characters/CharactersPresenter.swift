@@ -24,11 +24,7 @@ class CharactersPresenter {
 extension CharactersPresenter: CharactersPresentationLogic {
     
     func presentLoadNextPage(response: Characters.LoadNextPage.Response) {
-        guard let characters = response.data.characters else {
-            viewController?.displayError()
-            return
-        }
-        let charactersViewModel: [CharactersCellProtocol] = characters.map {
+        let charactersViewModel: [CharactersCellProtocol] = response.characters.map {
             let cellData = CharacterCellData(character: $0)
             cellData.isFavorite = response.favorites?.contains($0.id) ?? false
             return cellData

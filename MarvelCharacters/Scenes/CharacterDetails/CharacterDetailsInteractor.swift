@@ -8,7 +8,9 @@
 import UIKit
 
 protocol CharacterDetailsBusinessLogic {
-    func loadData(request: CharacterDetails.LoadData.Request)
+    func loadCharacter(request: CharacterDetails.LoadCharacter.Request)
+    
+    func loadComicsSeries(request: CharacterDetails.LoadComicsSeries.Request)
 }
 
 protocol CharacterDetailsDataStore {
@@ -30,7 +32,33 @@ class CharacterDetailsInteractor: CharacterDetailsDataStore {
 
 //MARK: Business Logic Protocol
 extension CharacterDetailsInteractor: CharacterDetailsBusinessLogic {
-    func loadData(request: CharacterDetails.LoadData.Request) {
-        presenter?.presentData(response: CharacterDetails.LoadData.Response(character: character))
+    
+    func loadCharacter(request: CharacterDetails.LoadCharacter.Request) {
+        presenter?.presentCharacter(response: CharacterDetails.LoadCharacter.Response(character: character))
+    }
+    
+    func loadComicsSeries(request: CharacterDetails.LoadComicsSeries.Request) {
+        guard let id = character?.id else { return }
+        var comics = [Comic]()
+        var series = [Serie]()
+        
+        worker.fetchComics(byId: id) { (comicsResult) in
+            switch comicsResult {
+            case .success(let response):
+                comics.append(contentsOf: response)
+            case .failure(_):
+                break
+            }
+            self.worker.fetchSeries(byId: id) { (seriesResult) in
+                switch seriesResult {
+                case .success(let response):
+                    series.append(contentsOf: response)
+                case .failure(_):
+                    break
+                }
+                let response = CharacterDetails.LoadComicsSeries.Response.init(comics: comics, series: series)
+                self.presenter?.presentComicsAndSeries(response: response)
+            }
+        }
     }
 }

@@ -8,7 +8,11 @@
 import UIKit
 
 protocol CharacterDetailsDisplayLogic: class {
-    func displayData(viewModel: CharacterDetails.LoadData.ViewModel)
+    
+    func displayCharacter(viewModel: CharacterDetails.LoadCharacter.ViewModel)
+    
+    func displayComicsAndSeries(viewModel: CharacterDetails.LoadComicsSeries.ViewModel)
+    
 }
 
 class CharacterDetailsViewController: UIViewController {
@@ -23,7 +27,8 @@ class CharacterDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        interactor?.loadData(request: CharacterDetails.LoadData.Request())
+        interactor?.loadCharacter(request: CharacterDetails.LoadCharacter.Request())
+        interactor?.loadComicsSeries(request: CharacterDetails.LoadComicsSeries.Request())
     }
     
     // MARK: Architecture Setup
@@ -35,9 +40,14 @@ class CharacterDetailsViewController: UIViewController {
 
 // MARK: Display Logic Protocol
 extension CharacterDetailsViewController: CharacterDetailsDisplayLogic {
-    func displayData(viewModel: CharacterDetails.LoadData.ViewModel) {
+    func displayCharacter(viewModel: CharacterDetails.LoadCharacter.ViewModel) {
         customView.imageView.loadImage(fromUrl: viewModel.imageUrl ?? "")
         customView.descriptionLabel.text = viewModel.description
         title = viewModel.name
+    }
+    
+    func displayComicsAndSeries(viewModel: CharacterDetails.LoadComicsSeries.ViewModel) {
+        customView.comicsView.viewModel = CarouselView.ViewModel(cells: viewModel.comics)
+        customView.seriesView.viewModel = CarouselView.ViewModel(cells: viewModel.series)
     }
 }

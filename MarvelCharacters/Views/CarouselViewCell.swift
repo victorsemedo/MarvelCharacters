@@ -18,7 +18,7 @@ final class CarouselViewCell: UICollectionViewCell {
         let label = PaddingLabel()
         label.backgroundColor = .captainCelticBlue
         label.textColor = .white
-        label.font = UIFont.marvelFont(withSize: 16)
+        label.font = UIFont.marvelFont(withSize: 12)
         label.numberOfLines = 2
         return label
     }()
@@ -32,7 +32,7 @@ final class CarouselViewCell: UICollectionViewCell {
         
     var viewModel: CarouselCellProtocol? {
         didSet {
-            label.text = viewModel?.name?.uppercased()
+            label.text = viewModel?.title?.uppercased()
             if let image = viewModel?.image {
                 imageView.image = image
             } else if let imageUrl = viewModel?.imageUrl {
@@ -77,10 +77,10 @@ extension CarouselViewCell: ViewCode {
         imageView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         imageView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         imageView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        imageView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
         label.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.2).isActive = true
         label.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        label.topAnchor.constraint(equalTo: imageView.bottomAnchor).isActive = true
         label.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         label.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         

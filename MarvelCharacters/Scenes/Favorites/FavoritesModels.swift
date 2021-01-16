@@ -11,11 +11,9 @@ enum Favorites {
     enum FecthAll {
         struct Request {
         }
-        
         struct Response {
             let characters: [FavoriteCharacter]
         }
-        
         struct ViewModel {
             let characters: [CharactersCellProtocol]
         }
