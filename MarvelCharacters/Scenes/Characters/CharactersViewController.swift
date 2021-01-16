@@ -42,7 +42,7 @@ class CharactersViewController: UIViewController {
     }
     
     func setupView() {
-        title = "CHARACTERS"
+        title = Strings.characters.localizable.uppercased()
     }
 }
 

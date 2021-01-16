@@ -35,7 +35,7 @@ class FavoritesViewController: UIViewController {
     }
     
     func setupView() {
-        title = "FAVORITES"
+        title = Strings.favorites.localizable.uppercased()
     }
 }
 

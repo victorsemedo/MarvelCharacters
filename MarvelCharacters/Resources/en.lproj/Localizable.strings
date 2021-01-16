@@ -1,0 +1,11 @@
+/* 
+  Localize.strings
+  MarvelCharacters
+
+  Created by Victor Tavares on 16/01/21.
+  
+*/
+
+"characters" = "characters";
+"favorites" = "favorites";
+"search_by_name" = "Search by name";
