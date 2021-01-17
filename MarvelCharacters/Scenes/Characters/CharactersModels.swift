@@ -45,27 +45,11 @@ enum Characters {
             let index: Int
         }
     }
-}
-
-class CharacterCellData: CharactersCellProtocol {
     
-    let character: Character
-    
-    var name: String? {
-        return character.name
-    }
-    
-    var imageUrl: String? {
-        return "\(character.thumbnail?.path ?? "").\(character.thumbnail?.fileExtension ?? "")"
-    }
-    
-    var isFavorite: Bool = false
-    
-    var image: UIImage?
-
-    init(character: Character, image: UIImage? = nil, isFavorite: Bool = false) {
-        self.character = character
-        self.image = image
-        self.isFavorite = isFavorite
+    enum ReloadFavorites {
+        struct Request {
+        }
     }
 }
+
+extension Character: CharactersCellProtocol {}

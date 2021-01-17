@@ -11,3 +11,7 @@
 "search_by_name" = "Busca pelo nome";
 "comics" = "quadrinhos";
 "series" = "series";
+
+"error_decode_object" = "Erro na resposta recebida do servidor.";
+"error_no_connection" = "Verifique a conexão da sua internet.";
+"error_unknown" = "Ocorreu um error inesperado.";

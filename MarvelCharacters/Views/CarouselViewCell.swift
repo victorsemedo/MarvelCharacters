@@ -18,7 +18,7 @@ final class CarouselViewCell: UICollectionViewCell {
         let label = PaddingLabel()
         label.backgroundColor = .captainCelticBlue
         label.textColor = .white
-        label.font = UIFont.marvelFont(withSize: 12)
+        label.font = UIFont.systemFont(ofSize: 12)
         label.numberOfLines = 2
         return label
     }()
@@ -96,7 +96,7 @@ extension CarouselViewCell: ViewCode {
         contentView.layer.borderWidth = 1.0
         contentView.layer.borderColor = UIColor.primaryRed.cgColor
         contentView.layer.masksToBounds = true
-        
+
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 2.0)
         layer.shadowRadius = 2.0

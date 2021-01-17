@@ -22,14 +22,7 @@ class FavoritesPresenter {
 // MARK: Presentation Logic Protocol
 extension FavoritesPresenter: FavoritesPresentationLogic {
     func presentFetchAll(response: Favorites.FecthAll.Response) {
-        let charactersViewModel: [CharacterCellData] = response.characters.map {
-            var image: UIImage?
-            if let data = $0.img {
-                image = UIImage(data: data)
-            }
-            return CharacterCellData(character: $0.toCharacter(), image: image, isFavorite: true)
-        }
-        viewController?.displayFetchAll(viewModel: Favorites.FecthAll.ViewModel(characters: charactersViewModel))
+        viewController?.displayFetchAll(viewModel: Favorites.FecthAll.ViewModel(characters: response.characters))
     }
 }
 

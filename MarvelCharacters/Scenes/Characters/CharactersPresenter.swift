@@ -24,12 +24,7 @@ class CharactersPresenter {
 extension CharactersPresenter: CharactersPresentationLogic {
     
     func presentLoadNextPage(response: Characters.LoadNextPage.Response) {
-        let charactersViewModel: [CharactersCellProtocol] = response.characters.map {
-            let cellData = CharacterCellData(character: $0)
-            cellData.isFavorite = response.favorites?.contains($0.id) ?? false
-            return cellData
-        }
-        self.viewController?.displayLoadNextPage(viewModel: Characters.LoadNextPage.ViewModel(characters: charactersViewModel))
+        self.viewController?.displayLoadNextPage(viewModel: Characters.LoadNextPage.ViewModel(characters: response.characters))
     }
     
     func presentUpdateFavorite(request: Characters.UpdateFavorite.Response) {

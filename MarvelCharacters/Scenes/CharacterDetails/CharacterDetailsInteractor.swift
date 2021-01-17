@@ -9,8 +9,8 @@ import UIKit
 
 protocol CharacterDetailsBusinessLogic {
     func loadCharacter(request: CharacterDetails.LoadCharacter.Request)
-    
     func loadComicsSeries(request: CharacterDetails.LoadComicsSeries.Request)
+    func updateFavorite(request: CharacterDetails.UpdateFavorite.Request)
 }
 
 protocol CharacterDetailsDataStore {
@@ -61,4 +61,15 @@ extension CharacterDetailsInteractor: CharacterDetailsBusinessLogic {
             }
         }
     }
+    
+    func updateFavorite(request: CharacterDetails.UpdateFavorite.Request) {
+        if let character = character {
+            if request.isFavorite {
+                worker.saveFovoriteCharacter(character, image: request.image)
+            } else {
+                worker.deleteFavoriteCharacter(character)
+            }
+        }
+    }
+
 }

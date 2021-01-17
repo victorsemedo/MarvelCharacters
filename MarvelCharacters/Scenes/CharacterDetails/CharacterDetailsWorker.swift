@@ -8,7 +8,7 @@
 import UIKit
 
 
-protocol CharacterDetailsWorkLogic: class {
+protocol CharacterDetailsWorkLogic: FavoritesWorkLogic {
     
     func fetchComics(byId id: Int, result: @escaping (Result<[Comic], APIError>) -> Void)
     
@@ -17,7 +17,7 @@ protocol CharacterDetailsWorkLogic: class {
 }
 
 // MARK: Work Logic Protocol
-class CharacterDetailsWorker: CharacterDetailsWorkLogic {
+class CharacterDetailsWorker: FavoritesWorker, CharacterDetailsWorkLogic {
     
     func fetchComics(byId id: Int, result: @escaping (Result<[Comic], APIError>) -> Void) {
         APIProvider.makeRequest(MarvelAPI.comics(String(id))) { (providerResult: Result<MarvelFetchListResponse<Comic>, APIError>) in

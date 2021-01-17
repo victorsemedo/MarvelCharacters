@@ -11,3 +11,7 @@
 "search_by_name" = "Search by name";
 "comics" = "comics";
 "series" = "series";
+
+"error_decode_object" = "An error response was received from the server.";
+"error_no_connection" = "Check your internet connection.";
+"error_unknown" = "An unexpected error happened";

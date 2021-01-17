@@ -9,6 +9,7 @@ import UIKit
 
 protocol CharactersBusinessLogic {
     func loadNextPage(request: Characters.LoadNextPage.Request)
+    func reloadFavorites(request: Characters.ReloadFavorites.Request)
     func updateFavorite(request: Characters.UpdateFavorite.Request)
     func selectCharacter(request: Characters.SelectCharacter.Request)
 }
@@ -38,9 +39,10 @@ extension CharactersInteractor: CharactersBusinessLogic {
     func loadNextPage(request: Characters.LoadNextPage.Request) {
         worker.loadNextPage(request: request) { (result) in
             switch result {
-            case .success(var response):
-                self.updateCharacters(withResponse: response.characters, reset: request.reset)
-                response.favorites = self.getFavoritesIds()
+            case .success(let response):
+                let favorites = self.getFavoritesIds()
+                self.updateCharacters(withResponse: response.characters, favorites: favorites, reset: request.reset)
+                let response = Characters.LoadNextPage.Response(characters: self.characters, favorites: favorites)
                 self.presenter?.presentLoadNextPage(response: response)
             case .failure(let error):
                 break
@@ -48,7 +50,15 @@ extension CharactersInteractor: CharactersBusinessLogic {
         }
     }
     
+    func reloadFavorites(request: Characters.ReloadFavorites.Request) {
+        let favorites = self.getFavoritesIds()
+        self.updateCharacters(withResponse: characters, favorites: favorites, reset: true)
+        let response = Characters.LoadNextPage.Response(characters: self.characters, favorites: favorites)
+        self.presenter?.presentLoadNextPage(response: response)
+    }
+    
     func updateFavorite(request: Characters.UpdateFavorite.Request) {
+        characters[request.index].isFavorite = request.isFavorite
         let character = characters[request.index]
         if request.isFavorite {
             worker.saveFovoriteCharacter(character, image: request.image)
@@ -60,7 +70,6 @@ extension CharactersInteractor: CharactersBusinessLogic {
     func selectCharacter(request: Characters.SelectCharacter.Request) {
         selectedCharacter = characters[request.index]
     }
-    
 }
 
 private extension CharactersInteractor {
@@ -70,8 +79,14 @@ private extension CharactersInteractor {
         return favorites.map { $0.id }
     }
     
-    func updateCharacters(withResponse response: [Character]?, reset: Bool) {
-        guard let response = response else { return }
+    func updateCharacters(withResponse response: [Character]?, favorites: [Int]?, reset: Bool) {
+        guard var response = response else { return }
+        
+        if let favorites = favorites {
+            for index in response.indices {
+                response[index].isFavorite = favorites.contains(response[index].id)
+            }
+        }
         
         if reset {
             characters = response

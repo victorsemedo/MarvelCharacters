@@ -9,6 +9,8 @@ import UIKit
 
 protocol FavoritesBusinessLogic {
     func fecthAll(request: Favorites.FecthAll.Request)
+    func selectCharacter(request: Favorites.SelectCharacter.Request)
+    func updateFavorite(request: Favorites.UpdateFavorite.Request)
 }
 
 protocol FavoritesDataStore {
@@ -20,6 +22,7 @@ class FavoritesInteractor: FavoritesDataStore {
     private var worker: FavoritesWorkLogic
     
     var selectedCharacter: Character?
+    private var favoriteCharacters = [Character]()
 
     init(presenter: FavoritesPresentationLogic, worker: FavoritesWorkLogic) {
         self.presenter = presenter
@@ -30,7 +33,20 @@ class FavoritesInteractor: FavoritesDataStore {
 //MARK: Business Logic Protocol
 extension FavoritesInteractor: FavoritesBusinessLogic {
     func fecthAll(request: Favorites.FecthAll.Request) {
-        let favorites = MarvelDataProvider.fetchFavoriteCharacters()
-        presenter?.presentFetchAll(response: Favorites.FecthAll.Response(characters: favorites))
+        favoriteCharacters = worker.loadFavoriteCharacters()
+        presenter?.presentFetchAll(response: Favorites.FecthAll.Response(characters: favoriteCharacters))
+    }
+    
+    func selectCharacter(request: Favorites.SelectCharacter.Request) {
+        selectedCharacter = favoriteCharacters[request.index]
+    }
+    
+    func updateFavorite(request: Favorites.UpdateFavorite.Request) {
+        let character = favoriteCharacters[request.index]
+        if request.isFavorite {
+            worker.saveFovoriteCharacter(character, image: request.image)
+        } else {
+            worker.deleteFavoriteCharacter(character)
+        }
     }
 }

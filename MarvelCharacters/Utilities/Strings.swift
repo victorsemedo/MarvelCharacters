@@ -30,4 +30,7 @@ enum Strings: String, Localizable {
     case searchByName = "search_by_name"
     case comics
     case series
+    case errorDecodeObject = "error_decode_object"
+    case errorNoConnection = "error_no_connection"
+    case errorUnknown = "error_unknown"
 }

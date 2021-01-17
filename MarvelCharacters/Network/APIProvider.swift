@@ -23,7 +23,7 @@ class APIProvider {
             task.resume()
         } catch let error {
             guard let error = error as? APIError else {
-                DispatchQueue.main.async {completion(.failure(.unowned))}
+                DispatchQueue.main.async {completion(.failure(.unknown))}
                 return
             }
             DispatchQueue.main.async {completion(.failure(error))}

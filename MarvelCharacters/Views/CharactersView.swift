@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
 protocol CharactersCellProtocol {
     var name: String? { get }
@@ -19,6 +20,10 @@ protocol CharactersViewDelegate: AnyObject {
     func didUpdateSearchBar(_ view: CharactersView)
     func didUpdateFavorite(_ view: CharactersView, forIndexPath indexPath: IndexPath, withValue value: Bool)
     func didSelectItemAt(_ view: CharactersView, forIndexPath indexPath: IndexPath)
+}
+
+extension CharactersViewDelegate {
+    func willDisplayLastCell(_ view: CharactersView) { }
 }
 
 final class CharactersView: UIView {

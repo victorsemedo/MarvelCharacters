@@ -19,6 +19,7 @@ enum CharacterDetails {
             let description: String?
             let imageUrl: String?
             let image: UIImage?
+            let isFavorite: Bool?
         }
     }
     
@@ -32,6 +33,19 @@ enum CharacterDetails {
         struct ViewModel {
             let comics: [CarouselCellProtocol]
             let series: [CarouselCellProtocol]
+        }
+    }
+    
+    enum UpdateFavorite {
+        struct Request {
+            let isFavorite: Bool
+            let image: UIImage?
+        }
+        struct Response {
+            let result: Bool
+        }
+        struct ViewModel {
+            let result: Bool
         }
     }
 }

@@ -28,7 +28,8 @@ extension CharacterDetailsPresenter: CharacterDetailsPresentationLogic {
         let viewModel = CharacterDetails.LoadCharacter.ViewModel(name: response.character?.name,
                                                                  description: response.character?.description,
                                                                  imageUrl: response.character?.imageUrl,
-                                                                 image: nil)
+                                                                 image: response.character?.image,
+                                                                 isFavorite: response.character?.isFavorite)
         viewController?.displayCharacter(viewModel: viewModel)
     }
     

@@ -7,9 +7,23 @@
 
 import Foundation
 
-enum APIError: Error {
-    case badURL
+enum APIError {
     case noConnection
     case decodeObject
-    case unowned
+    case badURL
+    case unknown
+}
+
+extension APIError: LocalizedError {
+    
+    var errorDescription: String? {
+        switch self {
+        case .decodeObject:
+            return Strings.errorDecodeObject.localizable
+        case .noConnection:
+            return Strings.errorNoConnection.localizable
+        default:
+            return Strings.errorUnknown.localizable
+        }
+    }
 }

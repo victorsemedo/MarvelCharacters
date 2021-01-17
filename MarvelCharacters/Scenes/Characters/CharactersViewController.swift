@@ -18,7 +18,7 @@ class CharactersViewController: UIViewController {
     private var interactor: CharactersBusinessLogic?
     private var router: CharactersRoutingLogic?
     private var customView = CharactersView()
-    private var viewModel: Characters.LoadNextPage.ViewModel?
+    
     private var currentPage = 0
     private var isLoading = false
     
@@ -33,6 +33,13 @@ class CharactersViewController: UIViewController {
         isLoading = true
         let request = Characters.LoadNextPage.Request(page: currentPage, searchName: nil, reset: true)
         interactor?.loadNextPage(request: request)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if !isLoading {
+            isLoading = true
+            interactor?.reloadFavorites(request: Characters.ReloadFavorites.Request())
+        }
     }
     
     // MARK: Architecture Setup
@@ -96,5 +103,7 @@ extension CharactersViewController: CharactersViewDelegate {
         let request = Characters.UpdateFavorite.Request(index: indexPath.row, isFavorite: value, image: cell?.imageView.image)
         interactor?.updateFavorite(request: request)
     }
-
+    
 }
+
+

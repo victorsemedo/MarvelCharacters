@@ -78,6 +78,8 @@ extension CarouselView: ViewCode {
     
     func setupConfigurations() {
         backgroundColor = UIColor.light
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false
         collectionView.backgroundColor = UIColor.light
         collectionView.delegate = self
         collectionView.dataSource = self

@@ -31,6 +31,8 @@ class CharacterDetailsView: UIScrollView {
     
     lazy var descriptionLabel: UILabel = {
         let view = UILabel()
+        view.textColor = UIColor.darkGray
+        view.font = UIFont.systemFont(ofSize: 12)
         return view
     }()
     
@@ -112,10 +114,10 @@ extension CharacterDetailsView: ViewCode {
         
         favoriteView.centerYAnchor.constraint(equalTo: detailsContentView.topAnchor).isActive = true
         favoriteView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -40).isActive = true
-        favoriteView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        favoriteView.heightAnchor.constraint(equalToConstant: 80).isActive = true
         favoriteView.heightAnchor.constraint(equalTo: favoriteView.widthAnchor).isActive = true
 
-        descriptionLabel.topAnchor.constraint(equalTo: detailsContentView.topAnchor, constant: 10).isActive = true
+        descriptionLabel.topAnchor.constraint(equalTo: favoriteView.bottomAnchor, constant: 10).isActive = true
         descriptionLabel.leadingAnchor.constraint(equalTo: detailsContentView.leadingAnchor, constant: 20).isActive = true
         descriptionLabel.trailingAnchor.constraint(equalTo: detailsContentView.trailingAnchor, constant: -20).isActive = true
         

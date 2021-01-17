@@ -23,6 +23,7 @@ class CharacterDetailsViewController: UIViewController {
     
     override func loadView() {
         view = customView
+        customView.customDelegate = self
     }
     
     override func viewDidLoad() {
@@ -41,7 +42,12 @@ class CharacterDetailsViewController: UIViewController {
 // MARK: Display Logic Protocol
 extension CharacterDetailsViewController: CharacterDetailsDisplayLogic {
     func displayCharacter(viewModel: CharacterDetails.LoadCharacter.ViewModel) {
-        customView.imageView.loadImage(fromUrl: viewModel.imageUrl ?? "")
+        if let image = viewModel.image {
+            customView.imageView.image = image
+        } else if let imageUrl = viewModel.imageUrl, imageUrl.count > 0 {
+            customView.imageView.loadImage(fromUrl: imageUrl)
+        }
+        customView.favoriteView.isFilled = viewModel.isFavorite ?? false
         customView.descriptionLabel.text = viewModel.description
         title = viewModel.name
     }
@@ -49,5 +55,12 @@ extension CharacterDetailsViewController: CharacterDetailsDisplayLogic {
     func displayComicsAndSeries(viewModel: CharacterDetails.LoadComicsSeries.ViewModel) {
         customView.comicsView.viewModel = CarouselView.ViewModel(cells: viewModel.comics)
         customView.seriesView.viewModel = CarouselView.ViewModel(cells: viewModel.series)
+    }
+}
+
+extension CharacterDetailsViewController: CharacterDetailsViewDelegate {
+    
+    func setFavorite(_ view: CharacterDetailsView, value: Bool) {
+        interactor?.updateFavorite(request: CharacterDetails.UpdateFavorite.Request(isFavorite: value, image: view.imageView.image))
     }
 }

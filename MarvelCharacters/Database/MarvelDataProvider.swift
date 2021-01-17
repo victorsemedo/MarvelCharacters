@@ -6,11 +6,18 @@
 //
 
 import CoreData
+import UIKit
 
 extension FavoriteCharacter {
     
     func toCharacter() -> Character {
-        return Character(id: Int(id), name: name, description: desc, thumbnail: nil)
+        var character = Character(id: Int(id), name: name, description: desc)
+        character.isFavorite = true
+        character.imageUrl = imgUrl
+        if let data = img {
+            character.image = UIImage(data: data)
+        }
+        return character
     }
 }
 
