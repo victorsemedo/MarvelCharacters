@@ -10,23 +10,28 @@ import Foundation
 class APIProvider {
     
     static func makeRequest<T:Codable>(_ request: HTTPRequestParams, completion: @escaping (Result<T, APIError>) -> Void) {
-        let session = URLSession.shared
-        do {
-            let request = try request.asURLRequest()
-            let task = session.dataTask(with: request) { (data, response, error) in
-                if let data = data, let responseData: T = APIProvider.decodeFormData(data: data) {
-                    DispatchQueue.main.async {completion(.success(responseData))}
-                } else {
-                    DispatchQueue.main.async {completion(.failure(.decodeObject))}
+        
+        if !Reachability.isConnectedToNetwork() {
+            completion(.failure(.noConnection))
+        } else {
+            let session = URLSession.shared
+            do {
+                let request = try request.asURLRequest()
+                let task = session.dataTask(with: request) { (data, response, error) in
+                    if let data = data, let responseData: T = APIProvider.decodeFormData(data: data) {
+                        DispatchQueue.main.async {completion(.success(responseData))}
+                    } else {
+                        DispatchQueue.main.async {completion(.failure(.decodeObject))}
+                    }
                 }
+                task.resume()
+            } catch let error {
+                guard let error = error as? APIError else {
+                    DispatchQueue.main.async {completion(.failure(.unknown))}
+                    return
+                }
+                DispatchQueue.main.async {completion(.failure(error))}
             }
-            task.resume()
-        } catch let error {
-            guard let error = error as? APIError else {
-                DispatchQueue.main.async {completion(.failure(.unknown))}
-                return
-            }
-            DispatchQueue.main.async {completion(.failure(error))}
         }
     }
     

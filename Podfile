@@ -8,8 +8,7 @@ target 'MarvelCharacters' do
 
   # Pods for MarvelCharacters
   pod 'Kingfisher', '~> 6.0'
-  pod 'NVActivityIndicatorView', '~> 5.1.1'
-
+  
   target 'MarvelCharactersTests' do
     inherit! :search_paths
     # Pods for testing

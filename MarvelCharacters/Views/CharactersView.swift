@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import NVActivityIndicatorView
 
 protocol CharactersCellProtocol {
     var name: String? { get }
