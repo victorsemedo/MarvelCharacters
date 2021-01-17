@@ -31,6 +31,8 @@ class CharactersViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         isLoading = true
+        customView.refreshControl.beginRefreshing()
+        customView.collectionView.contentOffset = CGPoint.init(x: 0, y: -customView.refreshControl.frame.size.height)            
         let request = Characters.LoadNextPage.Request(page: currentPage, searchName: nil, reset: true)
         interactor?.loadNextPage(request: request)
     }
@@ -62,6 +64,7 @@ extension CharactersViewController: CharactersDisplayLogic {
     
     func displayLoadNextPage(viewModel: Characters.LoadNextPage.ViewModel) {
         isLoading = false
+        customView.refreshControl.endRefreshing()
         customView.viewModel = CharactersView.ViewModel(cells: viewModel.characters)
     }
     
@@ -102,6 +105,14 @@ extension CharactersViewController: CharactersViewDelegate {
         let cell = view.collectionView.cellForItem(at: indexPath) as? CharactersViewCell
         let request = Characters.UpdateFavorite.Request(index: indexPath.row, isFavorite: value, image: cell?.imageView.image)
         interactor?.updateFavorite(request: request)
+    }
+    
+    func didPullToRefresh(_ view: CharactersView) {
+        view.refreshControl.beginRefreshing()
+        currentPage = 0
+        let searchName = (view.searchBar.text?.count ?? 0) > 0 ? view.searchBar.text : nil
+        let request = Characters.LoadNextPage.Request(page: currentPage, searchName: searchName, reset: true)
+        interactor?.loadNextPage(request: request)
     }
     
 }

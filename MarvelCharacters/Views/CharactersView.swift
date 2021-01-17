@@ -20,6 +20,7 @@ protocol CharactersViewDelegate: AnyObject {
     func didUpdateSearchBar(_ view: CharactersView)
     func didUpdateFavorite(_ view: CharactersView, forIndexPath indexPath: IndexPath, withValue value: Bool)
     func didSelectItemAt(_ view: CharactersView, forIndexPath indexPath: IndexPath)
+    func didPullToRefresh(_ view: CharactersView)
 }
 
 extension CharactersViewDelegate {
@@ -32,6 +33,12 @@ final class CharactersView: UIView {
         let cells:[CharactersCellProtocol]
     }
     
+    lazy var refreshControl: UIRefreshControl = {
+        let view = UIRefreshControl()
+        view.tintColor = UIColor.captainCelticBlue
+        return view
+    }()
+
     lazy var searchBar: UISearchBar = {
         let view = UISearchBar()
         view.placeholder = Strings.searchByName.localizable
@@ -68,12 +75,20 @@ final class CharactersView: UIView {
     }
 }
 
+private extension CharactersView {
+    
+    @objc private func didPullToRefresh(_ sender: Any) {
+        delegate?.didPullToRefresh(self)
+    }
+}
+
 // MARK: View Code Protocol
 extension CharactersView: ViewCode {
     
     func setupHierarchy() {
         addSubview(collectionView)
         addSubview(searchBar)
+        collectionView.refreshControl = refreshControl
     }
     
     func setupConstraints() {
@@ -94,7 +109,9 @@ extension CharactersView: ViewCode {
         searchBar.barTintColor = UIColor.light
         searchBar.layer.borderWidth = 1;
         searchBar.layer.borderColor = UIColor.light.cgColor
+        refreshControl.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
         collectionView.backgroundColor = UIColor.light
+        collectionView.alwaysBounceVertical = true
         collectionView.delegate = self
         collectionView.dataSource = self
     }

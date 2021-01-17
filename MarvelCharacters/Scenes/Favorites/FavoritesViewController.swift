@@ -25,6 +25,7 @@ final class FavoritesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupView()
+        customView.refreshControl.beginRefreshing()
         interactor?.fecthAll(request: Favorites.FecthAll.Request())
     }
     
@@ -42,6 +43,7 @@ final class FavoritesViewController: UIViewController {
 // MARK: Display Logic Protocol
 extension FavoritesViewController: FavoritesDisplayLogic {
     func displayFetchAll(viewModel: Favorites.FecthAll.ViewModel) {
+        customView.refreshControl.endRefreshing()
         customView.viewModel = CharactersView.ViewModel(cells: viewModel.characters)
     }
 }
@@ -64,6 +66,11 @@ extension FavoritesViewController: CharactersViewDelegate {
         interactor?.updateFavorite(request: request)
         interactor?.fecthAll(request: Favorites.FecthAll.Request())
     }
-
+    
+    func didPullToRefresh(_ view: CharactersView) {
+        view.refreshControl.beginRefreshing()
+        interactor?.fecthAll(request: Favorites.FecthAll.Request())
+    }
+    
 }
 

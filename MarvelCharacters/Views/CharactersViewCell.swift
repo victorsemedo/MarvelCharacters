@@ -72,7 +72,7 @@ final class CharactersViewCell: UICollectionViewCell {
 
 private extension CharactersViewCell {
     
-    @objc func onStarButtonClick(_ sender: StarView) -> Void {
+    @objc private func onStarButtonClick(_ sender: StarView) -> Void {
         sender.toogleFill()
         delegate?.setFavorite(self, value: sender.isFilled)
     }
