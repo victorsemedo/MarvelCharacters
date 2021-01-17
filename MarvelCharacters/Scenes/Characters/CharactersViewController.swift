@@ -31,8 +31,8 @@ class CharactersViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         isLoading = true
+        customView.collectionView.contentOffset = CGPoint.init(x: 0, y: -customView.refreshControl.frame.size.height)
         customView.refreshControl.beginRefreshing()
-        customView.collectionView.contentOffset = CGPoint.init(x: 0, y: -customView.refreshControl.frame.size.height)            
         let request = Characters.LoadNextPage.Request(page: currentPage, searchName: nil, reset: true)
         interactor?.loadNextPage(request: request)
     }
