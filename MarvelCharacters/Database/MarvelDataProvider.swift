@@ -23,61 +23,62 @@ extension FavoriteCharacter {
 
 final class MarvelDataProvider {
     
-    static func fetchFavoriteCharacter(withId id: Int) -> FavoriteCharacter? {
+    static func fetchFavoriteCharacter(withId id: Int) throws -> FavoriteCharacter? {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoriteCharacter")
-        let predicate = NSPredicate(format: "id = %ld", id)
-        request.predicate = predicate
+        request.predicate = NSPredicate(format: "id = %ld", id)
         
-        do {
-            if let result = try DataProvider.shareInstance.context.fetch(request) as? [FavoriteCharacter],
-               result.count > 0 {
-                return result[0]
-            }
-        } catch {
-            print("Failed")
+        if let result = try DataProvider.shareInstance.context.fetch(request) as? [FavoriteCharacter],
+           result.count > 0 {
+            return result[0]
         }
         
         return nil
     }
     
-    static func saveFavoriteCharacter(_ character: Character, image: Data?) {
-        var favoriteCharacter = MarvelDataProvider.fetchFavoriteCharacter(withId: character.id)
-        
-        if favoriteCharacter == nil {
-            favoriteCharacter = NSEntityDescription.insertNewObject(forEntityName: "FavoriteCharacter", into: DataProvider.shareInstance.context) as? FavoriteCharacter
-        }
-        favoriteCharacter?.id = Int32(character.id)
-        favoriteCharacter?.name = character.name
-        favoriteCharacter?.desc = character.description
-        favoriteCharacter?.imgUrl = "\(character.thumbnail?.path ?? "").\(character.thumbnail?.fileExtension ?? "")"
-        favoriteCharacter?.img = image
-        
+    static func saveFavoriteCharacter(_ character: Character, image: Data?) -> DataProviderError? {
         do {
+            var favoriteCharacter = try MarvelDataProvider.fetchFavoriteCharacter(withId: character.id)
+            
+            if favoriteCharacter == nil {
+                favoriteCharacter = NSEntityDescription.insertNewObject(forEntityName: "FavoriteCharacter", into: DataProvider.shareInstance.context) as? FavoriteCharacter
+            }
+            favoriteCharacter?.id = Int32(character.id)
+            favoriteCharacter?.name = character.name
+            favoriteCharacter?.desc = character.description
+            favoriteCharacter?.imgUrl = "\(character.thumbnail?.path ?? "").\(character.thumbnail?.fileExtension ?? "")"
+            favoriteCharacter?.img = image
+            
             try DataProvider.shareInstance.context.save()
+            
         } catch {
-            print("Failed")
+            return DataProviderError.save
         }
-    }
-    
-    static func deleteFavoriteCharacter(withId id: Int) -> Bool {
-        if let favoriteCharacter = MarvelDataProvider.fetchFavoriteCharacter(withId: id) {
-            DataProvider.shareInstance.context.delete(favoriteCharacter)
-            return true
-        }
-        return false
-    }
-    
-    static func fetchFavoriteCharacters() -> [FavoriteCharacter] {
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoriteCharacter")
         
+        return nil
+    }
+    
+    static func deleteFavoriteCharacter(withId id: Int) -> DataProviderError? {
         do {
-            if let result = try DataProvider.shareInstance.context.fetch(request) as? [FavoriteCharacter]{
-                return result
-            } else {
-                return [FavoriteCharacter]()
+            if let favoriteCharacter = try MarvelDataProvider.fetchFavoriteCharacter(withId: id) {
+                DataProvider.shareInstance.context.delete(favoriteCharacter)
+                try DataProvider.shareInstance.context.save()
             }
         } catch {
-            print("Failed")
+            return DataProviderError.delete
+        }
+
+        return nil
+    }
+    
+    static func fetchFavoriteCharacters(byName name: String?) throws -> [FavoriteCharacter] {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoriteCharacter")
+        request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        if let filterName = name, filterName.count > 0 {
+            request.predicate = NSPredicate(format: "name LIKE %@", filterName)
+        }
+        
+        if let result = try DataProvider.shareInstance.context.fetch(request) as? [FavoriteCharacter] {
+            return result
         }
         
         return [FavoriteCharacter]()

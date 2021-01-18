@@ -17,10 +17,10 @@ enum Characters {
         }
         struct Response {
             let characters: [Character]
-            var favorites: [Int]?
         }
         struct ViewModel {
             let characters: [CharactersCellProtocol]
+            let emptyType: CharactersEmptyType?
         }
     }
     
@@ -43,6 +43,7 @@ enum Characters {
     enum SelectCharacter {
         struct Request {
             let index: Int
+            
         }
     }
     

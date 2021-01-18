@@ -37,33 +37,52 @@ class CharactersInteractor: CharactersDataStore {
 extension CharactersInteractor: CharactersBusinessLogic {
     
     func loadNextPage(request: Characters.LoadNextPage.Request) {
+        var charactersResponse = [Character]()
         worker.loadNextPage(request: request) { (result) in
             switch result {
             case .success(let response):
-                let favorites = self.getFavoritesIds()
-                self.updateCharacters(withResponse: response.characters, favorites: favorites, reset: request.reset)
-                let response = Characters.LoadNextPage.Response(characters: self.characters, favorites: favorites)
-                self.presenter?.presentLoadNextPage(response: response)
+                charactersResponse = response.characters
+                self.getFavoritesIds { (idsResult) in
+                    switch idsResult {
+                    case .success(let favorites):
+                        self.updateCharacters(withResponse: charactersResponse, favorites: favorites, reset: request.reset)
+                        let response = Characters.LoadNextPage.Response(characters: self.characters)
+                        self.presenter?.presentLoadNextPage(response: response)
+                    case .failure(let error):
+                        self.presenter?.presentError(error: error)
+                    }
+                }
+                
             case .failure(let error):
-                break
+                self.presenter?.presentError(error: error)
             }
         }
     }
     
     func reloadFavorites(request: Characters.ReloadFavorites.Request) {
-        let favorites = self.getFavoritesIds()
-        self.updateCharacters(withResponse: characters, favorites: favorites, reset: true)
-        let response = Characters.LoadNextPage.Response(characters: self.characters, favorites: favorites)
-        self.presenter?.presentLoadNextPage(response: response)
+        self.getFavoritesIds { (result) in
+            switch result {
+            case .success(let favorites):
+                self.updateCharacters(withResponse: self.characters, favorites: favorites, reset: true)
+                let response = Characters.LoadNextPage.Response(characters: self.characters)
+                self.presenter?.presentLoadNextPage(response: response)
+            case .failure(let error):
+                self.presenter?.presentError(error: error)
+            }
+        }
     }
     
     func updateFavorite(request: Characters.UpdateFavorite.Request) {
         characters[request.index].isFavorite = request.isFavorite
         let character = characters[request.index]
         if request.isFavorite {
-            worker.saveFovoriteCharacter(character, image: request.image)
+            worker.saveFovoriteCharacter(character, image: request.image) { (result) in
+                self.validateUpdateFavoriteResult(index: request.index, result: result)
+            }
         } else {
-            worker.deleteFavoriteCharacter(character)
+            worker.deleteFavoriteCharacter(character) { (result) in
+                self.validateUpdateFavoriteResult(index: request.index, result: result)
+            }
         }
     }
     
@@ -74,9 +93,25 @@ extension CharactersInteractor: CharactersBusinessLogic {
 
 private extension CharactersInteractor {
     
-    func getFavoritesIds() -> [Int] {
-        let favorites = worker.loadFavoriteCharacters()
-        return favorites.map { $0.id }
+    func validateUpdateFavoriteResult(index: Int, result: Result<Bool, DataProviderError>) {
+        switch result {
+        case .success(let value):
+            let response = Characters.UpdateFavorite.Response(result: value, index: index)
+            self.presenter?.presentUpdateFavorite(response: response)
+        case .failure(let error):
+            self.presenter?.presentError(error: error)
+        }
+    }
+    
+    func getFavoritesIds(completion: @escaping (Result<[Int], DataProviderError>) -> Void) {
+        worker.loadFavoriteCharacters(byName: nil) { (result) in
+            switch result {
+            case .success(let favorites):
+                completion(.success(favorites.map { $0.id }))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
     }
     
     func updateCharacters(withResponse response: [Character]?, favorites: [Int]?, reset: Bool) {

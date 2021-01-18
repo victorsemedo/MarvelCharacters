@@ -10,6 +10,8 @@ import UIKit
 protocol CharacterDetailsPresentationLogic {
     func presentCharacter(response: CharacterDetails.LoadCharacter.Response)
     func presentComicsAndSeries(response: CharacterDetails.LoadComicsSeries.Response)
+    func presentUpdateFavorite(response: CharacterDetails.UpdateFavorite.Response)
+    func presentError(error: Error)
 }
 
 class CharacterDetailsPresenter {
@@ -23,7 +25,6 @@ class CharacterDetailsPresenter {
 // MARK: Presentation Logic Protocol
 extension CharacterDetailsPresenter: CharacterDetailsPresentationLogic {
     
-    
     func presentCharacter(response: CharacterDetails.LoadCharacter.Response) {
         let viewModel = CharacterDetails.LoadCharacter.ViewModel(name: response.character?.name,
                                                                  description: response.character?.description,
@@ -35,6 +36,15 @@ extension CharacterDetailsPresenter: CharacterDetailsPresentationLogic {
     
     func presentComicsAndSeries(response: CharacterDetails.LoadComicsSeries.Response) {
         self.viewController?.displayComicsAndSeries(viewModel: CharacterDetails.LoadComicsSeries.ViewModel(comics: response.comics, series: response.series))
+    }
+    
+    func presentUpdateFavorite(response: CharacterDetails.UpdateFavorite.Response) {
+        let viewModel = CharacterDetails.UpdateFavorite.ViewModel(result: response.result)
+        viewController?.displayUpdateFavorite(viewModel: viewModel)
+    }
+    
+    func presentError(error: Error) {
+        
     }
 }
 

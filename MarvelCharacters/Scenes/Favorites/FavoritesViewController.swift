@@ -9,6 +9,8 @@ import UIKit
 
 protocol FavoritesDisplayLogic: class {
     func displayFetchAll(viewModel: Favorites.FecthAll.ViewModel)
+    func displayUpdateFavorite(viewModel: Favorites.UpdateFavorite.ViewModel)
+
 }
 
 final class FavoritesViewController: UIViewController {
@@ -26,7 +28,7 @@ final class FavoritesViewController: UIViewController {
         super.viewWillAppear(animated)
         setupView()
         customView.refreshControl.beginRefreshing()
-        interactor?.fecthAll(request: Favorites.FecthAll.Request())
+        interactor?.fecthAll(request: Favorites.FecthAll.Request(filterName: customView.searchBar.text))
     }
     
     // MARK: Architecture Setup
@@ -42,9 +44,18 @@ final class FavoritesViewController: UIViewController {
 
 // MARK: Display Logic Protocol
 extension FavoritesViewController: FavoritesDisplayLogic {
+    func displayUpdateFavorite(viewModel: Favorites.UpdateFavorite.ViewModel) {
+        if !viewModel.result {
+            let indexPath = IndexPath(row: viewModel.index, section: 0)
+            if let cell = customView.collectionView.cellForItem(at: indexPath) as? CharactersViewCell {
+                cell.favoriteView.toogleFill()
+            }
+        }
+    }
+    
     func displayFetchAll(viewModel: Favorites.FecthAll.ViewModel) {
         customView.refreshControl.endRefreshing()
-        customView.viewModel = CharactersView.ViewModel(cells: viewModel.characters)
+        customView.viewModel = CharactersView.ViewModel(cells: viewModel.characters, emptyType: viewModel.emptyType)
     }
 }
 
@@ -64,13 +75,12 @@ extension FavoritesViewController: CharactersViewDelegate {
         let cell = view.collectionView.cellForItem(at: indexPath) as? CharactersViewCell
         let request = Favorites.UpdateFavorite.Request(index: indexPath.row, isFavorite: value, image: cell?.imageView.image)
         interactor?.updateFavorite(request: request)
-        interactor?.fecthAll(request: Favorites.FecthAll.Request())
+        interactor?.fecthAll(request: Favorites.FecthAll.Request(filterName: customView.searchBar.text))
     }
     
     func didPullToRefresh(_ view: CharactersView) {
         view.refreshControl.beginRefreshing()
-        interactor?.fecthAll(request: Favorites.FecthAll.Request())
+        interactor?.fecthAll(request: Favorites.FecthAll.Request(filterName: customView.searchBar.text))
     }
-    
 }
 

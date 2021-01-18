@@ -10,9 +10,8 @@ import UIKit
 protocol CharacterDetailsDisplayLogic: class {
     
     func displayCharacter(viewModel: CharacterDetails.LoadCharacter.ViewModel)
-    
     func displayComicsAndSeries(viewModel: CharacterDetails.LoadComicsSeries.ViewModel)
-    
+    func displayUpdateFavorite(viewModel: CharacterDetails.UpdateFavorite.ViewModel)
 }
 
 class CharacterDetailsViewController: UIViewController {
@@ -41,6 +40,7 @@ class CharacterDetailsViewController: UIViewController {
 
 // MARK: Display Logic Protocol
 extension CharacterDetailsViewController: CharacterDetailsDisplayLogic {
+    
     func displayCharacter(viewModel: CharacterDetails.LoadCharacter.ViewModel) {
         if let image = viewModel.image {
             customView.imageView.image = image
@@ -55,6 +55,12 @@ extension CharacterDetailsViewController: CharacterDetailsDisplayLogic {
     func displayComicsAndSeries(viewModel: CharacterDetails.LoadComicsSeries.ViewModel) {
         customView.comicsView.viewModel = CarouselView.ViewModel(cells: viewModel.comics)
         customView.seriesView.viewModel = CarouselView.ViewModel(cells: viewModel.series)
+    }
+    
+    func displayUpdateFavorite(viewModel: CharacterDetails.UpdateFavorite.ViewModel) {
+        if !viewModel.result {
+            customView.favoriteView.toogleFill()
+        }
     }
 }
 

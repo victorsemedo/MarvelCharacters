@@ -9,8 +9,8 @@ import UIKit
 
 protocol CharactersDisplayLogic: class {
     func displayLoadNextPage(viewModel: Characters.LoadNextPage.ViewModel)
-    func displayError()
-    func displayUpdateFavorite(request: Characters.UpdateFavorite.ViewModel)
+    func displayError(emptyType: CharactersEmptyType)
+    func displayUpdateFavorite(viewModel: Characters.UpdateFavorite.ViewModel)
 }
 
 class CharactersViewController: UIViewController {
@@ -38,7 +38,7 @@ class CharactersViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if !isLoading {
+        if !isLoading, (customView.viewModel?.cells.count ?? 0) > 0 {
             isLoading = true
             interactor?.reloadFavorites(request: Characters.ReloadFavorites.Request())
         }
@@ -58,20 +58,27 @@ class CharactersViewController: UIViewController {
 // MARK: Display Logic Protocol
 extension CharactersViewController: CharactersDisplayLogic {
     
-    func displayError() {
-        
+    func displayError(emptyType: CharactersEmptyType) {
+        isLoading = false
+        customView.refreshControl.endRefreshing()
+        customView.viewModel = CharactersView.ViewModel(cells: [CharactersCellProtocol](),
+                                                        emptyType: emptyType)
     }
     
     func displayLoadNextPage(viewModel: Characters.LoadNextPage.ViewModel) {
         isLoading = false
         customView.refreshControl.endRefreshing()
-        customView.viewModel = CharactersView.ViewModel(cells: viewModel.characters)
+        customView.viewModel = CharactersView.ViewModel(cells: viewModel.characters, emptyType: viewModel.emptyType)
     }
     
-    func displayUpdateFavorite(request: Characters.UpdateFavorite.ViewModel) {
-        
+    func displayUpdateFavorite(viewModel: Characters.UpdateFavorite.ViewModel) {
+        if !viewModel.result {
+            let indexPath = IndexPath(row: viewModel.index, section: 0)
+            if let cell = customView.collectionView.cellForItem(at: indexPath) as? CharactersViewCell {
+                cell.favoriteView.toogleFill()
+            }
+        }
     }
-    
 }
 
 // MARK: CharactersViewDelegate

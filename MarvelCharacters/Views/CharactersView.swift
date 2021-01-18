@@ -30,6 +30,7 @@ final class CharactersView: UIView {
     
     struct ViewModel {
         let cells:[CharactersCellProtocol]
+        let emptyType: CharactersEmptyType?
     }
     
     lazy var refreshControl: UIRefreshControl = {
@@ -113,13 +114,25 @@ extension CharactersView: ViewCode {
         collectionView.alwaysBounceVertical = true
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false
+        
     }
 }
 
 extension CharactersView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel?.cells.count ?? 0
+        let itemsCount = viewModel?.cells.count ?? 0
+        let emptyView = CharactersEmptyView()
+        if let emptyType = viewModel?.emptyType {
+            emptyView.type = emptyType
+            collectionView.setEmptyView(emptyView)
+            return 0
+        } else {
+            (itemsCount > 0 || refreshControl.isRefreshing) ? collectionView.restore() : collectionView.setEmptyView(emptyView)
+            return itemsCount
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

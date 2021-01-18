@@ -65,11 +65,29 @@ extension CharacterDetailsInteractor: CharacterDetailsBusinessLogic {
     func updateFavorite(request: CharacterDetails.UpdateFavorite.Request) {
         if let character = character {
             if request.isFavorite {
-                worker.saveFovoriteCharacter(character, image: request.image)
+                worker.saveFovoriteCharacter(character, image: request.image) { (result) in
+                    self.validateUpdateFavoriteResult(result)
+                }
             } else {
-                worker.deleteFavoriteCharacter(character)
+                worker.deleteFavoriteCharacter(character) { (result) in
+                    self.validateUpdateFavoriteResult(result)
+                }
             }
         }
     }
-
+    
 }
+
+private extension CharacterDetailsInteractor {
+
+    func validateUpdateFavoriteResult(_ result: Result<Bool, DataProviderError>) {
+        switch result {
+        case .success(let value):
+            let response = CharacterDetails.UpdateFavorite.Response(result: value)
+            self.presenter?.presentUpdateFavorite(response: response)
+        case .failure(let error):
+            self.presenter?.presentError(error: error)
+        }
+    }
+}
+

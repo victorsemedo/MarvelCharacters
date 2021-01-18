@@ -30,7 +30,12 @@ enum Strings: String, Localizable {
     case searchByName = "search_by_name"
     case comics
     case series
-    case errorDecodeObject = "error_decode_object"
+    case tryAgain = "try_again"
     case errorNoConnection = "error_no_connection"
     case errorUnknown = "error_unknown"
+    case errorDataSave = "error_data_save"
+    case errorDataFetch = "error_data_fetch"
+    case errorDataDelete = "error_data_delete"
+    case errorDataUnknown = "error_data_unknown"
+    case noFavorites = "no_favorites"
 }

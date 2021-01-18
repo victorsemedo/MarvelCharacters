@@ -8,26 +8,39 @@
 import UIKit
 
 protocol FavoritesWorkLogic: class {
-    func saveFovoriteCharacter(_ character: Character, image: UIImage?)
+    func saveFovoriteCharacter(_ character: Character, image: UIImage?, result: @escaping (Result<Bool, DataProviderError>) -> Void)
     
-    func deleteFavoriteCharacter(_ character: Character)
+    func deleteFavoriteCharacter(_ character: Character, result: @escaping (Result<Bool, DataProviderError>) -> Void)
     
-    func loadFavoriteCharacters() -> [Character]
+    func loadFavoriteCharacters(byName name: String?, result: @escaping (Result<[Character], DataProviderError>) -> Void)
 }
 
 // MARK: Work Logic Protocol
 class FavoritesWorker: FavoritesWorkLogic {
-    func saveFovoriteCharacter(_ character: Character, image: UIImage?) {
+    
+    func saveFovoriteCharacter(_ character: Character, image: UIImage?, result: @escaping (Result<Bool, DataProviderError>) -> Void) {
         let data = image?.jpegData(compressionQuality: 1.0)
-        MarvelDataProvider.saveFavoriteCharacter(character, image: data)
+        if let error = MarvelDataProvider.saveFavoriteCharacter(character, image: data) {
+            result(.failure(error))
+        } else {
+            result(.success(true))
+        }
     }
     
-    func deleteFavoriteCharacter(_ character: Character) {
-        _ = MarvelDataProvider.deleteFavoriteCharacter(withId: character.id)
+    func deleteFavoriteCharacter(_ character: Character, result: @escaping (Result<Bool, DataProviderError>) -> Void) {
+        if let error = MarvelDataProvider.deleteFavoriteCharacter(withId: character.id) {
+            result(.failure(error))
+        } else {
+            result(.success(true))
+        }
     }
     
-    func loadFavoriteCharacters() -> [Character] {
-        let characters = MarvelDataProvider.fetchFavoriteCharacters()
-        return characters.map {$0.toCharacter()}
+    func loadFavoriteCharacters(byName name: String?, result: @escaping (Result<[Character], DataProviderError>) -> Void) {
+        do {
+            let characters = try MarvelDataProvider.fetchFavoriteCharacters(byName: name)
+            result(.success(characters.map {$0.toCharacter()}))
+        } catch {
+            result(.failure(DataProviderError.fetch))
+        }
     }
 }

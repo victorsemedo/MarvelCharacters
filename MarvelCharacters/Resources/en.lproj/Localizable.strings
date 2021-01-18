@@ -11,7 +11,13 @@
 "search_by_name" = "Search by name";
 "comics" = "comics";
 "series" = "series";
+"try_again" = "Try Again";
+"no_favorites" = "No characters have been favored yet";
 
-"error_decode_object" = "An error response was received from the server.";
 "error_no_connection" = "Check your internet connection.";
-"error_unknown" = "An unexpected error happened";
+"error_unknown" = "OH NO!\nHYDRA stole this page from the S.H.I.E.L.D database!";
+
+"error_data_save" = "An error occurred while saving local data.";
+"error_data_fetch" = "An error occurred while loading local data.";
+"error_data_delete" = "An error occurred while deleting local data.";
+"error_data_unknown" = "An error occurred while handling local data.";

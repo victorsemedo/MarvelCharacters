@@ -10,12 +10,14 @@ import UIKit
 enum Favorites {
     enum FecthAll {
         struct Request {
+            let filterName: String?
         }
         struct Response {
             let characters: [Character]
         }
         struct ViewModel {
             let characters: [CharactersCellProtocol]
+            let emptyType: CharactersEmptyType?
         }
     }
     

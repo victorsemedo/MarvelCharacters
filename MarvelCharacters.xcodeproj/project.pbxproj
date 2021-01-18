@@ -10,6 +10,10 @@
 		035314BA1DD560AE73582780 /* Pods_MarvelCharacters_MarvelCharactersUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78FAEF4821A47B970437B407 /* Pods_MarvelCharacters_MarvelCharactersUITests.framework */; };
 		5812E14025AD48AD00A0CA3E /* MarvelImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5812E13F25AD48AD00A0CA3E /* MarvelImage.swift */; };
 		5812E14525AD521B00A0CA3E /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5812E14425AD521B00A0CA3E /* UIImageView+Extensions.swift */; };
+		584EDB1B25B49E2500D39EA2 /* UICollectionView+Extesions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584EDB1A25B49E2500D39EA2 /* UICollectionView+Extesions.swift */; };
+		584EDB2025B49EC800D39EA2 /* CarouselEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584EDB1F25B49EC800D39EA2 /* CarouselEmptyView.swift */; };
+		584EDB2525B49ED700D39EA2 /* CharactersEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584EDB2425B49ED700D39EA2 /* CharactersEmptyView.swift */; };
+		584EDB4425B4E65300D39EA2 /* DataProviderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584EDB4325B4E65300D39EA2 /* DataProviderError.swift */; };
 		586245A625AE9A00000EE28E /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586245A525AE9A00000EE28E /* PaddingLabel.swift */; };
 		586245B225AEA20A000EE28E /* FavoritesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586245AA25AEA20A000EE28E /* FavoritesFactory.swift */; };
 		586245B325AEA20A000EE28E /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586245AB25AEA20A000EE28E /* FavoritesPresenter.swift */; };
@@ -95,6 +99,10 @@
 		39A6B13FACCF4931C0380289 /* Pods-MarvelCharactersTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelCharactersTests.debug.xcconfig"; path = "Target Support Files/Pods-MarvelCharactersTests/Pods-MarvelCharactersTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5812E13F25AD48AD00A0CA3E /* MarvelImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelImage.swift; sourceTree = "<group>"; };
 		5812E14425AD521B00A0CA3E /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
+		584EDB1A25B49E2500D39EA2 /* UICollectionView+Extesions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extesions.swift"; sourceTree = "<group>"; };
+		584EDB1F25B49EC800D39EA2 /* CarouselEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselEmptyView.swift; sourceTree = "<group>"; };
+		584EDB2425B49ED700D39EA2 /* CharactersEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersEmptyView.swift; sourceTree = "<group>"; };
+		584EDB4325B4E65300D39EA2 /* DataProviderError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviderError.swift; sourceTree = "<group>"; };
 		586245A525AE9A00000EE28E /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		586245AA25AEA20A000EE28E /* FavoritesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesFactory.swift; sourceTree = "<group>"; };
 		586245AB25AEA20A000EE28E /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
@@ -229,6 +237,7 @@
 				58F85FC225A9539C00A17781 /* MarvelCharacters.xcdatamodeld */,
 				586245C825AEA7BC000EE28E /* DataProvider.swift */,
 				586245CD25AEAF4D000EE28E /* MarvelDataProvider.swift */,
+				584EDB4325B4E65300D39EA2 /* DataProviderError.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -241,6 +250,7 @@
 				58B1C4DE25ABE853002A82E7 /* UIColor+Palette.swift */,
 				5812E14425AD521B00A0CA3E /* UIImageView+Extensions.swift */,
 				588DEDEE25B114D00026349C /* UIFont+Custom.swift */,
+				584EDB1A25B49E2500D39EA2 /* UICollectionView+Extesions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -424,6 +434,8 @@
 				586245A525AE9A00000EE28E /* PaddingLabel.swift */,
 				588DEE0625B1303C0026349C /* CarouselView.swift */,
 				588DEE0B25B1328D0026349C /* CarouselViewCell.swift */,
+				584EDB1F25B49EC800D39EA2 /* CarouselEmptyView.swift */,
+				584EDB2425B49ED700D39EA2 /* CharactersEmptyView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -707,6 +719,7 @@
 				58F8603025A960CE00A17781 /* CharactersTabViewController.swift in Sources */,
 				58B1C48825AB9C53002A82E7 /* MarvelAPIConstants.swift in Sources */,
 				586245B625AEA20A000EE28E /* FavoritesModels.swift in Sources */,
+				584EDB1B25B49E2500D39EA2 /* UICollectionView+Extesions.swift in Sources */,
 				58B1C49F25ABBB11002A82E7 /* MarvelFetchListResponse.swift in Sources */,
 				58B1C48025AB9807002A82E7 /* String+Extensions.swift in Sources */,
 				58F8601525A95CC600A17781 /* CharactersInteractor.swift in Sources */,
@@ -714,10 +727,12 @@
 				588DEE0C25B1328D0026349C /* CarouselViewCell.swift in Sources */,
 				58B1C4F225ABF061002A82E7 /* CharactersViewCell.swift in Sources */,
 				58B1C4D225ABD7FE002A82E7 /* Character.swift in Sources */,
+				584EDB4425B4E65300D39EA2 /* DataProviderError.swift in Sources */,
 				586245B325AEA20A000EE28E /* FavoritesPresenter.swift in Sources */,
 				58F8601125A95CC600A17781 /* CharactersWorker.swift in Sources */,
 				588DEE0725B1303C0026349C /* CarouselView.swift in Sources */,
 				58B1C4E425ABE8DF002A82E7 /* UIColor+Extensions.swift in Sources */,
+				584EDB2025B49EC800D39EA2 /* CarouselEmptyView.swift in Sources */,
 				588DEE0125B12D420026349C /* CharacterDetailsInteractor.swift in Sources */,
 				586245B725AEA20A000EE28E /* FavoritesViewController.swift in Sources */,
 				58BC519725B2AC4300F3AA3D /* Serie.swift in Sources */,
@@ -733,6 +748,7 @@
 				588DEDFD25B12D420026349C /* CharacterDetailsWorker.swift in Sources */,
 				588DEDEF25B114D00026349C /* UIFont+Custom.swift in Sources */,
 				586245B825AEA20A000EE28E /* FavoritesInteractor.swift in Sources */,
+				584EDB2525B49ED700D39EA2 /* CharactersEmptyView.swift in Sources */,
 				5812E14025AD48AD00A0CA3E /* MarvelImage.swift in Sources */,
 				58F8601425A95CC600A17781 /* CharactersViewController.swift in Sources */,
 				586245B425AEA20A000EE28E /* FavoritesWorker.swift in Sources */,

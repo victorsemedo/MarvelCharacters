@@ -22,5 +22,12 @@ extension UIImageView {
     func cancel() {
         kf.cancelDownloadTask()
     }
+    
+    func rederize(image named: String, color: UIColor) {
+        let image = UIImage(named: named)?.withRenderingMode(.alwaysTemplate)
+        image?.withRenderingMode(.alwaysOriginal)
+        tintColor = color
+        self.image = image
+    }
 }
 

@@ -18,8 +18,6 @@ extension APIError: LocalizedError {
     
     var errorDescription: String? {
         switch self {
-        case .decodeObject:
-            return Strings.errorDecodeObject.localizable
         case .noConnection:
             return Strings.errorNoConnection.localizable
         default:
