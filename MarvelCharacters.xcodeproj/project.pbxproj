@@ -10,6 +10,9 @@
 		035314BA1DD560AE73582780 /* Pods_MarvelCharacters_MarvelCharactersUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78FAEF4821A47B970437B407 /* Pods_MarvelCharacters_MarvelCharactersUITests.framework */; };
 		5812E14025AD48AD00A0CA3E /* MarvelImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5812E13F25AD48AD00A0CA3E /* MarvelImage.swift */; };
 		5812E14525AD521B00A0CA3E /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5812E14425AD521B00A0CA3E /* UIImageView+Extensions.swift */; };
+		583935C025B6721C002E2460 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583935BF25B6721C002E2460 /* AppGroup.swift */; };
+		583935C525B6784B002E2460 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583935BF25B6721C002E2460 /* AppGroup.swift */; };
+		583935CC25B690E8002E2460 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583935CB25B690E8002E2460 /* Color+Extensions.swift */; };
 		584EDB1B25B49E2500D39EA2 /* UICollectionView+Extesions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584EDB1A25B49E2500D39EA2 /* UICollectionView+Extesions.swift */; };
 		584EDB2025B49EC800D39EA2 /* CarouselEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584EDB1F25B49EC800D39EA2 /* CarouselEmptyView.swift */; };
 		584EDB2525B49ED700D39EA2 /* CharactersEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584EDB2425B49ED700D39EA2 /* CharactersEmptyView.swift */; };
@@ -130,6 +133,10 @@
 		39A6B13FACCF4931C0380289 /* Pods-MarvelCharactersTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelCharactersTests.debug.xcconfig"; path = "Target Support Files/Pods-MarvelCharactersTests/Pods-MarvelCharactersTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5812E13F25AD48AD00A0CA3E /* MarvelImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelImage.swift; sourceTree = "<group>"; };
 		5812E14425AD521B00A0CA3E /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
+		5839359D25B66EC4002E2460 /* MarvelCharacters.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MarvelCharacters.entitlements; sourceTree = "<group>"; };
+		583935B625B67095002E2460 /* MarvelCharactersWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MarvelCharactersWidgetExtension.entitlements; sourceTree = "<group>"; };
+		583935BF25B6721C002E2460 /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
+		583935CB25B690E8002E2460 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		584EDB1A25B49E2500D39EA2 /* UICollectionView+Extesions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extesions.swift"; sourceTree = "<group>"; };
 		584EDB1F25B49EC800D39EA2 /* CarouselEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselEmptyView.swift; sourceTree = "<group>"; };
 		584EDB2425B49ED700D39EA2 /* CharactersEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersEmptyView.swift; sourceTree = "<group>"; };
@@ -267,9 +274,18 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		583935CA25B690CC002E2460 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				583935CB25B690E8002E2460 /* Color+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		584EDB9825B5463700D39EA2 /* MarvelCharactersWidget */ = {
 			isa = PBXGroup;
 			children = (
+				583935CA25B690CC002E2460 /* Extensions */,
 				584EDB9925B5463700D39EA2 /* MarvelCharactersWidget.swift */,
 				584EDB9B25B5463800D39EA2 /* Assets.xcassets */,
 				584EDB9D25B5463800D39EA2 /* Info.plist */,
@@ -353,6 +369,7 @@
 		58F85FAD25A9539C00A17781 = {
 			isa = PBXGroup;
 			children = (
+				583935B625B67095002E2460 /* MarvelCharactersWidgetExtension.entitlements */,
 				58F85FB825A9539C00A17781 /* MarvelCharacters */,
 				58F85FD225A9539D00A17781 /* MarvelCharactersTests */,
 				58F85FDD25A9539D00A17781 /* MarvelCharactersUITests */,
@@ -377,6 +394,7 @@
 		58F85FB825A9539C00A17781 /* MarvelCharacters */ = {
 			isa = PBXGroup;
 			children = (
+				5839359D25B66EC4002E2460 /* MarvelCharacters.entitlements */,
 				5880D8F525AAB72700D7F71E /* Database */,
 				5880D8F425AAB6F300D7F71E /* Network */,
 				58F85FF825A95A7900A17781 /* Views */,
@@ -472,6 +490,7 @@
 				58F8601A25A95CF500A17781 /* Protocols */,
 				586245BD25AEA426000EE28E /* Reachability.swift */,
 				58BC515825B2A10900F3AA3D /* Strings.swift */,
+				583935BF25B6721C002E2460 /* AppGroup.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -797,8 +816,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				584EDBCC25B5484500D39EA2 /* CharactersWidgetView.swift in Sources */,
+				583935C525B6784B002E2460 /* AppGroup.swift in Sources */,
 				584EDBB025B5473700D39EA2 /* Character.swift in Sources */,
 				584EDBC625B547DB00D39EA2 /* CharactersWidgetContent.swift in Sources */,
+				583935CC25B690E8002E2460 /* Color+Extensions.swift in Sources */,
 				584EDBDA25B550F500D39EA2 /* MarvelImage.swift in Sources */,
 				584EDB9A25B5463700D39EA2 /* MarvelCharactersWidget.swift in Sources */,
 			);
@@ -816,6 +837,7 @@
 				5812E14525AD521B00A0CA3E /* UIImageView+Extensions.swift in Sources */,
 				588DEDFC25B12D420026349C /* CharacterDetailsPresenter.swift in Sources */,
 				58B1C4FA25ABFD8A002A82E7 /* StarView.swift in Sources */,
+				583935C025B6721C002E2460 /* AppGroup.swift in Sources */,
 				58F8601025A95CC600A17781 /* CharactersPresenter.swift in Sources */,
 				58F8601225A95CC600A17781 /* CharactersRouter.swift in Sources */,
 				586245B225AEA20A000EE28E /* FavoritesFactory.swift in Sources */,
@@ -932,7 +954,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = MarvelCharactersWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W7R2Y43P89;
 				INFOPLIST_FILE = MarvelCharactersWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -953,6 +977,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = MarvelCharactersWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MarvelCharactersWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1094,7 +1119,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = MarvelCharacters/MarvelCharacters.entitlements;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = W7R2Y43P89;
 				INFOPLIST_FILE = MarvelCharacters/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1102,6 +1129,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.semedo.MarvelCharacters;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1114,7 +1142,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MarvelCharacters/MarvelCharacters.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MarvelCharacters/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1122,6 +1153,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.semedo.MarvelCharacters;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

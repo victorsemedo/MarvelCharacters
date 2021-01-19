@@ -8,6 +8,7 @@
 import UIKit
 
 protocol CharactersBusinessLogic {
+    var selectedCharacterIndex: Int? {get set}
     func loadNextPage(request: Characters.LoadNextPage.Request)
     func reloadFavorites(request: Characters.ReloadFavorites.Request)
     func updateFavorite(request: Characters.UpdateFavorite.Request)
@@ -23,10 +24,11 @@ class CharactersInteractor: CharactersDataStore {
     private var worker: CharactersWorkLogic
     
     var selectedCharacter: Character?
-    
     private var currentPage =  0
     private var characters = [Character]()
-    
+    private var hasSavedCharacters = false
+    var selectedCharacterIndex: Int? = nil
+
     init(presenter: CharactersPresentationLogic, worker: CharactersWorkLogic) {
         self.presenter = presenter
         self.worker = worker
@@ -35,7 +37,7 @@ class CharactersInteractor: CharactersDataStore {
 
 //MARK: Business Logic Protocol
 extension CharactersInteractor: CharactersBusinessLogic {
-    
+
     func loadNextPage(request: Characters.LoadNextPage.Request) {
         var charactersResponse = [Character]()
         worker.loadNextPage(request: request) { (result) in
@@ -127,6 +129,24 @@ private extension CharactersInteractor {
             characters = response
         } else {
             characters.append(contentsOf: response)
+        }
+        saveFirstCharacters()
+    }
+    
+    func saveFirstCharacters() {
+        if characters.count > 0 && !hasSavedCharacters {
+            let widgetContent = CharactersWidgetContent(characters: Array(characters.prefix(3)))
+            
+            let archiveURL = AppGroup.characters.filePath(.firstCharacters)
+            if let dataToSave = try? JSONEncoder().encode(widgetContent) {
+                do {
+                    try dataToSave.write(to: archiveURL)
+                    hasSavedCharacters =  true
+                } catch {
+                    print("Error: Can't write first characters")
+                    return
+                }
+            }
         }
     }
 }

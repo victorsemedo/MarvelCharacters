@@ -69,6 +69,12 @@ extension CharactersViewController: CharactersDisplayLogic {
         isLoading = false
         customView.refreshControl.endRefreshing()
         customView.viewModel = CharactersView.ViewModel(cells: viewModel.characters, emptyType: viewModel.emptyType)
+        
+        if let selectedCharacterIndex = interactor?.selectedCharacterIndex {
+            interactor?.selectedCharacterIndex = nil
+            interactor?.selectCharacter(request: Characters.SelectCharacter.Request(index: selectedCharacterIndex))
+            router?.routeToDetails()
+        }
     }
     
     func displayUpdateFavorite(viewModel: Characters.UpdateFavorite.ViewModel) {

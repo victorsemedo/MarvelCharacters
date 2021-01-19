@@ -14,41 +14,85 @@ struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> CharactersWidgetContent {
         snapshotEntry
     }
-
+    
     func getSnapshot(in context: Context, completion: @escaping (CharactersWidgetContent) -> ()) {
         let entry = snapshotEntry
         completion(entry)
     }
-
+    
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-//        var entries: [CharactersWidgetContent] = []
-//
-//        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-//        let currentDate = Date()
-//        for hourOffset in 0 ..< 5 {
-//            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-//            let entry = CharactersWidgetContent(date: entryDate)
-//            entries.append(entry)
-//        }
-
-        let entries = [snapshotEntry]
-        let timeline = Timeline(entries: entries, policy: .atEnd)
-        completion(timeline)
+        var entry = readContent()
+        let currentDate = Date()
+        let interval = 1
+        
+        entry.date = Calendar.current.date(byAdding: .second, value: 1, to: currentDate)!
+        
+        let imageRequestGroup = DispatchGroup()
+        for index in 0..<entry.characters.count {
+            imageRequestGroup.enter()
+            self.getCharacterImage(character: entry.characters[index]) { (image) in
+                entry.characters[index].image = image
+                imageRequestGroup.leave()
+            }
+        }
+        
+        imageRequestGroup.notify(queue: .main) {
+            let timeline = Timeline(entries: [entry], policy: .atEnd)
+            completion(timeline)
+        }
     }
     
+    func readContent() -> CharactersWidgetContent {
+        var content: CharactersWidgetContent = snapshotEntry
+        
+        let archiveURL = AppGroup.characters.filePath(.firstCharacters)
+        
+        if let codeData = try? Data(contentsOf: archiveURL) {
+            do {
+                content = try JSONDecoder().decode(CharactersWidgetContent.self, from: codeData)
+            } catch {
+                print("Error: Can't decode CharactersWidgetContent")
+            }
+        }
+        
+        for index in 0..<content.characters.count {
+            self.getCharacterImage(character: content.characters[index]) { (image) in
+                content.characters[index].image = image
+            }
+        }
+        
+        return content
+    }
     
+    func getCharacterImage(character: Character, completion: @escaping (UIImage?) -> ()) {
+        guard let imageUrl = character.imageUrl,
+              let url = URL(string: imageUrl) else {
+            completion(nil)
+            return
+        }
+        URLSession.shared.dataTask(with: url) { (data, respose, error) in
+            guard let data = data, error == nil else {
+                completion(nil)
+                return
+            }
+            completion(UIImage(data: data))
+        }.resume()
+    }
 }
 
 @main
 struct MarvelCharactersWidget: Widget {
+    
     private let kind: String = "MarvelCharactersWidget"
-
+    
     var body: some WidgetConfiguration {
         StaticConfiguration(
             kind: kind,
             provider: Provider()
         ) { entry in
             CharactersWidgetView(model: entry)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color.captainCelticBlue)
         }
         .configurationDisplayName("Marvel Characters")
         .description("The first three characters")
