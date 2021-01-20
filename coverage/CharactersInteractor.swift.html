@@ -150,7 +150,7 @@
 <tr class="covered">
 <td class="num">28</td>
 <td class="src"><pre><code class="objc">    private var characters = [Character]()</code></pre></td>
-<td class="coverage">9x</td>
+<td class="coverage">8x</td>
 </tr>
 <tr class="never">
 <td class="num">29</td>
@@ -170,22 +170,22 @@
 <tr class="covered">
 <td class="num">32</td>
 <td class="src"><pre><code class="objc">    init(presenter: CharactersPresentationLogic, worker: CharactersWorkLogic) {</code></pre></td>
-<td class="coverage">9x</td>
+<td class="coverage">8x</td>
 </tr>
 <tr class="covered">
 <td class="num">33</td>
 <td class="src"><pre><code class="objc">        self.presenter = presenter</code></pre></td>
-<td class="coverage">9x</td>
+<td class="coverage">8x</td>
 </tr>
 <tr class="covered">
 <td class="num">34</td>
 <td class="src"><pre><code class="objc">        self.worker = worker</code></pre></td>
-<td class="coverage">9x</td>
+<td class="coverage">8x</td>
 </tr>
 <tr class="covered">
 <td class="num">35</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">9x</td>
+<td class="coverage">8x</td>
 </tr>
 <tr class="never">
 <td class="num">36</td>
@@ -230,52 +230,52 @@
 <tr class="covered">
 <td class="num">44</td>
 <td class="src"><pre><code class="objc">            switch result {</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">45</td>
 <td class="src"><pre><code class="objc">            case .success(let response):</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">46</td>
 <td class="src"><pre><code class="objc">                charactersResponse = response.characters</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">47</td>
 <td class="src"><pre><code class="objc">                self.getFavoritesIds { (idsResult) in</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">48</td>
 <td class="src"><pre><code class="objc">                    switch idsResult {</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">49</td>
 <td class="src"><pre><code class="objc">                    case .success(let favorites):</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">50</td>
 <td class="src"><pre><code class="objc">                        self.updateCharacters(withResponse: charactersResponse, favorites: favorites, reset: request.reset)</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">51</td>
 <td class="src"><pre><code class="objc">                        let response = Characters.LoadNextPage.Response(characters: self.characters)</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">52</td>
 <td class="src"><pre><code class="objc">                        self.presenter?.presentLoadNextPage(response: response)</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">53</td>
 <td class="src"><pre><code class="objc">                    case .failure(let error):</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="missed">
 <td class="num">54</td>
@@ -285,22 +285,22 @@
 <tr class="covered">
 <td class="num">55</td>
 <td class="src"><pre><code class="objc">                    }</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">56</td>
 <td class="src"><pre><code class="objc">                }</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">57</td>
 <td class="src"><pre><code class="objc">                </code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">58</td>
 <td class="src"><pre><code class="objc">            case .failure(let error):</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="missed">
 <td class="num">59</td>
@@ -310,12 +310,12 @@
 <tr class="covered">
 <td class="num">60</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">61</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">62</td>
@@ -550,22 +550,22 @@
 <tr class="covered">
 <td class="num">108</td>
 <td class="src"><pre><code class="objc">    func getFavoritesIds(completion: @escaping (Result&lt;[Int], DataProviderError&gt;) -&gt; Void) {</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">109</td>
 <td class="src"><pre><code class="objc">        worker.loadFavoriteCharacters(byName: nil) { (result) in</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">110</td>
 <td class="src"><pre><code class="objc">            switch result {</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">111</td>
 <td class="src"><pre><code class="objc">            case .success(let favorites):</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">112</td>
@@ -575,7 +575,7 @@
 <tr class="covered">
 <td class="num">113</td>
 <td class="src"><pre><code class="objc">            case .failure(let error):</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="missed">
 <td class="num">114</td>
@@ -585,17 +585,17 @@
 <tr class="covered">
 <td class="num">115</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">116</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">117</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="never">
 <td class="num">118</td>
@@ -605,62 +605,62 @@
 <tr class="covered">
 <td class="num">119</td>
 <td class="src"><pre><code class="objc">    func updateCharacters(withResponse response: [Character]?, favorites: [Int]?, reset: Bool) {</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">120</td>
 <td class="src"><pre><code class="objc">        guard var response = response else { return }</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">121</td>
 <td class="src"><pre><code class="objc">        </code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">122</td>
 <td class="src"><pre><code class="objc">        if let favorites = favorites {</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">123</td>
 <td class="src"><pre><code class="objc">            for index in response.indices {</code></pre></td>
-<td class="coverage">40x</td>
+<td class="coverage">20x</td>
 </tr>
 <tr class="covered">
 <td class="num">124</td>
 <td class="src"><pre><code class="objc">                response[index].isFavorite = favorites.contains(response[index].id)</code></pre></td>
-<td class="coverage">40x</td>
+<td class="coverage">20x</td>
 </tr>
 <tr class="covered">
 <td class="num">125</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">40x</td>
+<td class="coverage">20x</td>
 </tr>
 <tr class="covered">
 <td class="num">126</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">127</td>
 <td class="src"><pre><code class="objc">        </code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">128</td>
 <td class="src"><pre><code class="objc">        if reset {</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">129</td>
 <td class="src"><pre><code class="objc">            characters = response</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">130</td>
 <td class="src"><pre><code class="objc">        } else {</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="missed">
 <td class="num">131</td>
@@ -670,17 +670,17 @@
 <tr class="covered">
 <td class="num">132</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">133</td>
 <td class="src"><pre><code class="objc">        saveFirstCharacters()</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">134</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="never">
 <td class="num">135</td>
@@ -690,52 +690,52 @@
 <tr class="covered">
 <td class="num">136</td>
 <td class="src"><pre><code class="objc">    func saveFirstCharacters() {</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">137</td>
 <td class="src"><pre><code class="objc">        if characters.count &gt; 0 &amp;&amp; !hasSavedCharacters {</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">138</td>
 <td class="src"><pre><code class="objc">            let widgetContent = CharactersWidgetContent(characters: Array(characters.prefix(3)))</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">139</td>
 <td class="src"><pre><code class="objc">            </code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">140</td>
 <td class="src"><pre><code class="objc">            let archiveURL = AppGroup.characters.filePath(.firstCharacters)</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">141</td>
 <td class="src"><pre><code class="objc">            if let dataToSave = try? JSONEncoder().encode(widgetContent) {</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">142</td>
 <td class="src"><pre><code class="objc">                do {</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">143</td>
 <td class="src"><pre><code class="objc">                    try dataToSave.write(to: archiveURL)</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">144</td>
 <td class="src"><pre><code class="objc">                    hasSavedCharacters =  true</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">145</td>
 <td class="src"><pre><code class="objc">                } catch {</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="missed">
 <td class="num">146</td>
@@ -750,22 +750,22 @@
 <tr class="covered">
 <td class="num">148</td>
 <td class="src"><pre><code class="objc">                }</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">149</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">150</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">151</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="never">
 <td class="num">152</td>

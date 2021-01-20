@@ -11,7 +11,6 @@ class FavoritesPresenterSpy {
     var presentFetchAllCalled = false
     var presentUpdateFavoriteCalled = false
     var presentErrorCalled = false
-
 }
 
 extension FavoritesPresenterSpy: FavoritesPresentationLogic {

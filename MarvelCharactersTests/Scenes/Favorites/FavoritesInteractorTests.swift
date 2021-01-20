@@ -28,8 +28,5 @@ class FavoritesInteractorTests: XCTestCase {
         sut = nil
         super.tearDown()
     }
-    
-    // MARK: Tests
-    func testDoSomething() {
-    }
+
 }

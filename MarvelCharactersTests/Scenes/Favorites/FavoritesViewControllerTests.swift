@@ -29,8 +29,5 @@ class FavoritesViewControllerTests: XCTestCase {
         sut = nil
         super.tearDown()
     }
-    
-    // MARK: Tests
-    func testDisplaySomething() {
-    }
+
 }

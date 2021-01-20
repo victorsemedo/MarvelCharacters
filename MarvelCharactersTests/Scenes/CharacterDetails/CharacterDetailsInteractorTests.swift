@@ -28,8 +28,4 @@ class CharacterDetailsInteractorTests: XCTestCase {
         sut = nil
         super.tearDown()
     }
-    
-    // MARK: Tests
-    func testDoSomething() {
-    }
 }

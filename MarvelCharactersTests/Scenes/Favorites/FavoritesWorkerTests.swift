@@ -22,8 +22,5 @@ class FavoritesWorkerTests: XCTestCase {
         sut = nil
         super.tearDown()
     }
-    
-    // MARK: Tests
-    func testSomething() {
-    }
+
 }

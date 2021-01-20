@@ -33,8 +33,5 @@ class CharacterDetailsRouterTests: XCTestCase {
         navigationControllerSpy = nil
         super.tearDown()
     }
-    
-    // MARK: Tests
-    func testRouteToSomewhere() {
-    }
+
 }

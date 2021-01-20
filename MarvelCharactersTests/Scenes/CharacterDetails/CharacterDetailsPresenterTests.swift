@@ -24,8 +24,5 @@ class CharacterDetailsPresenterTests: XCTestCase {
         viewControllerSpy = nil
         super.tearDown()
     }
-    
-    // MARK: Tests
-    func testPresentSomething() {
-    }
+
 }

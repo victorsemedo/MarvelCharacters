@@ -22,8 +22,5 @@ class CharacterDetailsWorkerTests: XCTestCase {
         sut = nil
         super.tearDown()
     }
-    
-    // MARK: Tests
-    func testSomething() {
-    }
+
 }

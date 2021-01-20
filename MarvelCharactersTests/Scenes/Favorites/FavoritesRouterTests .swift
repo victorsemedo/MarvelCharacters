@@ -31,8 +31,5 @@ class FavoritesRouterTests: XCTestCase {
         sut = nil
         super.tearDown()
     }
-    
-    // MARK: Tests
-    func testRouteToSomewhere() {
-    }
+
 }

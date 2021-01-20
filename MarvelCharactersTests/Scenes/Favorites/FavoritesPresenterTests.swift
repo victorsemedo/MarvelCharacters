@@ -24,8 +24,5 @@ class FavoritesPresenterTests: XCTestCase {
         viewControllerSpy = nil
         super.tearDown()
     }
-    
-    // MARK: Tests
-    func testPresentSomething() {
-    }
+
 }

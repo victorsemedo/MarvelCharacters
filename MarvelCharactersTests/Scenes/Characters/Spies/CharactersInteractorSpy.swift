@@ -33,6 +33,6 @@ extension CharactersInteractorSpy: CharactersBusinessLogic {
     }
     
     func selectCharacter(request: Characters.SelectCharacter.Request) {
-        selectCharacterCalled = false
+        selectCharacterCalled = true
     }
 }
