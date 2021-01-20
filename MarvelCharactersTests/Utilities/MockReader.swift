@@ -9,11 +9,12 @@ import Foundation
 
 enum MockFile: String {
     case characters = "characters"
+    case comics = "comics"
+    case series = "series"
     
     var fileExtension: String {
         return "json"
     }
-    
 }
 
 class MockReader {

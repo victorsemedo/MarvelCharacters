@@ -1,16 +1,24 @@
 PODS:
+  - iOSSnapshotTestCase (6.2.0):
+    - iOSSnapshotTestCase/SwiftSupport (= 6.2.0)
+  - iOSSnapshotTestCase/Core (6.2.0)
+  - iOSSnapshotTestCase/SwiftSupport (6.2.0):
+    - iOSSnapshotTestCase/Core
   - Kingfisher (6.0.1)
 
 DEPENDENCIES:
-  - Kingfisher (~> 6.0)
+  - iOSSnapshotTestCase (~> 6.2.0)
+  - Kingfisher (~> 6.0.0)
 
 SPEC REPOS:
   trunk:
+    - iOSSnapshotTestCase
     - Kingfisher
 
 SPEC CHECKSUMS:
+  iOSSnapshotTestCase: 9ab44cb5aa62b84d31847f40680112e15ec579a6
   Kingfisher: adde87a4f74f6a3845395769354efff593581740
 
-PODFILE CHECKSUM: 0d2c5cf139e240a503bab52c88332325ed5492fa
+PODFILE CHECKSUM: 80647f63dea2421754b98071ed93659ad3066590
 
 COCOAPODS: 1.9.3

@@ -8,6 +8,40 @@
 
 /* Begin PBXBuildFile section */
 		035314BA1DD560AE73582780 /* Pods_MarvelCharacters_MarvelCharactersUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78FAEF4821A47B970437B407 /* Pods_MarvelCharacters_MarvelCharactersUITests.framework */; };
+		5808A4ED25B7A89800C7AE6B /* comics.json in Resources */ = {isa = PBXBuildFile; fileRef = 5808A4EB25B7A89800C7AE6B /* comics.json */; };
+		5808A4EE25B7A89800C7AE6B /* series.json in Resources */ = {isa = PBXBuildFile; fileRef = 5808A4EC25B7A89800C7AE6B /* series.json */; };
+		5808A50325B7A98A00C7AE6B /* CharactersViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808A4F925B7A98A00C7AE6B /* CharactersViewControllerTests.swift */; };
+		5808A50425B7A98A00C7AE6B /* CharactersInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808A4FA25B7A98A00C7AE6B /* CharactersInteractorTests.swift */; };
+		5808A50525B7A98A00C7AE6B /* CharactersInteractorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808A4FB25B7A98A00C7AE6B /* CharactersInteractorSpy.swift */; };
+		5808A50625B7A98A00C7AE6B /* CharactersWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808A4FC25B7A98A00C7AE6B /* CharactersWorkerTests.swift */; };
+		5808A50725B7A98A00C7AE6B /* CharactersRouterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808A4FD25B7A98A00C7AE6B /* CharactersRouterSpy.swift */; };
+		5808A50825B7A98A00C7AE6B /* CharactersViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808A4FE25B7A98A00C7AE6B /* CharactersViewControllerSpy.swift */; };
+		5808A50925B7A98A00C7AE6B /* CharactersPresenterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808A4FF25B7A98A00C7AE6B /* CharactersPresenterSpy.swift */; };
+		5808A50A25B7A98A00C7AE6B /* CharactersPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808A50025B7A98A00C7AE6B /* CharactersPresenterTests.swift */; };
+		5808A50B25B7A98A00C7AE6B /* CharactersRouterTests .swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808A50125B7A98A00C7AE6B /* CharactersRouterTests .swift */; };
+		5808A50C25B7A98A00C7AE6B /* CharactersWorkerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808A50225B7A98A00C7AE6B /* CharactersWorkerSpy.swift */; };
+		5808A55525B7AE2600C7AE6B /* FavoritesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808A54B25B7AE2600C7AE6B /* FavoritesViewControllerTests.swift */; };
+		5808A55625B7AE2600C7AE6B /* FavoritesInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808A54C25B7AE2600C7AE6B /* FavoritesInteractorTests.swift */; };
+		5808A55725B7AE2600C7AE6B /* FavoritesInteractorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808A54D25B7AE2600C7AE6B /* FavoritesInteractorSpy.swift */; };
+		5808A55825B7AE2600C7AE6B /* FavoritesWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808A54E25B7AE2600C7AE6B /* FavoritesWorkerTests.swift */; };
+		5808A55925B7AE2600C7AE6B /* FavoritesRouterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808A54F25B7AE2600C7AE6B /* FavoritesRouterSpy.swift */; };
+		5808A55A25B7AE2600C7AE6B /* FavoritesViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808A55025B7AE2600C7AE6B /* FavoritesViewControllerSpy.swift */; };
+		5808A55B25B7AE2600C7AE6B /* FavoritesPresenterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808A55125B7AE2600C7AE6B /* FavoritesPresenterSpy.swift */; };
+		5808A55C25B7AE2600C7AE6B /* FavoritesPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808A55225B7AE2600C7AE6B /* FavoritesPresenterTests.swift */; };
+		5808A55D25B7AE2600C7AE6B /* FavoritesRouterTests .swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808A55325B7AE2600C7AE6B /* FavoritesRouterTests .swift */; };
+		5808A55E25B7AE2600C7AE6B /* FavoritesWorkerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808A55425B7AE2600C7AE6B /* FavoritesWorkerSpy.swift */; };
+		5808A57225B7AE6800C7AE6B /* CharacterDetailsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808A56825B7AE6800C7AE6B /* CharacterDetailsViewControllerTests.swift */; };
+		5808A57325B7AE6800C7AE6B /* CharacterDetailsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808A56925B7AE6800C7AE6B /* CharacterDetailsInteractorTests.swift */; };
+		5808A57425B7AE6800C7AE6B /* CharacterDetailsInteractorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808A56A25B7AE6800C7AE6B /* CharacterDetailsInteractorSpy.swift */; };
+		5808A57525B7AE6800C7AE6B /* CharacterDetailsWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808A56B25B7AE6800C7AE6B /* CharacterDetailsWorkerTests.swift */; };
+		5808A57625B7AE6800C7AE6B /* CharacterDetailsRouterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808A56C25B7AE6800C7AE6B /* CharacterDetailsRouterSpy.swift */; };
+		5808A57725B7AE6800C7AE6B /* CharacterDetailsViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808A56D25B7AE6800C7AE6B /* CharacterDetailsViewControllerSpy.swift */; };
+		5808A57825B7AE6800C7AE6B /* CharacterDetailsPresenterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808A56E25B7AE6800C7AE6B /* CharacterDetailsPresenterSpy.swift */; };
+		5808A57925B7AE6800C7AE6B /* CharacterDetailsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808A56F25B7AE6800C7AE6B /* CharacterDetailsPresenterTests.swift */; };
+		5808A57A25B7AE6800C7AE6B /* CharacterDetailsRouterTests .swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808A57025B7AE6800C7AE6B /* CharacterDetailsRouterTests .swift */; };
+		5808A57B25B7AE6800C7AE6B /* CharacterDetailsWorkerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808A57125B7AE6800C7AE6B /* CharacterDetailsWorkerSpy.swift */; };
+		5808A5B125B7B4B100C7AE6B /* UINavigationControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808A5B025B7B4B100C7AE6B /* UINavigationControllerSpy.swift */; };
+		5808A5BB25B7B50700C7AE6B /* UIViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808A5BA25B7B50700C7AE6B /* UIViewControllerSpy.swift */; };
 		5812E14025AD48AD00A0CA3E /* MarvelImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5812E13F25AD48AD00A0CA3E /* MarvelImage.swift */; };
 		5812E14525AD521B00A0CA3E /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5812E14425AD521B00A0CA3E /* UIImageView+Extensions.swift */; };
 		583935C025B6721C002E2460 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583935BF25B6721C002E2460 /* AppGroup.swift */; };
@@ -131,6 +165,40 @@
 /* Begin PBXFileReference section */
 		0CD239B65DD0DB6B452C6ABB /* Pods-MarvelCharacters.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelCharacters.release.xcconfig"; path = "Target Support Files/Pods-MarvelCharacters/Pods-MarvelCharacters.release.xcconfig"; sourceTree = "<group>"; };
 		39A6B13FACCF4931C0380289 /* Pods-MarvelCharactersTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelCharactersTests.debug.xcconfig"; path = "Target Support Files/Pods-MarvelCharactersTests/Pods-MarvelCharactersTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5808A4EB25B7A89800C7AE6B /* comics.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = comics.json; sourceTree = "<group>"; };
+		5808A4EC25B7A89800C7AE6B /* series.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = series.json; sourceTree = "<group>"; };
+		5808A4F925B7A98A00C7AE6B /* CharactersViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewControllerTests.swift; sourceTree = "<group>"; };
+		5808A4FA25B7A98A00C7AE6B /* CharactersInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersInteractorTests.swift; sourceTree = "<group>"; };
+		5808A4FB25B7A98A00C7AE6B /* CharactersInteractorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersInteractorSpy.swift; sourceTree = "<group>"; };
+		5808A4FC25B7A98A00C7AE6B /* CharactersWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersWorkerTests.swift; sourceTree = "<group>"; };
+		5808A4FD25B7A98A00C7AE6B /* CharactersRouterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersRouterSpy.swift; sourceTree = "<group>"; };
+		5808A4FE25B7A98A00C7AE6B /* CharactersViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewControllerSpy.swift; sourceTree = "<group>"; };
+		5808A4FF25B7A98A00C7AE6B /* CharactersPresenterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersPresenterSpy.swift; sourceTree = "<group>"; };
+		5808A50025B7A98A00C7AE6B /* CharactersPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersPresenterTests.swift; sourceTree = "<group>"; };
+		5808A50125B7A98A00C7AE6B /* CharactersRouterTests .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharactersRouterTests .swift"; sourceTree = "<group>"; };
+		5808A50225B7A98A00C7AE6B /* CharactersWorkerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersWorkerSpy.swift; sourceTree = "<group>"; };
+		5808A54B25B7AE2600C7AE6B /* FavoritesViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewControllerTests.swift; sourceTree = "<group>"; };
+		5808A54C25B7AE2600C7AE6B /* FavoritesInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractorTests.swift; sourceTree = "<group>"; };
+		5808A54D25B7AE2600C7AE6B /* FavoritesInteractorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractorSpy.swift; sourceTree = "<group>"; };
+		5808A54E25B7AE2600C7AE6B /* FavoritesWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesWorkerTests.swift; sourceTree = "<group>"; };
+		5808A54F25B7AE2600C7AE6B /* FavoritesRouterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRouterSpy.swift; sourceTree = "<group>"; };
+		5808A55025B7AE2600C7AE6B /* FavoritesViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewControllerSpy.swift; sourceTree = "<group>"; };
+		5808A55125B7AE2600C7AE6B /* FavoritesPresenterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenterSpy.swift; sourceTree = "<group>"; };
+		5808A55225B7AE2600C7AE6B /* FavoritesPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenterTests.swift; sourceTree = "<group>"; };
+		5808A55325B7AE2600C7AE6B /* FavoritesRouterTests .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritesRouterTests .swift"; sourceTree = "<group>"; };
+		5808A55425B7AE2600C7AE6B /* FavoritesWorkerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesWorkerSpy.swift; sourceTree = "<group>"; };
+		5808A56825B7AE6800C7AE6B /* CharacterDetailsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewControllerTests.swift; sourceTree = "<group>"; };
+		5808A56925B7AE6800C7AE6B /* CharacterDetailsInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsInteractorTests.swift; sourceTree = "<group>"; };
+		5808A56A25B7AE6800C7AE6B /* CharacterDetailsInteractorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsInteractorSpy.swift; sourceTree = "<group>"; };
+		5808A56B25B7AE6800C7AE6B /* CharacterDetailsWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsWorkerTests.swift; sourceTree = "<group>"; };
+		5808A56C25B7AE6800C7AE6B /* CharacterDetailsRouterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsRouterSpy.swift; sourceTree = "<group>"; };
+		5808A56D25B7AE6800C7AE6B /* CharacterDetailsViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewControllerSpy.swift; sourceTree = "<group>"; };
+		5808A56E25B7AE6800C7AE6B /* CharacterDetailsPresenterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsPresenterSpy.swift; sourceTree = "<group>"; };
+		5808A56F25B7AE6800C7AE6B /* CharacterDetailsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsPresenterTests.swift; sourceTree = "<group>"; };
+		5808A57025B7AE6800C7AE6B /* CharacterDetailsRouterTests .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterDetailsRouterTests .swift"; sourceTree = "<group>"; };
+		5808A57125B7AE6800C7AE6B /* CharacterDetailsWorkerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsWorkerSpy.swift; sourceTree = "<group>"; };
+		5808A5B025B7B4B100C7AE6B /* UINavigationControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerSpy.swift; sourceTree = "<group>"; };
+		5808A5BA25B7B50700C7AE6B /* UIViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerSpy.swift; sourceTree = "<group>"; };
 		5812E13F25AD48AD00A0CA3E /* MarvelImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelImage.swift; sourceTree = "<group>"; };
 		5812E14425AD521B00A0CA3E /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		5839359D25B66EC4002E2460 /* MarvelCharacters.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MarvelCharacters.entitlements; sourceTree = "<group>"; };
@@ -274,6 +342,101 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		5808A4F725B7A95100C7AE6B /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				5808A5AF25B7B47300C7AE6B /* Spies */,
+				5808A54A25B7AE0200C7AE6B /* CharacterDetails */,
+				5808A54925B7ADF900C7AE6B /* Favorites */,
+				5808A4F825B7A95A00C7AE6B /* Characters */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		5808A4F825B7A95A00C7AE6B /* Characters */ = {
+			isa = PBXGroup;
+			children = (
+				5808A51525B7A9A000C7AE6B /* Spies */,
+				5808A4F925B7A98A00C7AE6B /* CharactersViewControllerTests.swift */,
+				5808A4FA25B7A98A00C7AE6B /* CharactersInteractorTests.swift */,
+				5808A4FC25B7A98A00C7AE6B /* CharactersWorkerTests.swift */,
+				5808A50025B7A98A00C7AE6B /* CharactersPresenterTests.swift */,
+				5808A50125B7A98A00C7AE6B /* CharactersRouterTests .swift */,
+			);
+			path = Characters;
+			sourceTree = "<group>";
+		};
+		5808A51525B7A9A000C7AE6B /* Spies */ = {
+			isa = PBXGroup;
+			children = (
+				5808A4FB25B7A98A00C7AE6B /* CharactersInteractorSpy.swift */,
+				5808A4FD25B7A98A00C7AE6B /* CharactersRouterSpy.swift */,
+				5808A4FF25B7A98A00C7AE6B /* CharactersPresenterSpy.swift */,
+				5808A50225B7A98A00C7AE6B /* CharactersWorkerSpy.swift */,
+				5808A4FE25B7A98A00C7AE6B /* CharactersViewControllerSpy.swift */,
+			);
+			path = Spies;
+			sourceTree = "<group>";
+		};
+		5808A54925B7ADF900C7AE6B /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				5808A56725B7AE3000C7AE6B /* Spies */,
+				5808A54B25B7AE2600C7AE6B /* FavoritesViewControllerTests.swift */,
+				5808A54C25B7AE2600C7AE6B /* FavoritesInteractorTests.swift */,
+				5808A54E25B7AE2600C7AE6B /* FavoritesWorkerTests.swift */,
+				5808A55225B7AE2600C7AE6B /* FavoritesPresenterTests.swift */,
+				5808A55325B7AE2600C7AE6B /* FavoritesRouterTests .swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		5808A54A25B7AE0200C7AE6B /* CharacterDetails */ = {
+			isa = PBXGroup;
+			children = (
+				5808A58425B7AE7100C7AE6B /* Spies */,
+				5808A56825B7AE6800C7AE6B /* CharacterDetailsViewControllerTests.swift */,
+				5808A56925B7AE6800C7AE6B /* CharacterDetailsInteractorTests.swift */,
+				5808A56B25B7AE6800C7AE6B /* CharacterDetailsWorkerTests.swift */,
+				5808A56F25B7AE6800C7AE6B /* CharacterDetailsPresenterTests.swift */,
+				5808A57025B7AE6800C7AE6B /* CharacterDetailsRouterTests .swift */,
+			);
+			path = CharacterDetails;
+			sourceTree = "<group>";
+		};
+		5808A56725B7AE3000C7AE6B /* Spies */ = {
+			isa = PBXGroup;
+			children = (
+				5808A54D25B7AE2600C7AE6B /* FavoritesInteractorSpy.swift */,
+				5808A54F25B7AE2600C7AE6B /* FavoritesRouterSpy.swift */,
+				5808A55025B7AE2600C7AE6B /* FavoritesViewControllerSpy.swift */,
+				5808A55125B7AE2600C7AE6B /* FavoritesPresenterSpy.swift */,
+				5808A55425B7AE2600C7AE6B /* FavoritesWorkerSpy.swift */,
+			);
+			path = Spies;
+			sourceTree = "<group>";
+		};
+		5808A58425B7AE7100C7AE6B /* Spies */ = {
+			isa = PBXGroup;
+			children = (
+				5808A56A25B7AE6800C7AE6B /* CharacterDetailsInteractorSpy.swift */,
+				5808A56C25B7AE6800C7AE6B /* CharacterDetailsRouterSpy.swift */,
+				5808A56D25B7AE6800C7AE6B /* CharacterDetailsViewControllerSpy.swift */,
+				5808A56E25B7AE6800C7AE6B /* CharacterDetailsPresenterSpy.swift */,
+				5808A57125B7AE6800C7AE6B /* CharacterDetailsWorkerSpy.swift */,
+			);
+			path = Spies;
+			sourceTree = "<group>";
+		};
+		5808A5AF25B7B47300C7AE6B /* Spies */ = {
+			isa = PBXGroup;
+			children = (
+				5808A5B025B7B4B100C7AE6B /* UINavigationControllerSpy.swift */,
+				5808A5BA25B7B50700C7AE6B /* UIViewControllerSpy.swift */,
+			);
+			path = Spies;
+			sourceTree = "<group>";
+		};
 		583935CA25B690CC002E2460 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -346,6 +509,8 @@
 		58B1C4A625ABD1CC002A82E7 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				5808A4EB25B7A89800C7AE6B /* comics.json */,
+				5808A4EC25B7A89800C7AE6B /* series.json */,
 				58B1C4A725ABD226002A82E7 /* characters.json */,
 			);
 			path = Mocks;
@@ -412,6 +577,7 @@
 		58F85FD225A9539D00A17781 /* MarvelCharactersTests */ = {
 			isa = PBXGroup;
 			children = (
+				5808A4F725B7A95100C7AE6B /* Scenes */,
 				58B1C4BA25ABD4E7002A82E7 /* Network */,
 				58B1C4AF25ABD365002A82E7 /* Utilities */,
 				58B1C4A625ABD1CC002A82E7 /* Mocks */,
@@ -694,7 +860,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5808A4EE25B7A89800C7AE6B /* series.json in Resources */,
 				58B1C4A825ABD226002A82E7 /* characters.json in Resources */,
+				5808A4ED25B7A89800C7AE6B /* comics.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -895,8 +1063,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5808A55A25B7AE2600C7AE6B /* FavoritesViewControllerSpy.swift in Sources */,
+				5808A5B125B7B4B100C7AE6B /* UINavigationControllerSpy.swift in Sources */,
+				5808A50525B7A98A00C7AE6B /* CharactersInteractorSpy.swift in Sources */,
+				5808A57425B7AE6800C7AE6B /* CharacterDetailsInteractorSpy.swift in Sources */,
+				5808A57B25B7AE6800C7AE6B /* CharacterDetailsWorkerSpy.swift in Sources */,
+				5808A57225B7AE6800C7AE6B /* CharacterDetailsViewControllerTests.swift in Sources */,
+				5808A57725B7AE6800C7AE6B /* CharacterDetailsViewControllerSpy.swift in Sources */,
+				5808A55525B7AE2600C7AE6B /* FavoritesViewControllerTests.swift in Sources */,
+				5808A50425B7A98A00C7AE6B /* CharactersInteractorTests.swift in Sources */,
 				58B1C4B125ABD39E002A82E7 /* MockReader.swift in Sources */,
+				5808A55625B7AE2600C7AE6B /* FavoritesInteractorTests.swift in Sources */,
+				5808A57825B7AE6800C7AE6B /* CharacterDetailsPresenterSpy.swift in Sources */,
+				5808A55B25B7AE2600C7AE6B /* FavoritesPresenterSpy.swift in Sources */,
+				5808A55825B7AE2600C7AE6B /* FavoritesWorkerTests.swift in Sources */,
+				5808A57625B7AE6800C7AE6B /* CharacterDetailsRouterSpy.swift in Sources */,
+				5808A57325B7AE6800C7AE6B /* CharacterDetailsInteractorTests.swift in Sources */,
+				5808A50325B7A98A00C7AE6B /* CharactersViewControllerTests.swift in Sources */,
+				5808A57925B7AE6800C7AE6B /* CharacterDetailsPresenterTests.swift in Sources */,
+				5808A55725B7AE2600C7AE6B /* FavoritesInteractorSpy.swift in Sources */,
+				5808A50A25B7A98A00C7AE6B /* CharactersPresenterTests.swift in Sources */,
+				5808A57A25B7AE6800C7AE6B /* CharacterDetailsRouterTests .swift in Sources */,
 				58F85FD425A9539D00A17781 /* MarvelCharactersTests.swift in Sources */,
+				5808A50C25B7A98A00C7AE6B /* CharactersWorkerSpy.swift in Sources */,
+				5808A50825B7A98A00C7AE6B /* CharactersViewControllerSpy.swift in Sources */,
+				5808A50625B7A98A00C7AE6B /* CharactersWorkerTests.swift in Sources */,
+				5808A57525B7AE6800C7AE6B /* CharacterDetailsWorkerTests.swift in Sources */,
+				5808A50B25B7A98A00C7AE6B /* CharactersRouterTests .swift in Sources */,
+				5808A5BB25B7B50700C7AE6B /* UIViewControllerSpy.swift in Sources */,
+				5808A55925B7AE2600C7AE6B /* FavoritesRouterSpy.swift in Sources */,
+				5808A50725B7A98A00C7AE6B /* CharactersRouterSpy.swift in Sources */,
+				5808A55E25B7AE2600C7AE6B /* FavoritesWorkerSpy.swift in Sources */,
+				5808A55D25B7AE2600C7AE6B /* FavoritesRouterTests .swift in Sources */,
+				5808A55C25B7AE2600C7AE6B /* FavoritesPresenterTests.swift in Sources */,
+				5808A50925B7A98A00C7AE6B /* CharactersPresenterSpy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

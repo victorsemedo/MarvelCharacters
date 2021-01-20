@@ -7,7 +7,7 @@ target 'MarvelCharacters' do
   use_frameworks!
 
   # Pods for MarvelCharacters
-  pod 'Kingfisher', '~> 6.0'
+  pod 'Kingfisher', '~> 6.0.0'
   
   target 'MarvelCharactersTests' do
     inherit! :search_paths
@@ -16,6 +16,8 @@ target 'MarvelCharacters' do
 
   target 'MarvelCharactersUITests' do
     # Pods for testing
+    pod 'iOSSnapshotTestCase', '~> 6.2.0'
+    
   end
 
 end
