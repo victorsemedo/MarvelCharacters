@@ -57,7 +57,7 @@ Personagens
 * Executar pod install
 * Abrir MarvelCharacters.xcworkspace
 
-# Schemes
+## Schemes
 * MarvelCharacters (App + Unit Tests)
 * MarvelCharactersWidget (Widget)
 
