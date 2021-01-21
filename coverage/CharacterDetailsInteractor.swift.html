@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "CharacterDetailsInteractor.swift" : </span><span class="cov_low">0.00%</span>
+<span>Coverage for "CharacterDetailsInteractor.swift" : </span><span class="cov_low">12.96%</span>
 </h2>
-<h4 class="cov_subtitle">(0 of 53 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(7 of 54 relevant lines covered)</h4>
 <h4 class="cov_filepath">MarvelCharacters/Scenes/CharacterDetails/CharacterDetailsInteractor.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -109,7 +109,7 @@
 </tr>
 <tr class="never">
 <td class="num">20</td>
-<td class="src"><pre><code class="objc">class CharacterDetailsInteractor: CharacterDetailsDataStore {</code></pre></td>
+<td class="src"><pre><code class="objc">final class CharacterDetailsInteractor: CharacterDetailsDataStore {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -142,25 +142,25 @@
 <td class="src"><pre><code class="objc">    </code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">27</td>
 <td class="src"><pre><code class="objc">    init(presenter: CharacterDetailsPresentationLogic, worker: CharacterDetailsWorkLogic) {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">28</td>
 <td class="src"><pre><code class="objc">        self.presenter = presenter</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">29</td>
 <td class="src"><pre><code class="objc">        self.worker = worker</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">30</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="never">
 <td class="num">31</td>
@@ -187,20 +187,20 @@
 <td class="src"><pre><code class="objc">    </code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">36</td>
 <td class="src"><pre><code class="objc">    func loadCharacter(request: CharacterDetails.LoadCharacter.Request) {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">37</td>
 <td class="src"><pre><code class="objc">        presenter?.presentCharacter(response: CharacterDetails.LoadCharacter.Response(character: character))</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">38</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="never">
 <td class="num">39</td>
@@ -254,153 +254,153 @@
 </tr>
 <tr class="missed">
 <td class="num">49</td>
-<td class="src"><pre><code class="objc">            case .failure(_):</code></pre></td>
+<td class="src"><pre><code class="objc">            case .failure(let error):</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="missed">
 <td class="num">50</td>
-<td class="src"><pre><code class="objc">                break</code></pre></td>
+<td class="src"><pre><code class="objc">                self.presenter?.presentComicsAndSeriesError(isComics: true, error: error)</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="missed">
 <td class="num">51</td>
-<td class="src"><pre><code class="objc">            }</code></pre></td>
+<td class="src"><pre><code class="objc">                break</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="missed">
 <td class="num">52</td>
-<td class="src"><pre><code class="objc">            self.worker.fetchSeries(byId: id) { (seriesResult) in</code></pre></td>
+<td class="src"><pre><code class="objc">            }</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="missed">
 <td class="num">53</td>
-<td class="src"><pre><code class="objc">                switch seriesResult {</code></pre></td>
+<td class="src"><pre><code class="objc">            self.worker.fetchSeries(byId: id) { (seriesResult) in</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="missed">
 <td class="num">54</td>
-<td class="src"><pre><code class="objc">                case .success(let response):</code></pre></td>
+<td class="src"><pre><code class="objc">                switch seriesResult {</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="missed">
 <td class="num">55</td>
-<td class="src"><pre><code class="objc">                    series.append(contentsOf: response)</code></pre></td>
+<td class="src"><pre><code class="objc">                case .success(let response):</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="missed">
 <td class="num">56</td>
-<td class="src"><pre><code class="objc">                case .failure(_):</code></pre></td>
+<td class="src"><pre><code class="objc">                    series.append(contentsOf: response)</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="missed">
 <td class="num">57</td>
-<td class="src"><pre><code class="objc">                    break</code></pre></td>
+<td class="src"><pre><code class="objc">                case .failure(let error):</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="missed">
 <td class="num">58</td>
-<td class="src"><pre><code class="objc">                }</code></pre></td>
+<td class="src"><pre><code class="objc">                    self.presenter?.presentComicsAndSeriesError(isComics: false, error: error)</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="missed">
 <td class="num">59</td>
-<td class="src"><pre><code class="objc">                let response = CharacterDetails.LoadComicsSeries.Response.init(comics: comics, series: series)</code></pre></td>
+<td class="src"><pre><code class="objc">                }</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="missed">
 <td class="num">60</td>
-<td class="src"><pre><code class="objc">                self.presenter?.presentComicsAndSeries(response: response)</code></pre></td>
+<td class="src"><pre><code class="objc">                let response = CharacterDetails.LoadComicsSeries.Response.init(comics: comics, series: series)</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="missed">
 <td class="num">61</td>
-<td class="src"><pre><code class="objc">            }</code></pre></td>
+<td class="src"><pre><code class="objc">                self.presenter?.presentComicsAndSeries(response: response)</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="missed">
 <td class="num">62</td>
-<td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">!</td>
-</tr>
-<tr class="missed">
-<td class="num">63</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
-</tr>
-<tr class="never">
-<td class="num">64</td>
-<td class="src"><pre><code class="objc">    </code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="missed">
-<td class="num">65</td>
-<td class="src"><pre><code class="objc">    func updateFavorite(request: CharacterDetails.UpdateFavorite.Request) {</code></pre></td>
-<td class="coverage">!</td>
-</tr>
-<tr class="missed">
-<td class="num">66</td>
-<td class="src"><pre><code class="objc">        if let character = character {</code></pre></td>
-<td class="coverage">!</td>
-</tr>
-<tr class="missed">
-<td class="num">67</td>
-<td class="src"><pre><code class="objc">            if request.isFavorite {</code></pre></td>
-<td class="coverage">!</td>
-</tr>
-<tr class="missed">
-<td class="num">68</td>
-<td class="src"><pre><code class="objc">                worker.saveFovoriteCharacter(character, image: request.image) { (result) in</code></pre></td>
-<td class="coverage">!</td>
-</tr>
-<tr class="missed">
-<td class="num">69</td>
-<td class="src"><pre><code class="objc">                    self.validateUpdateFavoriteResult(result)</code></pre></td>
-<td class="coverage">!</td>
-</tr>
-<tr class="missed">
-<td class="num">70</td>
-<td class="src"><pre><code class="objc">                }</code></pre></td>
-<td class="coverage">!</td>
-</tr>
-<tr class="missed">
-<td class="num">71</td>
-<td class="src"><pre><code class="objc">            } else {</code></pre></td>
-<td class="coverage">!</td>
-</tr>
-<tr class="missed">
-<td class="num">72</td>
-<td class="src"><pre><code class="objc">                worker.deleteFavoriteCharacter(character) { (result) in</code></pre></td>
-<td class="coverage">!</td>
-</tr>
-<tr class="missed">
-<td class="num">73</td>
-<td class="src"><pre><code class="objc">                    self.validateUpdateFavoriteResult(result)</code></pre></td>
-<td class="coverage">!</td>
-</tr>
-<tr class="missed">
-<td class="num">74</td>
-<td class="src"><pre><code class="objc">                }</code></pre></td>
-<td class="coverage">!</td>
-</tr>
-<tr class="missed">
-<td class="num">75</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="missed">
-<td class="num">76</td>
+<td class="num">63</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="missed">
-<td class="num">77</td>
+<td class="num">64</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="never">
-<td class="num">78</td>
+<td class="num">65</td>
 <td class="src"><pre><code class="objc">    </code></pre></td>
 <td class="coverage"></td>
+</tr>
+<tr class="missed">
+<td class="num">66</td>
+<td class="src"><pre><code class="objc">    func updateFavorite(request: CharacterDetails.UpdateFavorite.Request) {</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">67</td>
+<td class="src"><pre><code class="objc">        if let character = character {</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">68</td>
+<td class="src"><pre><code class="objc">            if request.isFavorite {</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">69</td>
+<td class="src"><pre><code class="objc">                worker.saveFovoriteCharacter(character, image: request.image) { (result) in</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">70</td>
+<td class="src"><pre><code class="objc">                    self.validateUpdateFavoriteResult(result)</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">71</td>
+<td class="src"><pre><code class="objc">                }</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">72</td>
+<td class="src"><pre><code class="objc">            } else {</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">73</td>
+<td class="src"><pre><code class="objc">                worker.deleteFavoriteCharacter(character) { (result) in</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">74</td>
+<td class="src"><pre><code class="objc">                    self.validateUpdateFavoriteResult(result)</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">75</td>
+<td class="src"><pre><code class="objc">                }</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">76</td>
+<td class="src"><pre><code class="objc">            }</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">77</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">78</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">!</td>
 </tr>
 <tr class="never">
 <td class="num">79</td>

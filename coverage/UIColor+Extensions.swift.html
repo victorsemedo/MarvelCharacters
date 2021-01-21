@@ -70,62 +70,62 @@
 <tr class="covered">
 <td class="num">12</td>
 <td class="src"><pre><code class="objc">    convenience init(hex: String) {</code></pre></td>
-<td class="coverage">26x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="covered">
 <td class="num">13</td>
 <td class="src"><pre><code class="objc">        var red: CGFloat = 0.0</code></pre></td>
-<td class="coverage">26x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="covered">
 <td class="num">14</td>
 <td class="src"><pre><code class="objc">        var green: CGFloat = 0.0</code></pre></td>
-<td class="coverage">26x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="covered">
 <td class="num">15</td>
 <td class="src"><pre><code class="objc">        var blue: CGFloat = 0.0</code></pre></td>
-<td class="coverage">26x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="covered">
 <td class="num">16</td>
 <td class="src"><pre><code class="objc">        var alpha: CGFloat = 1.0</code></pre></td>
-<td class="coverage">26x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="covered">
 <td class="num">17</td>
 <td class="src"><pre><code class="objc">        </code></pre></td>
-<td class="coverage">26x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="covered">
 <td class="num">18</td>
 <td class="src"><pre><code class="objc">        let hex = hex.replacingOccurrences(of: "#", with: "")</code></pre></td>
-<td class="coverage">26x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="covered">
 <td class="num">19</td>
 <td class="src"><pre><code class="objc">        let scanner = Scanner(string: hex)</code></pre></td>
-<td class="coverage">26x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="covered">
 <td class="num">20</td>
 <td class="src"><pre><code class="objc">        var hexValue: CUnsignedLongLong = 0</code></pre></td>
-<td class="coverage">26x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="covered">
 <td class="num">21</td>
 <td class="src"><pre><code class="objc">        if scanner.scanHexInt64(&amp;hexValue) {</code></pre></td>
-<td class="coverage">26x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="covered">
 <td class="num">22</td>
 <td class="src"><pre><code class="objc">            switch hex.count {</code></pre></td>
-<td class="coverage">26x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="covered">
 <td class="num">23</td>
 <td class="src"><pre><code class="objc">            case 3:</code></pre></td>
-<td class="coverage">26x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="missed">
 <td class="num">24</td>
@@ -145,7 +145,7 @@
 <tr class="covered">
 <td class="num">27</td>
 <td class="src"><pre><code class="objc">            case 4:</code></pre></td>
-<td class="coverage">26x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="missed">
 <td class="num">28</td>
@@ -170,27 +170,27 @@
 <tr class="covered">
 <td class="num">32</td>
 <td class="src"><pre><code class="objc">            case 6:</code></pre></td>
-<td class="coverage">26x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="covered">
 <td class="num">33</td>
 <td class="src"><pre><code class="objc">                red   = CGFloat((hexValue &amp; 0xFF0000) &gt;&gt; 16)   / 255.0</code></pre></td>
-<td class="coverage">26x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="covered">
 <td class="num">34</td>
 <td class="src"><pre><code class="objc">                green = CGFloat((hexValue &amp; 0x00FF00) &gt;&gt; 8)    / 255.0</code></pre></td>
-<td class="coverage">26x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="covered">
 <td class="num">35</td>
 <td class="src"><pre><code class="objc">                blue  = CGFloat(hexValue &amp; 0x0000FF)           / 255.0</code></pre></td>
-<td class="coverage">26x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="covered">
 <td class="num">36</td>
 <td class="src"><pre><code class="objc">            case 8:</code></pre></td>
-<td class="coverage">26x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="missed">
 <td class="num">37</td>
@@ -215,7 +215,7 @@
 <tr class="covered">
 <td class="num">41</td>
 <td class="src"><pre><code class="objc">            default:</code></pre></td>
-<td class="coverage">26x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="missed">
 <td class="num">42</td>
@@ -235,27 +235,27 @@
 <tr class="covered">
 <td class="num">45</td>
 <td class="src"><pre><code class="objc">            }</code></pre></td>
-<td class="coverage">26x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="covered">
 <td class="num">46</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">26x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="covered">
 <td class="num">47</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage">26x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="covered">
 <td class="num">48</td>
 <td class="src"><pre><code class="objc">        self.init(red: red, green: green, blue: blue, alpha: alpha)</code></pre></td>
-<td class="coverage">26x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="covered">
 <td class="num">49</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">26x</td>
+<td class="coverage">27x</td>
 </tr>
 <tr class="never">
 <td class="num">50</td>

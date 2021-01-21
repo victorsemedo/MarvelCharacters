@@ -1,16 +1,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <html>
 <head>
-<title>ViewCode.swift - Slather</title>
+<title>UIView+Constraint.swift - Slather</title>
 <link href="slather.css" media="all" rel="stylesheet">
 </head>
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "ViewCode.swift" : </span><span class="cov_medium">83.33%</span>
+<span>Coverage for "UIView+Constraint.swift" : </span><span class="cov_low">0.00%</span>
 </h2>
-<h4 class="cov_subtitle">(5 of 6 relevant lines covered)</h4>
-<h4 class="cov_filepath">MarvelCharacters/Utilities/Protocols/ViewCode.swift</h4>
+<h4 class="cov_subtitle">(0 of 12 relevant lines covered)</h4>
+<h4 class="cov_filepath">MarvelCharacters/Utilities/Extensions/UIView+Constraint.swift</h4>
 <table class="source_code">
 <tr class="never">
 <td class="num">1</td>
@@ -19,7 +19,7 @@
 </tr>
 <tr class="never">
 <td class="num">2</td>
-<td class="src"><pre><code class="objc">//  ViewCode.swift</code></pre></td>
+<td class="src"><pre><code class="objc">//  UIView+Constraint.swift</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -34,7 +34,7 @@
 </tr>
 <tr class="never">
 <td class="num">5</td>
-<td class="src"><pre><code class="objc">//  Created by Victor Tavares on 09/01/21.</code></pre></td>
+<td class="src"><pre><code class="objc">//  Created by Victor Tavares on 21/01/21.</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -49,7 +49,7 @@
 </tr>
 <tr class="never">
 <td class="num">8</td>
-<td class="src"><pre><code class="objc">import Foundation</code></pre></td>
+<td class="src"><pre><code class="objc">import UIKit</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -59,7 +59,7 @@
 </tr>
 <tr class="never">
 <td class="num">10</td>
-<td class="src"><pre><code class="objc">protocol ViewCode {</code></pre></td>
+<td class="src"><pre><code class="objc">extension UIView {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -69,42 +69,42 @@
 </tr>
 <tr class="never">
 <td class="num">12</td>
-<td class="src"><pre><code class="objc">    func setupHierarchy()</code></pre></td>
+<td class="src"><pre><code class="objc">    var heightConstraint: NSLayoutConstraint? {</code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="never">
+<tr class="missed">
 <td class="num">13</td>
-<td class="src"><pre><code class="objc">    </code></pre></td>
-<td class="coverage"></td>
+<td class="src"><pre><code class="objc">        get {</code></pre></td>
+<td class="coverage">!</td>
 </tr>
-<tr class="never">
+<tr class="missed">
 <td class="num">14</td>
-<td class="src"><pre><code class="objc">    func setupConstraints()</code></pre></td>
-<td class="coverage"></td>
+<td class="src"><pre><code class="objc">            return constraints.first(where: {</code></pre></td>
+<td class="coverage">!</td>
 </tr>
-<tr class="never">
+<tr class="missed">
 <td class="num">15</td>
-<td class="src"><pre><code class="objc">    </code></pre></td>
-<td class="coverage"></td>
+<td class="src"><pre><code class="objc">                $0.firstAttribute == .height &amp;&amp; $0.relation == .equal</code></pre></td>
+<td class="coverage">!</td>
 </tr>
-<tr class="never">
+<tr class="missed">
 <td class="num">16</td>
-<td class="src"><pre><code class="objc">    func setupConfigurations()</code></pre></td>
-<td class="coverage"></td>
+<td class="src"><pre><code class="objc">            })</code></pre></td>
+<td class="coverage">!</td>
 </tr>
-<tr class="never">
+<tr class="missed">
 <td class="num">17</td>
-<td class="src"><pre><code class="objc">}</code></pre></td>
-<td class="coverage"></td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">!</td>
 </tr>
-<tr class="never">
+<tr class="missed">
 <td class="num">18</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
+<td class="src"><pre><code class="objc">        set { setNeedsLayout() }</code></pre></td>
+<td class="coverage">!</td>
 </tr>
 <tr class="never">
 <td class="num">19</td>
-<td class="src"><pre><code class="objc">extension ViewCode {</code></pre></td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -112,43 +112,48 @@
 <td class="src"><pre><code class="objc">    </code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="covered">
-<td class="num">21</td>
-<td class="src"><pre><code class="objc">    func setupView() {</code></pre></td>
-<td class="coverage">70x</td>
-</tr>
-<tr class="covered">
-<td class="num">22</td>
-<td class="src"><pre><code class="objc">        setupHierarchy()</code></pre></td>
-<td class="coverage">70x</td>
-</tr>
-<tr class="covered">
-<td class="num">23</td>
-<td class="src"><pre><code class="objc">        setupConstraints()</code></pre></td>
-<td class="coverage">70x</td>
-</tr>
-<tr class="covered">
-<td class="num">24</td>
-<td class="src"><pre><code class="objc">        setupConfigurations()</code></pre></td>
-<td class="coverage">70x</td>
-</tr>
-<tr class="covered">
-<td class="num">25</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">70x</td>
-</tr>
 <tr class="never">
-<td class="num">26</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="num">21</td>
+<td class="src"><pre><code class="objc">    var widthConstraint: NSLayoutConstraint? {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="missed">
+<td class="num">22</td>
+<td class="src"><pre><code class="objc">        get {</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">23</td>
+<td class="src"><pre><code class="objc">            return constraints.first(where: {</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">24</td>
+<td class="src"><pre><code class="objc">                $0.firstAttribute == .width &amp;&amp; $0.relation == .equal</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">25</td>
+<td class="src"><pre><code class="objc">            })</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">26</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
 <td class="num">27</td>
-<td class="src"><pre><code class="objc">    func setupConfigurations() { /*Default implementation*/ }</code></pre></td>
+<td class="src"><pre><code class="objc">        set { setNeedsLayout() }</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="never">
 <td class="num">28</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">29</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>

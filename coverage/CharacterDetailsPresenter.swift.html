@@ -9,7 +9,7 @@
 <h2 class="cov_title">
 <span>Coverage for "CharacterDetailsPresenter.swift" : </span><span class="cov_low">0.00%</span>
 </h2>
-<h4 class="cov_subtitle">(0 of 33 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(0 of 50 relevant lines covered)</h4>
 <h4 class="cov_filepath">MarvelCharacters/Scenes/CharacterDetails/CharacterDetailsPresenter.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -84,67 +84,67 @@
 </tr>
 <tr class="never">
 <td class="num">15</td>
-<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="src"><pre><code class="objc">    func presentComicsAndSeriesError(isComics: Bool, error: Error)</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">16</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">17</td>
-<td class="src"><pre><code class="objc">class CharacterDetailsPresenter {</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">18</td>
-<td class="src"><pre><code class="objc">    private weak var viewController: CharacterDetailsDisplayLogic?</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">19</td>
-<td class="src"><pre><code class="objc">    </code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="missed">
-<td class="num">20</td>
-<td class="src"><pre><code class="objc">    init(viewController: CharacterDetailsDisplayLogic) {</code></pre></td>
-<td class="coverage">!</td>
-</tr>
-<tr class="missed">
-<td class="num">21</td>
-<td class="src"><pre><code class="objc">        self.viewController = viewController</code></pre></td>
-<td class="coverage">!</td>
-</tr>
-<tr class="missed">
-<td class="num">22</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
-</tr>
-<tr class="never">
-<td class="num">23</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">24</td>
+<td class="num">17</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
+<td class="num">18</td>
+<td class="src"><pre><code class="objc">final class CharacterDetailsPresenter {</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">19</td>
+<td class="src"><pre><code class="objc">    private weak var viewController: CharacterDetailsDisplayLogic?</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">20</td>
+<td class="src"><pre><code class="objc">    </code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="missed">
+<td class="num">21</td>
+<td class="src"><pre><code class="objc">    init(viewController: CharacterDetailsDisplayLogic) {</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">22</td>
+<td class="src"><pre><code class="objc">        self.viewController = viewController</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">23</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="never">
+<td class="num">24</td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
 <td class="num">25</td>
-<td class="src"><pre><code class="objc">// MARK: Presentation Logic Protocol</code></pre></td>
+<td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">26</td>
-<td class="src"><pre><code class="objc">extension CharacterDetailsPresenter: CharacterDetailsPresentationLogic {</code></pre></td>
+<td class="src"><pre><code class="objc">// MARK: Presentation Logic Protocol</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
 <td class="num">27</td>
-<td class="src"><pre><code class="objc">    </code></pre></td>
+<td class="src"><pre><code class="objc">extension CharacterDetailsPresenter: CharacterDetailsPresentationLogic {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="missed">
@@ -204,97 +204,97 @@
 </tr>
 <tr class="missed">
 <td class="num">39</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
-</tr>
-<tr class="never">
-<td class="num">40</td>
-<td class="src"><pre><code class="objc">    </code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="missed">
-<td class="num">41</td>
-<td class="src"><pre><code class="objc">    func presentUpdateFavorite(response: CharacterDetails.UpdateFavorite.Response) {</code></pre></td>
-<td class="coverage">!</td>
-</tr>
-<tr class="missed">
-<td class="num">42</td>
-<td class="src"><pre><code class="objc">        let viewModel = CharacterDetails.UpdateFavorite.ViewModel(result: response.result)</code></pre></td>
-<td class="coverage">!</td>
-</tr>
-<tr class="missed">
-<td class="num">43</td>
-<td class="src"><pre><code class="objc">        viewController?.displayUpdateFavorite(viewModel: viewModel)</code></pre></td>
-<td class="coverage">!</td>
-</tr>
-<tr class="missed">
-<td class="num">44</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
-</tr>
-<tr class="never">
-<td class="num">45</td>
-<td class="src"><pre><code class="objc">    </code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="missed">
-<td class="num">46</td>
-<td class="src"><pre><code class="objc">    func presentError(error: Error) {</code></pre></td>
-<td class="coverage">!</td>
-</tr>
-<tr class="missed">
-<td class="num">47</td>
 <td class="src"><pre><code class="objc">        </code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="missed">
+<td class="num">40</td>
+<td class="src"><pre><code class="objc">        if response.comics.count == 0 {</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">41</td>
+<td class="src"><pre><code class="objc">            self.viewController?.displayComicsAndSeriesError(isComics: true, message: Strings.noComics.localizable.uppercased())</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">42</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">43</td>
+<td class="src"><pre><code class="objc">        </code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">44</td>
+<td class="src"><pre><code class="objc">        if response.series.count == 0 {</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">45</td>
+<td class="src"><pre><code class="objc">            self.viewController?.displayComicsAndSeriesError(isComics: false, message: Strings.noSeries.localizable.uppercased())</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">46</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">47</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="never">
 <td class="num">48</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
-</tr>
-<tr class="never">
-<td class="num">49</td>
-<td class="src"><pre><code class="objc">}</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">50</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">51</td>
-<td class="src"><pre><code class="objc">extension Serie: CarouselCellProtocol {</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="missed">
-<td class="num">52</td>
-<td class="src"><pre><code class="objc">    var imageUrl: String? {</code></pre></td>
-<td class="coverage">!</td>
-</tr>
-<tr class="missed">
-<td class="num">53</td>
-<td class="src"><pre><code class="objc">        return thumbnail?.imageUrl</code></pre></td>
-<td class="coverage">!</td>
-</tr>
-<tr class="missed">
-<td class="num">54</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
-</tr>
-<tr class="never">
-<td class="num">55</td>
 <td class="src"><pre><code class="objc">    </code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="missed">
+<td class="num">49</td>
+<td class="src"><pre><code class="objc">    func presentUpdateFavorite(response: CharacterDetails.UpdateFavorite.Response) {</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">50</td>
+<td class="src"><pre><code class="objc">        let viewModel = CharacterDetails.UpdateFavorite.ViewModel(result: response.result)</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">51</td>
+<td class="src"><pre><code class="objc">        viewController?.displayUpdateFavorite(viewModel: viewModel)</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">52</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="never">
+<td class="num">53</td>
+<td class="src"><pre><code class="objc">    </code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="missed">
+<td class="num">54</td>
+<td class="src"><pre><code class="objc">    func presentError(error: Error) {</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">55</td>
+<td class="src"><pre><code class="objc">        if let error = error as? LocalizedError {</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
 <td class="num">56</td>
-<td class="src"><pre><code class="objc">    var image: UIImage? {</code></pre></td>
+<td class="src"><pre><code class="objc">            viewController?.displayError(title: "", message: error.localizedDescription)</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="missed">
 <td class="num">57</td>
-<td class="src"><pre><code class="objc">        return nil</code></pre></td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="missed">
@@ -304,66 +304,161 @@
 </tr>
 <tr class="never">
 <td class="num">59</td>
-<td class="src"><pre><code class="objc">}</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">60</td>
-<td class="src"><pre><code class="objc"></code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="never">
-<td class="num">61</td>
-<td class="src"><pre><code class="objc">extension Comic: CarouselCellProtocol {</code></pre></td>
-<td class="coverage"></td>
-</tr>
-<tr class="missed">
-<td class="num">62</td>
-<td class="src"><pre><code class="objc">    var imageUrl: String? {</code></pre></td>
-<td class="coverage">!</td>
-</tr>
-<tr class="missed">
-<td class="num">63</td>
-<td class="src"><pre><code class="objc">        return thumbnail?.imageUrl</code></pre></td>
-<td class="coverage">!</td>
-</tr>
-<tr class="missed">
-<td class="num">64</td>
-<td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
-</tr>
-<tr class="never">
-<td class="num">65</td>
 <td class="src"><pre><code class="objc">    </code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="missed">
+<td class="num">60</td>
+<td class="src"><pre><code class="objc">    func presentComicsAndSeriesError(isComics: Bool, error: Error) {</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">61</td>
+<td class="src"><pre><code class="objc">        var message = isComics ? Strings.noComics.localizable.uppercased() : Strings.noSeries.localizable.uppercased()</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">62</td>
+<td class="src"><pre><code class="objc">        if let error = error as? LocalizedError {</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">63</td>
+<td class="src"><pre><code class="objc">            message =  message + " | " + error.localizedDescription.uppercased()</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">64</td>
+<td class="src"><pre><code class="objc">        }</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">65</td>
+<td class="src"><pre><code class="objc">        viewController?.displayComicsAndSeriesError(isComics: isComics, message:message)</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
 <td class="num">66</td>
-<td class="src"><pre><code class="objc">    var image: UIImage? {</code></pre></td>
-<td class="coverage">!</td>
-</tr>
-<tr class="missed">
-<td class="num">67</td>
-<td class="src"><pre><code class="objc">        return nil</code></pre></td>
-<td class="coverage">!</td>
-</tr>
-<tr class="missed">
-<td class="num">68</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="never">
-<td class="num">69</td>
+<td class="num">67</td>
+<td class="src"><pre><code class="objc">    </code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">68</td>
 <td class="src"><pre><code class="objc">}</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
-<td class="num">70</td>
+<td class="num">69</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
+<td class="num">70</td>
+<td class="src"><pre><code class="objc">extension Serie: CarouselCellProtocol {</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="missed">
 <td class="num">71</td>
+<td class="src"><pre><code class="objc">    var imageUrl: String? {</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">72</td>
+<td class="src"><pre><code class="objc">        return thumbnail?.imageUrl</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">73</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="never">
+<td class="num">74</td>
+<td class="src"><pre><code class="objc">    </code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="missed">
+<td class="num">75</td>
+<td class="src"><pre><code class="objc">    var image: UIImage? {</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">76</td>
+<td class="src"><pre><code class="objc">        return nil</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">77</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="never">
+<td class="num">78</td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">79</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">80</td>
+<td class="src"><pre><code class="objc">extension Comic: CarouselCellProtocol {</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="missed">
+<td class="num">81</td>
+<td class="src"><pre><code class="objc">    var imageUrl: String? {</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">82</td>
+<td class="src"><pre><code class="objc">        return thumbnail?.imageUrl</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">83</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="never">
+<td class="num">84</td>
+<td class="src"><pre><code class="objc">    </code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="missed">
+<td class="num">85</td>
+<td class="src"><pre><code class="objc">    var image: UIImage? {</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">86</td>
+<td class="src"><pre><code class="objc">        return nil</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="missed">
+<td class="num">87</td>
+<td class="src"><pre><code class="objc">    }</code></pre></td>
+<td class="coverage">!</td>
+</tr>
+<tr class="never">
+<td class="num">88</td>
+<td class="src"><pre><code class="objc">}</code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">89</td>
+<td class="src"><pre><code class="objc"></code></pre></td>
+<td class="coverage"></td>
+</tr>
+<tr class="never">
+<td class="num">90</td>
 <td class="src"><pre><code class="objc"></code></pre></td>
 <td class="coverage"></td>
 </tr>

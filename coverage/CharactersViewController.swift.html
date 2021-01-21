@@ -7,9 +7,9 @@
 <body>
 <header><div class="row"><a href="index.html"><img src="logo.jpg" alt="Slather logo"></a></div></header><div class="row"><div id="reports">
 <h2 class="cov_title">
-<span>Coverage for "CharactersViewController.swift" : </span><span class="cov_low">43.02%</span>
+<span>Coverage for "CharactersViewController.swift" : </span><span class="cov_high">88.37%</span>
 </h2>
-<h4 class="cov_subtitle">(37 of 86 relevant lines covered)</h4>
+<h4 class="cov_subtitle">(76 of 86 relevant lines covered)</h4>
 <h4 class="cov_filepath">MarvelCharacters/Scenes/Characters/CharactersViewController.swift</h4>
 <table class="source_code">
 <tr class="never">
@@ -89,7 +89,7 @@
 </tr>
 <tr class="never">
 <td class="num">16</td>
-<td class="src"><pre><code class="objc">class CharactersViewController: UIViewController {</code></pre></td>
+<td class="src"><pre><code class="objc">final class CharactersViewController: UIViewController {</code></pre></td>
 <td class="coverage"></td>
 </tr>
 <tr class="never">
@@ -110,7 +110,7 @@
 <tr class="covered">
 <td class="num">20</td>
 <td class="src"><pre><code class="objc">    private var customView = CharactersView()</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">19x</td>
 </tr>
 <tr class="never">
 <td class="num">21</td>
@@ -135,22 +135,22 @@
 <tr class="covered">
 <td class="num">25</td>
 <td class="src"><pre><code class="objc">    override func loadView() {</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">19x</td>
 </tr>
 <tr class="covered">
 <td class="num">26</td>
 <td class="src"><pre><code class="objc">        view = customView</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">19x</td>
 </tr>
 <tr class="covered">
 <td class="num">27</td>
 <td class="src"><pre><code class="objc">        customView.delegate = self</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">19x</td>
 </tr>
 <tr class="covered">
 <td class="num">28</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">19x</td>
 </tr>
 <tr class="never">
 <td class="num">29</td>
@@ -160,47 +160,47 @@
 <tr class="covered">
 <td class="num">30</td>
 <td class="src"><pre><code class="objc">    override func viewDidLoad() {</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">19x</td>
 </tr>
 <tr class="covered">
 <td class="num">31</td>
 <td class="src"><pre><code class="objc">        super.viewDidLoad()</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">19x</td>
 </tr>
 <tr class="covered">
 <td class="num">32</td>
 <td class="src"><pre><code class="objc">        setupView()</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">19x</td>
 </tr>
 <tr class="covered">
 <td class="num">33</td>
 <td class="src"><pre><code class="objc">        isLoading = true</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">19x</td>
 </tr>
 <tr class="covered">
 <td class="num">34</td>
 <td class="src"><pre><code class="objc">        customView.collectionView.contentOffset = CGPoint.init(x: 0, y: -customView.refreshControl.frame.size.height)</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">19x</td>
 </tr>
 <tr class="covered">
 <td class="num">35</td>
 <td class="src"><pre><code class="objc">        customView.refreshControl.beginRefreshing()</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">19x</td>
 </tr>
 <tr class="covered">
 <td class="num">36</td>
 <td class="src"><pre><code class="objc">        let request = Characters.LoadNextPage.Request(page: currentPage, searchName: nil, reset: true)</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">19x</td>
 </tr>
 <tr class="covered">
 <td class="num">37</td>
 <td class="src"><pre><code class="objc">        interactor?.loadNextPage(request: request)</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">19x</td>
 </tr>
 <tr class="covered">
 <td class="num">38</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">19x</td>
 </tr>
 <tr class="never">
 <td class="num">39</td>
@@ -250,22 +250,22 @@
 <tr class="covered">
 <td class="num">48</td>
 <td class="src"><pre><code class="objc">    func setup(interactor: CharactersBusinessLogic? = nil, router: CharactersRoutingLogic? = nil) {</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">19x</td>
 </tr>
 <tr class="covered">
 <td class="num">49</td>
 <td class="src"><pre><code class="objc">        self.interactor = interactor</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">19x</td>
 </tr>
 <tr class="covered">
 <td class="num">50</td>
 <td class="src"><pre><code class="objc">        self.router = router</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">19x</td>
 </tr>
 <tr class="covered">
 <td class="num">51</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">19x</td>
 </tr>
 <tr class="never">
 <td class="num">52</td>
@@ -275,17 +275,17 @@
 <tr class="covered">
 <td class="num">53</td>
 <td class="src"><pre><code class="objc">    func setupView() {</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">19x</td>
 </tr>
 <tr class="covered">
 <td class="num">54</td>
 <td class="src"><pre><code class="objc">        title = Strings.characters.localizable.uppercased()</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">19x</td>
 </tr>
 <tr class="covered">
 <td class="num">55</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">12x</td>
+<td class="coverage">19x</td>
 </tr>
 <tr class="never">
 <td class="num">56</td>
@@ -312,35 +312,35 @@
 <td class="src"><pre><code class="objc">    </code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">61</td>
 <td class="src"><pre><code class="objc">    func displayError(emptyType: CharactersEmptyType) {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">62</td>
 <td class="src"><pre><code class="objc">        isLoading = false</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">63</td>
 <td class="src"><pre><code class="objc">        customView.refreshControl.endRefreshing()</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">64</td>
 <td class="src"><pre><code class="objc">        customView.viewModel = CharactersView.ViewModel(cells: [CharactersCellProtocol](),</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">65</td>
 <td class="src"><pre><code class="objc">                                                        emptyType: emptyType)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">66</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="never">
 <td class="num">67</td>
@@ -350,57 +350,57 @@
 <tr class="covered">
 <td class="num">68</td>
 <td class="src"><pre><code class="objc">    func displayLoadNextPage(viewModel: Characters.LoadNextPage.ViewModel) {</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">8x</td>
 </tr>
 <tr class="covered">
 <td class="num">69</td>
 <td class="src"><pre><code class="objc">        isLoading = false</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">8x</td>
 </tr>
 <tr class="covered">
 <td class="num">70</td>
 <td class="src"><pre><code class="objc">        customView.refreshControl.endRefreshing()</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">8x</td>
 </tr>
 <tr class="covered">
 <td class="num">71</td>
 <td class="src"><pre><code class="objc">        customView.viewModel = CharactersView.ViewModel(cells: viewModel.characters, emptyType: viewModel.emptyType)</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">8x</td>
 </tr>
 <tr class="covered">
 <td class="num">72</td>
 <td class="src"><pre><code class="objc">        </code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">8x</td>
 </tr>
 <tr class="covered">
 <td class="num">73</td>
 <td class="src"><pre><code class="objc">        if let selectedCharacterIndex = interactor?.selectedCharacterIndex {</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">8x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">74</td>
 <td class="src"><pre><code class="objc">            interactor?.selectedCharacterIndex = nil</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">75</td>
 <td class="src"><pre><code class="objc">            interactor?.selectCharacter(request: Characters.SelectCharacter.Request(index: selectedCharacterIndex))</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">76</td>
 <td class="src"><pre><code class="objc">            router?.routeToDetails()</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="covered">
 <td class="num">77</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">8x</td>
 </tr>
 <tr class="covered">
 <td class="num">78</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">3x</td>
+<td class="coverage">8x</td>
 </tr>
 <tr class="never">
 <td class="num">79</td>
@@ -492,170 +492,170 @@
 <td class="src"><pre><code class="objc">    </code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">97</td>
 <td class="src"><pre><code class="objc">    func willDisplayLastCell(_ view: CharactersView) {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">98</td>
 <td class="src"><pre><code class="objc">        if !isLoading {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">99</td>
 <td class="src"><pre><code class="objc">            isLoading = true</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">100</td>
 <td class="src"><pre><code class="objc">            currentPage = currentPage + 1</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">101</td>
 <td class="src"><pre><code class="objc">            let searchName = (view.searchBar.text?.count ?? 0) &gt; 0 ? view.searchBar.text : nil</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">102</td>
 <td class="src"><pre><code class="objc">            let request = Characters.LoadNextPage.Request(page: currentPage, searchName: searchName, reset: false)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">103</td>
 <td class="src"><pre><code class="objc">            interactor?.loadNextPage(request: request)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">104</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">105</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="never">
 <td class="num">106</td>
 <td class="src"><pre><code class="objc">    </code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">107</td>
 <td class="src"><pre><code class="objc">    func didUpdateSearchBar(_ view: CharactersView) {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">108</td>
 <td class="src"><pre><code class="objc">        if !isLoading {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">109</td>
 <td class="src"><pre><code class="objc">            isLoading = true</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">110</td>
 <td class="src"><pre><code class="objc">            currentPage = 0</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">111</td>
 <td class="src"><pre><code class="objc">            let searchName = (view.searchBar.text?.count ?? 0) &gt; 0 ? view.searchBar.text : nil</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">112</td>
 <td class="src"><pre><code class="objc">            let request = Characters.LoadNextPage.Request(page: currentPage, searchName: searchName, reset: true)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">113</td>
 <td class="src"><pre><code class="objc">            interactor?.loadNextPage(request: request)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">114</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">115</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="never">
 <td class="num">116</td>
 <td class="src"><pre><code class="objc">    </code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">117</td>
 <td class="src"><pre><code class="objc">    func didUpdateFavorite(_ view: CharactersView, forIndexPath indexPath: IndexPath, withValue value: Bool) {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">118</td>
 <td class="src"><pre><code class="objc">        let cell = view.collectionView.cellForItem(at: indexPath) as? CharactersViewCell</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">119</td>
 <td class="src"><pre><code class="objc">        let request = Characters.UpdateFavorite.Request(index: indexPath.row, isFavorite: value, image: cell?.imageView.image)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">120</td>
 <td class="src"><pre><code class="objc">        interactor?.updateFavorite(request: request)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">121</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="never">
 <td class="num">122</td>
 <td class="src"><pre><code class="objc">    </code></pre></td>
 <td class="coverage"></td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">123</td>
 <td class="src"><pre><code class="objc">    func didPullToRefresh(_ view: CharactersView) {</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">124</td>
 <td class="src"><pre><code class="objc">        view.refreshControl.beginRefreshing()</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">125</td>
 <td class="src"><pre><code class="objc">        currentPage = 0</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">126</td>
 <td class="src"><pre><code class="objc">        let searchName = (view.searchBar.text?.count ?? 0) &gt; 0 ? view.searchBar.text : nil</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">127</td>
 <td class="src"><pre><code class="objc">        let request = Characters.LoadNextPage.Request(page: currentPage, searchName: searchName, reset: true)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">128</td>
 <td class="src"><pre><code class="objc">        interactor?.loadNextPage(request: request)</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
-<tr class="missed">
+<tr class="covered">
 <td class="num">129</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">!</td>
+<td class="coverage">1x</td>
 </tr>
 <tr class="never">
 <td class="num">130</td>

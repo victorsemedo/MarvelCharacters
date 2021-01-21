@@ -75,47 +75,47 @@
 <tr class="covered">
 <td class="num">13</td>
 <td class="src"><pre><code class="objc">    func toCharacter() -&gt; Character {</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">4x</td>
 </tr>
 <tr class="covered">
 <td class="num">14</td>
 <td class="src"><pre><code class="objc">        var character = Character(id: Int(id), name: name, description: desc)</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">4x</td>
 </tr>
 <tr class="covered">
 <td class="num">15</td>
 <td class="src"><pre><code class="objc">        character.isFavorite = true</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">4x</td>
 </tr>
 <tr class="covered">
 <td class="num">16</td>
 <td class="src"><pre><code class="objc">        character.imageUrl = imgUrl</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">4x</td>
 </tr>
 <tr class="covered">
 <td class="num">17</td>
 <td class="src"><pre><code class="objc">        if let data = img {</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">4x</td>
 </tr>
 <tr class="covered">
 <td class="num">18</td>
 <td class="src"><pre><code class="objc">            character.image = UIImage(data: data)</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">4x</td>
 </tr>
 <tr class="covered">
 <td class="num">19</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">4x</td>
 </tr>
 <tr class="covered">
 <td class="num">20</td>
 <td class="src"><pre><code class="objc">        return character</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">4x</td>
 </tr>
 <tr class="covered">
 <td class="num">21</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">4x</td>
 </tr>
 <tr class="never">
 <td class="num">22</td>
@@ -375,52 +375,52 @@
 <tr class="covered">
 <td class="num">73</td>
 <td class="src"><pre><code class="objc">    static func fetchFavoriteCharacters(byName name: String?) throws -&gt; [FavoriteCharacter] {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">74</td>
 <td class="src"><pre><code class="objc">        let request = NSFetchRequest&lt;NSFetchRequestResult&gt;(entityName: "FavoriteCharacter")</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">75</td>
 <td class="src"><pre><code class="objc">        request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">76</td>
 <td class="src"><pre><code class="objc">        if let filterName = name, filterName.count &gt; 0 {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="missed">
 <td class="num">77</td>
-<td class="src"><pre><code class="objc">            request.predicate = NSPredicate(format: "name LIKE %@", filterName)</code></pre></td>
+<td class="src"><pre><code class="objc">            request.predicate = NSPredicate(format: "name CONTAINS[cd] %@", filterName)</code></pre></td>
 <td class="coverage">!</td>
 </tr>
 <tr class="covered">
 <td class="num">78</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">79</td>
 <td class="src"><pre><code class="objc">        </code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">80</td>
 <td class="src"><pre><code class="objc">        if let result = try DataProvider.shareInstance.context.fetch(request) as? [FavoriteCharacter] {</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">81</td>
 <td class="src"><pre><code class="objc">            return result</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="covered">
 <td class="num">82</td>
 <td class="src"><pre><code class="objc">        }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="missed">
 <td class="num">83</td>
@@ -435,7 +435,7 @@
 <tr class="covered">
 <td class="num">85</td>
 <td class="src"><pre><code class="objc">    }</code></pre></td>
-<td class="coverage">1x</td>
+<td class="coverage">2x</td>
 </tr>
 <tr class="never">
 <td class="num">86</td>
