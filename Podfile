@@ -12,12 +12,11 @@ target 'MarvelCharacters' do
   target 'MarvelCharactersTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'iOSSnapshotTestCase', '~> 6.2.0'
   end
 
   target 'MarvelCharactersUITests' do
     # Pods for testing
-    pod 'iOSSnapshotTestCase', '~> 6.2.0'
-    
   end
 
 end
