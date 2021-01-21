@@ -8,21 +8,21 @@
 @testable import MarvelCharacters
 
 class FavoritesPresenterSpy {
-    var presentFetchAllCalled = false
-    var presentUpdateFavoriteCalled = false
-    var presentErrorCalled = false
+    var presentFetchAllResponse: Favorites.FecthAll.Response? = nil
+    var presentUpdateFavoriteResponse: Favorites.UpdateFavorite.Response? = nil
+    var presentError: Error? = nil
 }
 
 extension FavoritesPresenterSpy: FavoritesPresentationLogic {
     func presentFetchAll(response: Favorites.FecthAll.Response) {
-        presentFetchAllCalled = true
+        presentFetchAllResponse = response
     }
     
     func presentUpdateFavorite(response: Favorites.UpdateFavorite.Response) {
-        presentUpdateFavoriteCalled = true
+        presentUpdateFavoriteResponse = response
     }
     
     func presentError(error: Error) {
-        presentErrorCalled = true
+        presentError = error
     }
 }

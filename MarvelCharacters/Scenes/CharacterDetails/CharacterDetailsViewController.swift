@@ -8,10 +8,11 @@
 import UIKit
 
 protocol CharacterDetailsDisplayLogic: class {
-    
     func displayCharacter(viewModel: CharacterDetails.LoadCharacter.ViewModel)
     func displayComicsAndSeries(viewModel: CharacterDetails.LoadComicsSeries.ViewModel)
     func displayUpdateFavorite(viewModel: CharacterDetails.UpdateFavorite.ViewModel)
+    func displayComicsAndSeriesError(isComics: Bool, message: String)
+    func displayError(title: String, message: String)
 }
 
 final class CharacterDetailsViewController: UIViewController {
@@ -62,6 +63,23 @@ extension CharacterDetailsViewController: CharacterDetailsDisplayLogic {
             customView.favoriteView.toogleFill()
         }
     }
+    
+    func displayComicsAndSeriesError(isComics: Bool, message: String) {
+        if isComics {
+            customView.comicsView.heightConstraint?.constant = 50
+            customView.comicsView.titleLabel.text = message
+        } else {
+            customView.seriesView.heightConstraint?.constant = 50
+            customView.seriesView.titleLabel.text = message
+        }
+    }
+    
+    func displayError(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction.init(title: Strings.ok.localizable, style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
 }
 
 extension CharacterDetailsViewController: CharacterDetailsViewDelegate {

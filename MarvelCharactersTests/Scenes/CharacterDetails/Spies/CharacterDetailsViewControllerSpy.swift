@@ -11,6 +11,9 @@ class CharacterDetailsViewControllerSpy: UIViewControllerSpy {
     var displayCharacterCalled = false
     var displayComicsAndSeriesCalled = false
     var displayUpdateFavoriteCalled = false
+    var displayComicsAndSeriesErrorCalled = false
+    var displayErrorCalled = false
+
 }
 
 extension CharacterDetailsViewControllerSpy: CharacterDetailsDisplayLogic {
@@ -26,4 +29,13 @@ extension CharacterDetailsViewControllerSpy: CharacterDetailsDisplayLogic {
     func displayUpdateFavorite(viewModel: CharacterDetails.UpdateFavorite.ViewModel) {
         displayUpdateFavoriteCalled = true
     }
+    
+    func displayComicsAndSeriesError(isComics: Bool, message: String) {
+        displayComicsAndSeriesErrorCalled = true
+    }
+    
+    func displayError(title: String, message: String) {
+        displayErrorCalled = true
+    }
+    
 }

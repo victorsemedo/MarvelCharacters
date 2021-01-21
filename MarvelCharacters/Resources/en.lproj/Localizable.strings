@@ -13,9 +13,11 @@
 "series" = "series";
 "try_again" = "Try Again";
 "no_favorites" = "No characters have been favored yet";
-
+"no_comics" = "no comics";
+"no_series" = "no series";
 "error_no_connection" = "Check your internet connection.";
 "error_unknown" = "OH NO!\nHYDRA stole this page from the S.H.I.E.L.D database!";
+"ok" = "OK";
 
 "error_data_save" = "An error occurred while saving local data.";
 "error_data_fetch" = "An error occurred while loading local data.";

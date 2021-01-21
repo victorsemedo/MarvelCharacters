@@ -14,12 +14,14 @@ class CharacterDetailsInteractorTests: XCTestCase {
     var presenterSpy: CharacterDetailsPresenterSpy!
     var workerSpy: CharacterDetailsWorkerSpy!
     
+    let testCharacter = CharacterDetailsSeeds.loadCharacterResponse.character
     // MARK: Test lifecycle
     override func setUp() {
         super.setUp()
         presenterSpy = CharacterDetailsPresenterSpy()
         workerSpy = CharacterDetailsWorkerSpy()
         sut = CharacterDetailsInteractor(presenter: presenterSpy, worker: workerSpy)
+        sut.character = testCharacter
     }
     
     override func tearDown() {
@@ -27,5 +29,49 @@ class CharacterDetailsInteractorTests: XCTestCase {
         workerSpy = nil
         sut = nil
         super.tearDown()
+    }
+    
+    func testLoadCharacter() {
+        sut.loadCharacter(request: CharacterDetails.LoadCharacter.Request())
+        XCTAssertNotNil(presenterSpy.presentCharacterResponse)
+        XCTAssertNotNil(presenterSpy.presentCharacterResponse?.character)
+        XCTAssertEqual(presenterSpy.presentCharacterResponse?.character?.id, testCharacter?.id)
+    }
+    
+    func loadComicsSeriesSuccess(request: CharacterDetails.LoadComicsSeries.Request) {
+        workerSpy.apiResultType = .success
+        sut.loadComicsSeries(request: CharacterDetails.LoadComicsSeries.Request())
+        XCTAssertNotNil(presenterSpy.presentComicsAndSeriesResponse)
+        XCTAssertNotNil(presenterSpy.presentComicsAndSeriesResponse?.comics)
+        XCTAssertEqual(presenterSpy.presentComicsAndSeriesResponse?.comics.count, 3)
+        XCTAssertEqual(presenterSpy.presentComicsAndSeriesResponse?.series.count, 2)
+    }
+    
+    func loadComicsSeriesEmpty(request: CharacterDetails.LoadComicsSeries.Request) {
+        workerSpy.apiResultType = .empty
+        sut.loadComicsSeries(request: CharacterDetails.LoadComicsSeries.Request())
+        XCTAssertNotNil(presenterSpy.presentComicsAndSeriesResponse)
+        XCTAssertNotNil(presenterSpy.presentComicsAndSeriesResponse?.comics)
+        XCTAssertEqual(presenterSpy.presentComicsAndSeriesResponse?.comics.count, 0)
+        XCTAssertEqual(presenterSpy.presentComicsAndSeriesResponse?.series.count, 0)
+    }
+    
+    func loadComicsSeriesError(request: CharacterDetails.LoadComicsSeries.Request) {
+        workerSpy.apiResultType = .unknown
+        sut.loadComicsSeries(request: CharacterDetails.LoadComicsSeries.Request())
+        XCTAssertNotNil(presenterSpy.presentComicsAndSeriesResponse)
+        XCTAssertNotNil(presenterSpy.presentComicsAndSeriesResponse?.comics)
+        XCTAssertEqual(presenterSpy.presentComicsAndSeriesResponse?.comics.count, 0)
+        XCTAssertEqual(presenterSpy.presentComicsAndSeriesResponse?.series.count, 0)
+    }
+    
+    func testSetFavorite(request: CharacterDetails.UpdateFavorite.Request) {
+        sut.updateFavorite(request: CharacterDetails.UpdateFavorite.Request(isFavorite: true, image: nil))
+        XCTAssertTrue(workerSpy.saveFovoriteCharacterCalled)
+    }
+    
+    func testRemoveFavorite(request: CharacterDetails.UpdateFavorite.Request) {
+        sut.updateFavorite(request: CharacterDetails.UpdateFavorite.Request(isFavorite: true, image: nil))
+        XCTAssertTrue(workerSpy.deleteFavoriteCharacterCalled)
     }
 }

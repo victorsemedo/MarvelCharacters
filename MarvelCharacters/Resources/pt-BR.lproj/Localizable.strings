@@ -13,9 +13,11 @@
 "series" = "series";
 "try_again" = "Tentar de Novo";
 "no_favorites" = "Nenhum personagem foi favoritado ainda";
-
+"no_comics" = "nenhum quadrinho";
+"no_series" = "nenhuma serie";
 "error_no_connection" = "Verifique a conexão da sua internet.";
 "error_unknown" = "OH NÃO!\nHYDRA roubou esta página do banco de dados S.H.I.E.L.D.";
+"ok" = "OK";
 
 "error_data_save" = "Ocorreu um erro ao salvar dados locais.";
 "error_data_fetch" = "Ocorreu um erro ao procurar dados locais.";

@@ -46,15 +46,16 @@ extension CharacterDetailsInteractor: CharacterDetailsBusinessLogic {
             switch comicsResult {
             case .success(let response):
                 comics.append(contentsOf: response)
-            case .failure(_):
+            case .failure(let error):
+                self.presenter?.presentComicsAndSeriesError(isComics: true, error: error)
                 break
             }
             self.worker.fetchSeries(byId: id) { (seriesResult) in
                 switch seriesResult {
                 case .success(let response):
                     series.append(contentsOf: response)
-                case .failure(_):
-                    break
+                case .failure(let error):
+                    self.presenter?.presentComicsAndSeriesError(isComics: false, error: error)
                 }
                 let response = CharacterDetails.LoadComicsSeries.Response.init(comics: comics, series: series)
                 self.presenter?.presentComicsAndSeries(response: response)
@@ -75,7 +76,6 @@ extension CharacterDetailsInteractor: CharacterDetailsBusinessLogic {
             }
         }
     }
-    
 }
 
 private extension CharacterDetailsInteractor {

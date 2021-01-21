@@ -8,18 +8,30 @@
 @testable import MarvelCharacters
 import UIKit
 
-enum CharactersWorkerAPIResultType {
+enum WorkerSpyAPIResultType {
     case success
     case empty
     case noConnection
     case decodeObject
     case badURL
     case unknown
+    
+    var apiError: APIError {
+        switch self {
+        case .noConnection:
+            return .noConnection
+        case .decodeObject:
+            return .decodeObject
+        case .badURL:
+            return .badURL
+        default:
+            return .noConnection
+        }
+    }
 }
-
 class CharactersWorkerSpy: FavoritesWorkerSpy {
     
-    var apiResultType = CharactersWorkerAPIResultType.success
+    var apiResultType = WorkerSpyAPIResultType.success
 
     var loadNextPageCalled = false
     
@@ -35,15 +47,8 @@ extension CharactersWorkerSpy: CharactersWorkLogic {
             result(.success(CharactersSeeds.loadNextPage))
         case .empty:
             result(.success(CharactersSeeds.loadNextPageEmpty))
-        case .noConnection:
-            result(.failure(APIError.noConnection))
-        case .decodeObject:
-            result(.failure(APIError.decodeObject))
-        case .badURL:
-            result(.failure(APIError.badURL))
-        case .unknown:
-            result(.failure(APIError.unknown))
+        default:
+            result(.failure(apiResultType.apiError))
         }
     }
-    
 }

@@ -38,4 +38,7 @@ enum Strings: String, Localizable {
     case errorDataDelete = "error_data_delete"
     case errorDataUnknown = "error_data_unknown"
     case noFavorites = "no_favorites"
+    case noComics = "no_comics"
+    case noSeries = "no_series"
+    case ok = "ok"
 }

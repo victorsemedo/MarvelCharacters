@@ -8,22 +8,21 @@
 @testable import MarvelCharacters
 
 class CharactersPresenterSpy {
-    var presentLoadNextPageCalled = false
-    var presentUpdateFavoriteCalled = false
-    var presentErrorCalled = false
+    var presentLoadNextPageResponse: Characters.LoadNextPage.Response? = nil
+    var presentUpdateFavoriteResponse: Characters.UpdateFavorite.Response? = nil
+    var presentError: Error? = nil
 }
 
 extension CharactersPresenterSpy: CharactersPresentationLogic {
     func presentLoadNextPage(response: Characters.LoadNextPage.Response) {
-        presentLoadNextPageCalled = true
+        presentLoadNextPageResponse = nil
     }
     
     func presentUpdateFavorite(response: Characters.UpdateFavorite.Response) {
-        presentUpdateFavoriteCalled = true
+        presentUpdateFavoriteResponse = nil
     }
     
     func presentError(error: Error) {
-        presentErrorCalled = true
+        presentError = nil
     }
-    
 }

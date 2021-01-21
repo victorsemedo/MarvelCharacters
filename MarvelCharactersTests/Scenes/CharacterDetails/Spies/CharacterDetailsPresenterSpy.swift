@@ -8,28 +8,34 @@
 @testable import MarvelCharacters
 
 class CharacterDetailsPresenterSpy {
-    var presentCharacterCalled = false
-    var presentComicsAndSeriesCalled = false
-    var presentUpdateFavoriteCalled = false
-    var presentErrorCalled = false
-
+    var presentCharacterResponse: CharacterDetails.LoadCharacter.Response? = nil
+    var presentComicsAndSeriesResponse: CharacterDetails.LoadComicsSeries.Response? = nil
+    var presentUpdateFavoriteResponse: CharacterDetails.UpdateFavorite.Response? = nil
+    var presentError: Error? = nil
+    var presentComicsAndSeriesError: (Bool, Error)? = nil
 }
 
 extension CharacterDetailsPresenterSpy: CharacterDetailsPresentationLogic {
     
     func presentCharacter(response: CharacterDetails.LoadCharacter.Response) {
-        presentCharacterCalled = true
+        presentCharacterResponse = response
     }
     
     func presentComicsAndSeries(response: CharacterDetails.LoadComicsSeries.Response) {
-        presentComicsAndSeriesCalled = true
+        presentComicsAndSeriesResponse = response
     }
     
     func presentUpdateFavorite(response: CharacterDetails.UpdateFavorite.Response) {
-        presentUpdateFavoriteCalled = true
+        presentUpdateFavoriteResponse = response
     }
     
     func presentError(error: Error) {
-        presentErrorCalled = true
+        presentError = error
     }
+    
+    func presentComicsAndSeriesError(isComics: Bool, error: Error) {
+        presentComicsAndSeriesError = (isComics, error)
+    }
+    
+    
 }
