@@ -17,7 +17,7 @@ protocol CharacterDetailsWorkLogic: FavoritesWorkLogic {
 }
 
 // MARK: Work Logic Protocol
-class CharacterDetailsWorker: FavoritesWorker, CharacterDetailsWorkLogic {
+final class CharacterDetailsWorker: FavoritesWorker, CharacterDetailsWorkLogic {
     
     func fetchComics(byId id: Int, result: @escaping (Result<[Comic], APIError>) -> Void) {
         APIProvider.makeRequest(MarvelAPI.comics(String(id))) { (providerResult: Result<MarvelFetchListResponse<Comic>, APIError>) in

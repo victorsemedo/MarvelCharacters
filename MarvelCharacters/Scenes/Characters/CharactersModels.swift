@@ -43,7 +43,6 @@ enum Characters {
     enum SelectCharacter {
         struct Request {
             let index: Int
-            
         }
     }
     

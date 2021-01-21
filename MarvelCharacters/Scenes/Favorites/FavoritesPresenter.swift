@@ -13,7 +13,7 @@ protocol FavoritesPresentationLogic {
     func presentError(error: Error)
 }
 
-class FavoritesPresenter {
+final class FavoritesPresenter {
     private weak var viewController: FavoritesDisplayLogic?
     
     init(viewController: FavoritesDisplayLogic) {

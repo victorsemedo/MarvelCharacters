@@ -14,7 +14,7 @@ protocol CharacterDetailsPresentationLogic {
     func presentError(error: Error)
 }
 
-class CharacterDetailsPresenter {
+final class CharacterDetailsPresenter {
     private weak var viewController: CharacterDetailsDisplayLogic?
     
     init(viewController: CharacterDetailsDisplayLogic) {

@@ -68,7 +68,8 @@ extension FavoritesViewController: CharactersViewDelegate {
     }
     
     func didUpdateSearchBar(_ view: CharactersView) {
-
+        view.refreshControl.beginRefreshing()
+        interactor?.fecthAll(request: Favorites.FecthAll.Request(filterName: customView.searchBar.text))
     }
     
     func didUpdateFavorite(_ view: CharactersView, forIndexPath indexPath: IndexPath, withValue value: Bool) {

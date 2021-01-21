@@ -23,7 +23,7 @@ struct CharacterDetailsSeeds {
                                                              description: character?.description,
                                                              imageUrl: character?.imageUrl,
                                                              image: character?.image,
-                                                             isFavorite: false)
+                                                             isFavorite: true)
     }
     
     static var loadComicsSeriesResponse: CharacterDetails.LoadComicsSeries.Response {
@@ -35,9 +35,20 @@ struct CharacterDetailsSeeds {
         return CharacterDetails.LoadComicsSeries.Response(comics: comics, series: series)
     }
 
-    static var loadComicsSeriesViewModel: CharacterDetails.LoadComicsSeries.Response {
-        return CharacterDetails.LoadComicsSeries.Response(comics: loadComicsSeriesResponse.comics,
+    static var loadComicsSeriesViewModel: CharacterDetails.LoadComicsSeries.ViewModel {
+        return CharacterDetails.LoadComicsSeries.ViewModel(comics: loadComicsSeriesResponse.comics,
                                                           series: loadComicsSeriesResponse.series)
     }
     
+    static var updateFavoriteRequest: CharacterDetails.UpdateFavorite.Request {
+        return CharacterDetails.UpdateFavorite.Request(isFavorite: true, image: nil)
+    }
+    
+    static var updateFavoriteResponse: CharacterDetails.UpdateFavorite.Response {
+        return CharacterDetails.UpdateFavorite.Response(result: true)
+    }
+    
+    static var updateFavoriteViewModel: CharacterDetails.UpdateFavorite.ViewModel {
+        return CharacterDetails.UpdateFavorite.ViewModel(result: true)
+    }
 }

@@ -14,7 +14,7 @@ protocol CharacterDetailsDisplayLogic: class {
     func displayUpdateFavorite(viewModel: CharacterDetails.UpdateFavorite.ViewModel)
 }
 
-class CharacterDetailsViewController: UIViewController {
+final class CharacterDetailsViewController: UIViewController {
     private var interactor: CharacterDetailsBusinessLogic?
     private var router: CharacterDetailsRoutingLogic?
     

@@ -17,7 +17,7 @@ protocol CharacterDetailsDataStore {
     var character: Character? { get }
 }
 
-class CharacterDetailsInteractor: CharacterDetailsDataStore {
+final class CharacterDetailsInteractor: CharacterDetailsDataStore {
     
     var character: Character?
     

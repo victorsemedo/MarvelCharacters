@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FavoritesFactory {
+final class FavoritesFactory {
     static func setupFavorites() -> UIViewController {
         let viewController = FavoritesViewController()
         let worker = FavoritesWorker()

@@ -15,7 +15,7 @@ protocol CharactersDataPassing {
     var dataStore: CharactersDataStore? { get }
 }
 
-class CharactersRouter: CharactersDataPassing {
+final class CharactersRouter: CharactersDataPassing {
     private weak var viewController: UIViewController?
     var dataStore: CharactersDataStore?
     

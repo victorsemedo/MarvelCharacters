@@ -14,7 +14,7 @@ protocol CharactersWorkLogic: FavoritesWorkLogic {
 }
 
 // MARK: Work Logic Protocol
-class CharactersWorker: FavoritesWorker, CharactersWorkLogic {
+final class CharactersWorker: FavoritesWorker, CharactersWorkLogic {
 
     func loadNextPage(request: Characters.LoadNextPage.Request, result: @escaping (Result<Characters.LoadNextPage.Response, APIError>) -> Void) {
         APIProvider.makeRequest(MarvelAPI.characters(request.searchName, request.page*20)) { (providerResult: Result<MarvelFetchListResponse<Character>, APIError>) in

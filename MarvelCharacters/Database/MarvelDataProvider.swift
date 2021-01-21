@@ -74,7 +74,7 @@ final class MarvelDataProvider {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoriteCharacter")
         request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         if let filterName = name, filterName.count > 0 {
-            request.predicate = NSPredicate(format: "name LIKE %@", filterName)
+            request.predicate = NSPredicate(format: "name CONTAINS[cd] %@", filterName)
         }
         
         if let result = try DataProvider.shareInstance.context.fetch(request) as? [FavoriteCharacter] {

@@ -19,7 +19,7 @@ protocol CharactersDataStore {
     var selectedCharacter: Character? { get }
 }
 
-class CharactersInteractor: CharactersDataStore {
+final class CharactersInteractor: CharactersDataStore {
     private var presenter: CharactersPresentationLogic?
     private var worker: CharactersWorkLogic
     

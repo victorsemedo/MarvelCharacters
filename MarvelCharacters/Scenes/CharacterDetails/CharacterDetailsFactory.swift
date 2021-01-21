@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CharacterDetailsFactory {
+final class CharacterDetailsFactory {
     static func setupCharacterDetails(_ character:  Character) -> UIViewController {
         let viewController = CharacterDetailsViewController()
         let worker = CharacterDetailsWorker()

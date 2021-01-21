@@ -8,9 +8,9 @@
 @testable import MarvelCharacters
 
 class CharacterDetailsInteractorSpy: CharacterDetailsDataStore {
-    var loadCharacterCalled = false
-    var loadComicsSeriesCalled = false
-    var updateFavoriteCalled = false
+    var loadCharacterRequest: CharacterDetails.LoadCharacter.Request? = nil
+    var loadComicsSeriesRequest: CharacterDetails.LoadComicsSeries.Request? = nil
+    var updateFavoriteRequest: CharacterDetails.UpdateFavorite.Request? = nil
     
     var character: Character?
 }
@@ -18,14 +18,14 @@ class CharacterDetailsInteractorSpy: CharacterDetailsDataStore {
 extension CharacterDetailsInteractorSpy: CharacterDetailsBusinessLogic {
     
     func loadCharacter(request: CharacterDetails.LoadCharacter.Request) {
-        loadCharacterCalled = true
+        loadCharacterRequest = request
     }
     
     func loadComicsSeries(request: CharacterDetails.LoadComicsSeries.Request) {
-        loadComicsSeriesCalled = true
+        loadComicsSeriesRequest = request
     }
     
     func updateFavorite(request: CharacterDetails.UpdateFavorite.Request) {
-        updateFavoriteCalled = true
+        updateFavoriteRequest = request
     }
 }

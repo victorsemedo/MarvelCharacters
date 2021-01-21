@@ -8,31 +8,30 @@
 @testable import MarvelCharacters
 
 class CharactersInteractorSpy: CharactersDataStore {
-    var loadNextPageCalled = false
-    var reloadFavoritesCalled = false
-    var updateFavoriteCalled = false
-    var selectCharacterCalled = false
+    var loadNextPageRequest: Characters.LoadNextPage.Request? = nil
+    var reloadFavoritesRequest: Characters.ReloadFavorites.Request? = nil
+    var updateFavoriteRequest: Characters.UpdateFavorite.Request? = nil
+    var selectCharacterRequest: Characters.SelectCharacter.Request? = nil
     
     var selectedCharacterIndex: Int? = nil
-    
     var selectedCharacter: Character?
 }
 
 extension CharactersInteractorSpy: CharactersBusinessLogic {
       
     func loadNextPage(request: Characters.LoadNextPage.Request) {
-        loadNextPageCalled = true
+        loadNextPageRequest = request
     }
     
     func reloadFavorites(request: Characters.ReloadFavorites.Request) {
-        reloadFavoritesCalled = true
+        reloadFavoritesRequest = request
     }
     
     func updateFavorite(request: Characters.UpdateFavorite.Request) {
-        updateFavoriteCalled = true
+        updateFavoriteRequest = request
     }
     
     func selectCharacter(request: Characters.SelectCharacter.Request) {
-        selectCharacterCalled = true
+        selectCharacterRequest = request
     }
 }

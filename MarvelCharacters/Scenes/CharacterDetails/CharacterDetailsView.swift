@@ -11,7 +11,7 @@ protocol CharacterDetailsViewDelegate: AnyObject {
     func setFavorite(_ view: CharacterDetailsView, value: Bool)
 }
 
-class CharacterDetailsView: UIScrollView {
+final class CharacterDetailsView: UIScrollView {
     
     var contentView = UIView()
     

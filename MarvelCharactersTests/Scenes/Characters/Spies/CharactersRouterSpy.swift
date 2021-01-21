@@ -8,11 +8,11 @@
 @testable import MarvelCharacters
 
 class CharactersRouterSpy {
-    var routeToDetailsCalledCalled = false
+    var routeToDetailsCalled = false
 }
 
 extension CharactersRouterSpy: CharactersRoutingLogic {
     func routeToDetails() {
-        routeToDetailsCalledCalled = true
+        routeToDetailsCalled = true
     }
 }

@@ -17,7 +17,7 @@ protocol FavoritesDataStore {
     var selectedCharacter: Character? { get }
 }
 
-class FavoritesInteractor: FavoritesDataStore {
+final class FavoritesInteractor: FavoritesDataStore {
     private var presenter: FavoritesPresentationLogic?
     private var worker: FavoritesWorkLogic
     

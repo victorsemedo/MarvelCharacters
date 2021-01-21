@@ -8,9 +8,9 @@
 @testable import MarvelCharacters
 
 class FavoritesInteractorSpy: FavoritesDataStore {
-    var fecthAllCalled = false
-    var selectCharacterCalled = false
-    var updateFavoriteCalled = false
+    var fecthAllRequest: Favorites.FecthAll.Request? = nil
+    var selectCharacterRequest: Favorites.SelectCharacter.Request? = nil
+    var updateFavoriteRequest: Favorites.UpdateFavorite.Request? = nil
     
     var selectedCharacter: Character?
 }
@@ -18,14 +18,14 @@ class FavoritesInteractorSpy: FavoritesDataStore {
 extension FavoritesInteractorSpy: FavoritesBusinessLogic {
     
     func fecthAll(request: Favorites.FecthAll.Request) {
-        fecthAllCalled = true
+        fecthAllRequest = request
     }
     
     func selectCharacter(request: Favorites.SelectCharacter.Request) {
-        selectCharacterCalled = true
+        selectCharacterRequest = request
     }
     
     func updateFavorite(request: Favorites.UpdateFavorite.Request) {
-        updateFavoriteCalled = true
+        updateFavoriteRequest = request
     }    
 }

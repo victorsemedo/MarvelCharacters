@@ -13,7 +13,7 @@ protocol CharactersPresentationLogic {
     func presentError(error: Error)
 }
 
-class CharactersPresenter {
+final class CharactersPresenter {
     private weak var viewController: CharactersDisplayLogic?
     
     init(viewController: CharactersDisplayLogic) {

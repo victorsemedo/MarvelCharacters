@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CharactersFactory {
+final class CharactersFactory {
     static func setupCharacters(selectedCharacterIndex: Int? = nil) -> UIViewController {
         let viewController = CharactersViewController()
         let worker = CharactersWorker()

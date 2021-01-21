@@ -13,7 +13,7 @@ protocol CharactersDisplayLogic: class {
     func displayUpdateFavorite(viewModel: Characters.UpdateFavorite.ViewModel)
 }
 
-class CharactersViewController: UIViewController {
+final class CharactersViewController: UIViewController {
     
     private var interactor: CharactersBusinessLogic?
     private var router: CharactersRoutingLogic?
