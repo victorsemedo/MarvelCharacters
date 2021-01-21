@@ -28,5 +28,36 @@ class CharactersInteractorTests: XCTestCase {
         sut = nil
         super.tearDown()
     }
-
+    
+    func testLoadNextPageSuccess() {
+        workerSpy.apiResultType = .success
+        sut.loadNextPage(request: Characters.LoadNextPage.Request(page: 0, searchName: nil, reset: true))
+        XCTAssertNotNil(presenterSpy.presentLoadNextPageResponse)
+        XCTAssertNil(presenterSpy.presentError)
+        XCTAssertEqual(presenterSpy.presentLoadNextPageResponse?.characters.count, 20)
+    }
+    
+    func testLoadNextPageEmpty() {
+        workerSpy.apiResultType = .empty
+        sut.loadNextPage(request: Characters.LoadNextPage.Request(page: 0, searchName: "Hydra", reset: true))
+        XCTAssertNotNil(presenterSpy.presentLoadNextPageResponse)
+        XCTAssertNil(presenterSpy.presentError)
+        XCTAssertEqual(presenterSpy.presentLoadNextPageResponse?.characters.count, 0)
+    }
+    
+    func testLoadNextPageError() {
+        workerSpy.apiResultType = .noConnection
+        sut.loadNextPage(request: Characters.LoadNextPage.Request(page: 0, searchName: nil, reset: true))
+        XCTAssertNil(presenterSpy.presentLoadNextPageResponse)
+        XCTAssertNotNil(presenterSpy.presentError)
+        XCTAssertEqual(presenterSpy.presentError?.localizedDescription, APIError.noConnection.localizedDescription)
+    }
+    
+    func testSelectCharacter() {
+        workerSpy.apiResultType = .success
+        sut.loadNextPage(request: Characters.LoadNextPage.Request(page: 0, searchName: nil, reset: true))
+        sut.selectCharacter(request: Characters.SelectCharacter.Request(index: 0))
+        XCTAssertNotNil(sut.selectedCharacter)
+        XCTAssertEqual(sut.selectedCharacter?.id, CharactersSeeds.loadNextPage.characters[0].id)
+    }
 }

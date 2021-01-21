@@ -15,14 +15,14 @@ class CharactersPresenterSpy {
 
 extension CharactersPresenterSpy: CharactersPresentationLogic {
     func presentLoadNextPage(response: Characters.LoadNextPage.Response) {
-        presentLoadNextPageResponse = nil
+        presentLoadNextPageResponse = response
     }
     
     func presentUpdateFavorite(response: Characters.UpdateFavorite.Response) {
-        presentUpdateFavoriteResponse = nil
+        presentUpdateFavoriteResponse = response
     }
     
     func presentError(error: Error) {
-        presentError = nil
+        presentError = error
     }
 }
