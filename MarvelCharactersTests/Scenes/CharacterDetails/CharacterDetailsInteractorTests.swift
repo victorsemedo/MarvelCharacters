@@ -65,13 +65,30 @@ class CharacterDetailsInteractorTests: XCTestCase {
         XCTAssertEqual(presenterSpy.presentComicsAndSeriesResponse?.series.count, 0)
     }
     
-    func testSetFavorite(request: CharacterDetails.UpdateFavorite.Request) {
+    func testSetFavorite() {
+        workerSpy.saveAndDeleteResult = true
         sut.updateFavorite(request: CharacterDetails.UpdateFavorite.Request(isFavorite: true, image: nil))
-        XCTAssertTrue(workerSpy.saveFovoriteCharacterCalled)
+        XCTAssertNotNil(workerSpy.saveFavoriteCharacter)
     }
     
-    func testRemoveFavorite(request: CharacterDetails.UpdateFavorite.Request) {
+    func testSetFavoriteFail() {
+        workerSpy.saveAndDeleteResult = false
         sut.updateFavorite(request: CharacterDetails.UpdateFavorite.Request(isFavorite: true, image: nil))
-        XCTAssertTrue(workerSpy.deleteFavoriteCharacterCalled)
+        XCTAssertNotNil(workerSpy.saveFavoriteCharacter)
+        XCTAssertEqual(presenterSpy.presentError?.localizedDescription, DataProviderError.save.localizedDescription)
+    }
+    
+    func testRemoveFavorite() {
+        workerSpy.saveAndDeleteResult = true
+        sut.updateFavorite(request: CharacterDetails.UpdateFavorite.Request(isFavorite: false, image: nil))
+        XCTAssertNotNil(workerSpy.deleteFavoriteCharacter)
+    }
+
+    
+    func testRemoveFavoriteFail() {
+        workerSpy.saveAndDeleteResult = false
+        sut.updateFavorite(request: CharacterDetails.UpdateFavorite.Request(isFavorite: false, image: nil))
+        XCTAssertNotNil(workerSpy.deleteFavoriteCharacter)
+        XCTAssertEqual(presenterSpy.presentError?.localizedDescription, DataProviderError.delete.localizedDescription)
     }
 }

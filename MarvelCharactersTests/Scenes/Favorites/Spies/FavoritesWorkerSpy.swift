@@ -15,40 +15,36 @@ enum FavoritesWorkerSpyResult {
 }
 
 class FavoritesWorkerSpy {
-    var saveFovoriteCharacterCalled = false
-    var deleteFavoriteCharacterCalled = false
-    var loadFavoriteCharactersCalled = false
+    var saveFavoriteCharacter: Character? = nil
+    var deleteFavoriteCharacter: Character? = nil
+    var loadFavoriteCharactersId: String? = nil
     
-    var sucessResult = true
-    
+    var saveAndDeleteResult = true
     var loadFavoritesResult = FavoritesWorkerSpyResult.success
 }
 
 extension FavoritesWorkerSpy: FavoritesWorkLogic {
     
     func saveFovoriteCharacter(_ character: Character, image: UIImage?, result: @escaping (Result<Bool, DataProviderError>) -> Void) {
-        saveFovoriteCharacterCalled = true
-        
-        if sucessResult {
-            result(.success(sucessResult))
+        saveFavoriteCharacter = character
+        if saveAndDeleteResult {
+            result(.success(saveAndDeleteResult))
         } else {
             result(.failure(DataProviderError.save))
         }
     }
     
     func deleteFavoriteCharacter(_ character: Character, result: @escaping (Result<Bool, DataProviderError>) -> Void) {
-        deleteFavoriteCharacterCalled = true
-        
-        if sucessResult {
-            result(.success(sucessResult))
+        deleteFavoriteCharacter = character
+        if saveAndDeleteResult {
+            result(.success(saveAndDeleteResult))
         } else {
             result(.failure(DataProviderError.delete))
         }
     }
     
     func loadFavoriteCharacters(byName name: String?, result: @escaping (Result<[Character], DataProviderError>) -> Void) {
-        loadFavoriteCharactersCalled = true
-        
+        loadFavoriteCharactersId = name
         switch loadFavoritesResult {
         case .success:
             result(.success(FavoritesSeeds.fecthAllResponse.characters))

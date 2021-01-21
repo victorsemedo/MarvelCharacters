@@ -60,4 +60,39 @@ class CharactersInteractorTests: XCTestCase {
         XCTAssertNotNil(sut.selectedCharacter)
         XCTAssertEqual(sut.selectedCharacter?.id, CharactersSeeds.loadNextPage.characters[0].id)
     }
+    
+    func testSetFavorite() {
+        workerSpy.apiResultType = .success
+        sut.loadNextPage(request: Characters.LoadNextPage.Request(page: 0, searchName: nil, reset: true))
+        workerSpy.saveAndDeleteResult = true
+        sut.updateFavorite(request: Characters.UpdateFavorite.Request.init(index: 1, isFavorite: true, image: nil))
+        XCTAssertNotNil(workerSpy.saveFavoriteCharacter)
+    }
+    
+    func testRemoveFavorite() {
+        workerSpy.apiResultType = .success
+        sut.loadNextPage(request: Characters.LoadNextPage.Request(page: 0, searchName: nil, reset: true))
+        workerSpy.saveAndDeleteResult = true
+        sut.updateFavorite(request: Characters.UpdateFavorite.Request(index: 1, isFavorite: false, image: nil))
+        XCTAssertNotNil(workerSpy.deleteFavoriteCharacter)
+    }
+    
+    func testSetFavoriteFail() {
+        workerSpy.apiResultType = .success
+        sut.loadNextPage(request: Characters.LoadNextPage.Request(page: 0, searchName: nil, reset: true))
+        workerSpy.saveAndDeleteResult = false
+        sut.updateFavorite(request: Characters.UpdateFavorite.Request(index: 1, isFavorite: true, image: nil))
+        XCTAssertNotNil(workerSpy.saveFavoriteCharacter)
+        XCTAssertEqual(presenterSpy.presentError?.localizedDescription, DataProviderError.save.localizedDescription)
+    }
+    
+    func testRemoveFavoriteFail() {
+        workerSpy.apiResultType = .success
+        sut.loadNextPage(request: Characters.LoadNextPage.Request(page: 0, searchName: nil, reset: true))
+        workerSpy.saveAndDeleteResult = false
+        sut.updateFavorite(request: Characters.UpdateFavorite.Request(index: 1, isFavorite: true, image: nil))
+        XCTAssertNil(workerSpy.deleteFavoriteCharacter)
+        XCTAssertEqual(presenterSpy.presentError?.localizedDescription, DataProviderError.delete.localizedDescription)
+    }
+    
 }
