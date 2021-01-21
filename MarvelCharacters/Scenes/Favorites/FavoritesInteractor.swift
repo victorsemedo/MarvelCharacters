@@ -33,13 +33,14 @@ final class FavoritesInteractor: FavoritesDataStore {
 //MARK: Business Logic Protocol
 extension FavoritesInteractor: FavoritesBusinessLogic {
     func fecthAll(request: Favorites.FecthAll.Request) {
-        worker.loadFavoriteCharacters(byName: request.filterName) { (result) in
+        worker.loadFavoriteCharacters(byName: request.filterName) {  [weak self] (result) in
+            guard let strongSelf = self else {return}
             switch result {
             case .success(let characters):
-                self.favoriteCharacters = characters
-                self.presenter?.presentFetchAll(response: Favorites.FecthAll.Response(characters: self.favoriteCharacters))
+                strongSelf.favoriteCharacters = characters
+                strongSelf.presenter?.presentFetchAll(response: Favorites.FecthAll.Response(characters: strongSelf.favoriteCharacters))
             case .failure(let error):
-                self.presenter?.presentError(error: error)
+                strongSelf.presenter?.presentError(error: error)
             }
         }
     }
@@ -51,12 +52,14 @@ extension FavoritesInteractor: FavoritesBusinessLogic {
     func updateFavorite(request: Favorites.UpdateFavorite.Request) {
         let character = favoriteCharacters[request.index]
         if request.isFavorite {
-            worker.saveFovoriteCharacter(character, image: request.image) { (result) in
-                self.validateUpdateFavoriteResult(index: request.index, result: result)
+            worker.saveFovoriteCharacter(character, image: request.image) {  [weak self] (result) in
+                guard let strongSelf = self else {return}
+                strongSelf.validateUpdateFavoriteResult(index: request.index, result: result)
             }
         } else {
-            worker.deleteFavoriteCharacter(character) { (result) in
-                self.validateUpdateFavoriteResult(index: request.index, result: result)
+            worker.deleteFavoriteCharacter(character) {  [weak self] (result) in
+                guard let strongSelf = self else {return}
+                strongSelf.validateUpdateFavoriteResult(index: request.index, result: result)
             }
         }
     }

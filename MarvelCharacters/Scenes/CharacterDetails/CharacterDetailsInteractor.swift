@@ -42,23 +42,25 @@ extension CharacterDetailsInteractor: CharacterDetailsBusinessLogic {
         var comics = [Comic]()
         var series = [Serie]()
         
-        worker.fetchComics(byId: id) { (comicsResult) in
+        worker.fetchComics(byId: id) { [weak self] (comicsResult) in
+            guard let strongSelf = self else {return}
             switch comicsResult {
             case .success(let response):
                 comics.append(contentsOf: response)
             case .failure(let error):
-                self.presenter?.presentComicsAndSeriesError(isComics: true, error: error)
+                strongSelf.presenter?.presentComicsAndSeriesError(isComics: true, error: error)
                 break
             }
-            self.worker.fetchSeries(byId: id) { (seriesResult) in
+            self?.worker.fetchSeries(byId: id) { (seriesResult) in
+                guard let strongSelf = self else {return}
                 switch seriesResult {
                 case .success(let response):
                     series.append(contentsOf: response)
                 case .failure(let error):
-                    self.presenter?.presentComicsAndSeriesError(isComics: false, error: error)
+                    strongSelf.presenter?.presentComicsAndSeriesError(isComics: false, error: error)
                 }
                 let response = CharacterDetails.LoadComicsSeries.Response.init(comics: comics, series: series)
-                self.presenter?.presentComicsAndSeries(response: response)
+                strongSelf.presenter?.presentComicsAndSeries(response: response)
             }
         }
     }
@@ -66,12 +68,14 @@ extension CharacterDetailsInteractor: CharacterDetailsBusinessLogic {
     func updateFavorite(request: CharacterDetails.UpdateFavorite.Request) {
         if let character = character {
             if request.isFavorite {
-                worker.saveFovoriteCharacter(character, image: request.image) { (result) in
-                    self.validateUpdateFavoriteResult(result)
+                worker.saveFovoriteCharacter(character, image: request.image) { [weak self] (result) in
+                    guard let strongSelf = self else {return}
+                    strongSelf.validateUpdateFavoriteResult(result)
                 }
             } else {
-                worker.deleteFavoriteCharacter(character) { (result) in
-                    self.validateUpdateFavoriteResult(result)
+                worker.deleteFavoriteCharacter(character) { [weak self] (result) in
+                    guard let strongSelf = self else {return}
+                    strongSelf.validateUpdateFavoriteResult(result)
                 }
             }
         }

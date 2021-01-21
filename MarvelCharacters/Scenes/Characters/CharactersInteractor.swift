@@ -44,14 +44,15 @@ extension CharactersInteractor: CharactersBusinessLogic {
             switch result {
             case .success(let response):
                 charactersResponse = response.characters
-                self.getFavoritesIds { (idsResult) in
+                self.getFavoritesIds { [weak self] (idsResult) in
+                    guard let strongSelf = self else {return}
                     switch idsResult {
                     case .success(let favorites):
-                        self.updateCharacters(withResponse: charactersResponse, favorites: favorites, reset: request.reset)
-                        let response = Characters.LoadNextPage.Response(characters: self.characters)
-                        self.presenter?.presentLoadNextPage(response: response)
+                        strongSelf.updateCharacters(withResponse: charactersResponse, favorites: favorites, reset: request.reset)
+                        let response = Characters.LoadNextPage.Response(characters: strongSelf.characters)
+                        strongSelf.presenter?.presentLoadNextPage(response: response)
                     case .failure(let error):
-                        self.presenter?.presentError(error: error)
+                        strongSelf.presenter?.presentError(error: error)
                     }
                 }
                 
@@ -62,14 +63,15 @@ extension CharactersInteractor: CharactersBusinessLogic {
     }
     
     func reloadFavorites(request: Characters.ReloadFavorites.Request) {
-        self.getFavoritesIds { (result) in
+        self.getFavoritesIds { [weak self] (result) in
+            guard let strongSelf = self else {return}
             switch result {
             case .success(let favorites):
-                self.updateCharacters(withResponse: self.characters, favorites: favorites, reset: true)
-                let response = Characters.LoadNextPage.Response(characters: self.characters)
-                self.presenter?.presentLoadNextPage(response: response)
+                strongSelf.updateCharacters(withResponse: strongSelf.characters, favorites: favorites, reset: true)
+                let response = Characters.LoadNextPage.Response(characters: strongSelf.characters)
+                strongSelf.presenter?.presentLoadNextPage(response: response)
             case .failure(let error):
-                self.presenter?.presentError(error: error)
+                strongSelf.presenter?.presentError(error: error)
             }
         }
     }
@@ -78,12 +80,14 @@ extension CharactersInteractor: CharactersBusinessLogic {
         characters[request.index].isFavorite = request.isFavorite
         let character = characters[request.index]
         if request.isFavorite {
-            worker.saveFovoriteCharacter(character, image: request.image) { (result) in
-                self.validateUpdateFavoriteResult(index: request.index, result: result)
+            worker.saveFovoriteCharacter(character, image: request.image) { [weak self] (result) in
+                guard let strongSelf = self else {return}
+                strongSelf.validateUpdateFavoriteResult(index: request.index, result: result)
             }
         } else {
-            worker.deleteFavoriteCharacter(character) { (result) in
-                self.validateUpdateFavoriteResult(index: request.index, result: result)
+            worker.deleteFavoriteCharacter(character) { [weak self] (result) in
+                guard let strongSelf = self else {return}
+                strongSelf.validateUpdateFavoriteResult(index: request.index, result: result)
             }
         }
     }
