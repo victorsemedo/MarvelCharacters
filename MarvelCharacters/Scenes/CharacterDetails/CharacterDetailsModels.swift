@@ -49,3 +49,7 @@ enum CharacterDetails {
         }
     }
 }
+
+extension Serie: CarouselCellProtocol {}
+
+extension Comic: CarouselCellProtocol {}

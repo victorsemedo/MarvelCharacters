@@ -31,11 +31,6 @@ class CharactersViewTests: FBSnapshotTestCase {
         snapshot(cells: characters, emptyType: nil)
     }
     
-    func testCharacterGridLoading() {
-        let characters = CharactersSeeds.loadNextPage.characters[0..<4]
-        snapshot(cells: Array(characters), emptyType: nil)
-    }
-    
     func testCharacterGridInternetConnection() {
         snapshot(cells: [Character](), emptyType: .internetConnection)
     }
@@ -63,5 +58,4 @@ class CharactersViewTests: FBSnapshotTestCase {
         verify(sut)
         return sut
     }
-    
 }

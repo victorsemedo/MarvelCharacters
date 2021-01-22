@@ -10,7 +10,7 @@ import UIKit
 protocol CarouselCellProtocol {
     var title: String? { get }
     var imageUrl: String? { get }
-    var image: UIImage? { get }
+    var image: UIImage? { get set}
 }
 
 final class CarouselView: UIView {

@@ -76,6 +76,7 @@
 		586245BE25AEA426000EE28E /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586245BD25AEA426000EE28E /* Reachability.swift */; };
 		586245C925AEA7BC000EE28E /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586245C825AEA7BC000EE28E /* DataProvider.swift */; };
 		586245CE25AEAF4D000EE28E /* MarvelDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586245CD25AEAF4D000EE28E /* MarvelDataProvider.swift */; };
+		586BB56625BA6405009C9B64 /* CarouselViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586BB56525BA6405009C9B64 /* CarouselViewTests.swift */; };
 		5880D8FA25AAB74B00D7F71E /* MarvelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5880D8F925AAB74B00D7F71E /* MarvelAPI.swift */; };
 		588DEDEA25B114180026349C /* MarvelRegular-Dj83.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 588DEDE925B114180026349C /* MarvelRegular-Dj83.ttf */; };
 		588DEDEF25B114D00026349C /* UIFont+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588DEDEE25B114D00026349C /* UIFont+Custom.swift */; };
@@ -238,6 +239,7 @@
 		586245BD25AEA426000EE28E /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		586245C825AEA7BC000EE28E /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		586245CD25AEAF4D000EE28E /* MarvelDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelDataProvider.swift; sourceTree = "<group>"; };
+		586BB56525BA6405009C9B64 /* CarouselViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselViewTests.swift; sourceTree = "<group>"; };
 		5880D8F925AAB74B00D7F71E /* MarvelAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAPI.swift; sourceTree = "<group>"; };
 		588DEDE925B114180026349C /* MarvelRegular-Dj83.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MarvelRegular-Dj83.ttf"; sourceTree = "<group>"; };
 		588DEDEE25B114D00026349C /* UIFont+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Custom.swift"; sourceTree = "<group>"; };
@@ -577,6 +579,7 @@
 			isa = PBXGroup;
 			children = (
 				58ECDBFD25BA113200BACA8F /* CharactersViewTests.swift */,
+				586BB56525BA6405009C9B64 /* CarouselViewTests.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1157,6 +1160,7 @@
 				5808A55825B7AE2600C7AE6B /* FavoritesWorkerTests.swift in Sources */,
 				5808A57625B7AE6800C7AE6B /* CharacterDetailsRouterSpy.swift in Sources */,
 				5808A57325B7AE6800C7AE6B /* CharacterDetailsInteractorTests.swift in Sources */,
+				586BB56625BA6405009C9B64 /* CarouselViewTests.swift in Sources */,
 				5808A50325B7A98A00C7AE6B /* CharactersViewControllerTests.swift in Sources */,
 				5808A57925B7AE6800C7AE6B /* CharacterDetailsPresenterTests.swift in Sources */,
 				5808A55725B7AE2600C7AE6B /* FavoritesInteractorSpy.swift in Sources */,

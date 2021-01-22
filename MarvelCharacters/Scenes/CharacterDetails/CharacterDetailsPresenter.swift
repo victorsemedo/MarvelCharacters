@@ -66,25 +66,3 @@ extension CharacterDetailsPresenter: CharacterDetailsPresentationLogic {
     }
     
 }
-
-extension Serie: CarouselCellProtocol {
-    var imageUrl: String? {
-        return thumbnail?.imageUrl
-    }
-    
-    var image: UIImage? {
-        return nil
-    }
-}
-
-extension Comic: CarouselCellProtocol {
-    var imageUrl: String? {
-        return thumbnail?.imageUrl
-    }
-    
-    var image: UIImage? {
-        return nil
-    }
-}
-
-

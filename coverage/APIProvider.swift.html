@@ -115,17 +115,17 @@
 <tr class="covered">
 <td class="num">21</td>
 <td class="src"><pre><code class="objc">                    if let data = data, let responseData: T = APIProvider.decodeFormData(data: data) {</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">3x</td>
 </tr>
 <tr class="covered">
 <td class="num">22</td>
 <td class="src"><pre><code class="objc">                        DispatchQueue.main.async {completion(.success(responseData))}</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">3x</td>
 </tr>
 <tr class="covered">
 <td class="num">23</td>
 <td class="src"><pre><code class="objc">                    } else {</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">3x</td>
 </tr>
 <tr class="missed">
 <td class="num">24</td>
@@ -135,12 +135,12 @@
 <tr class="covered">
 <td class="num">25</td>
 <td class="src"><pre><code class="objc">                    }</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">3x</td>
 </tr>
 <tr class="covered">
 <td class="num">26</td>
 <td class="src"><pre><code class="objc">                }</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">3x</td>
 </tr>
 <tr class="covered">
 <td class="num">27</td>
@@ -200,32 +200,32 @@
 <tr class="covered">
 <td class="num">38</td>
 <td class="src"><pre><code class="objc">    static func decodeFormData&lt;T:Codable&gt;(data: Data) -&gt; T? {</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">3x</td>
 </tr>
 <tr class="covered">
 <td class="num">39</td>
 <td class="src"><pre><code class="objc">        do {</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">3x</td>
 </tr>
 <tr class="covered">
 <td class="num">40</td>
 <td class="src"><pre><code class="objc">            let decoder = JSONDecoder()</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">3x</td>
 </tr>
 <tr class="covered">
 <td class="num">41</td>
 <td class="src"><pre><code class="objc">            let response = try decoder.decode(T.self, from: data)</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">3x</td>
 </tr>
 <tr class="covered">
 <td class="num">42</td>
 <td class="src"><pre><code class="objc">            return response</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">3x</td>
 </tr>
 <tr class="covered">
 <td class="num">43</td>
 <td class="src"><pre><code class="objc">        } catch {</code></pre></td>
-<td class="coverage">2x</td>
+<td class="coverage">3x</td>
 </tr>
 <tr class="missed">
 <td class="num">44</td>
