@@ -25,7 +25,7 @@ struct Provider: TimelineProvider {
         let currentDate = Date()
         let interval = 1
         
-        entry.date = Calendar.current.date(byAdding: .second, value: 1, to: currentDate)!
+        entry.date = Calendar.current.date(byAdding: .month, value: interval, to: currentDate)!
         
         let imageRequestGroup = DispatchGroup()
         for index in 0..<entry.characters.count {

@@ -61,5 +61,12 @@ Personagens
 * MarvelCharacters (App + Unit Tests)
 * MarvelCharactersWidget (Widget)
 
+## Como Executar Testes
+* Selecionar Scheme MarvelCharacters
+* Device iPhone 8 (Testes de Snaphot)
+
+## Reporte de Cobertura
+* coverage/index.html
+
 ## Author
 Victor Tavares, victorostavares@gmail.com
